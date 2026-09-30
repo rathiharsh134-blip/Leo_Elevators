@@ -3,1374 +3,1380 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leo Elevators | Next-Gen Luxury Elevators & Interactive Budget Estimator</title>
-    <!-- Tailwind CSS CDN -->
+    <title>leo Elevators | Premier Mobility & Architectural Lift Solutions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
                     colors: {
-                        gold: {
-                            100: '#FFF8E7',
-                            300: '#F5E0A3',
-                            400: '#E6C363',
-                            500: '#D4AF37',
-                            600: '#AA8820',
-                            700: '#806311',
-                        },
-                        darkbg: {
-                            900: '#0B0D12',
-                            800: '#131722',
-                            700: '#1C2232',
-                            600: '#283044',
+                        brand: {
+                            indigo: '#4F46E5',
+                            cyan: '#06B6D4',
+                            emerald: '#10B981',
+                            dark: '#090D16',
+                            cardDark: '#111827',
+                            cardBorderDark: '#1F2937'
                         }
                     },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
                     animation: {
-                        'pulse-glow': 'pulseGlow 3s infinite alternate',
-                        'float': 'float 4s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s infinite ease-in-out',
+                        'float': 'float 6s ease-in-out infinite',
                     },
                     keyframes: {
                         pulseGlow: {
-                            '0%': { boxShadow: '0 0 15px rgba(212, 175, 55, 0.15)' },
-                            '100%': { boxShadow: '0 0 35px rgba(212, 175, 55, 0.35)' },
+                            '0%, 100%': { opacity: 0.4 },
+                            '50%': { opacity: 0.8 },
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-8px)' },
+                            '50%': { transform: 'translateY(-10px)' },
                         }
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
+        /* Custom Customizer & Elevator Styles */
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .light .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        /* Elevator Shaft Grid background pattern */
+        .shaft-grid {
+            background-size: 20px 20px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Elevator Door Animations */
+        .door-left, .door-right {
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .doors-open .door-left {
+            transform: translateX(-92%);
+        }
+        .doors-open .door-right {
+            transform: translateX(92%);
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #0B0D12;
+            background: #090D16;
         }
         ::-webkit-scrollbar-thumb {
-            background: #283044;
+            background: #1E293B;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #D4AF37;
+            background: #06B6D4;
         }
 
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FFF3D1 0%, #D4AF37 50%, #997A15 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* Elevator Cabin Preview Dynamic Textures */
+        .style-gold {
+            background: linear-gradient(135deg, #2a2012 0%, #574119 50%, #1f170b 100%);
+            border-color: #d4af37;
         }
-
-        .gold-gradient-bg {
-            background: linear-gradient(135deg, #E6C363 0%, #D4AF37 50%, #B88E18 100%);
+        .style-steel {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #0f172a 100%);
+            border-color: #94a3b8;
         }
-
-        .gold-border-glow {
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.08);
+        .style-glass {
+            background: linear-gradient(135deg, #0284c7 0%, #0f172a 60%, #0369a1 100%);
+            border-color: #38bdf8;
         }
-
-        .glass-card {
-            background: rgba(19, 23, 34, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-        }
-
-        /* Lift Cab Textures & Dynamic Visual Styles */
-        .cabin-texture-hairline {
-            background: linear-gradient(180deg, #2a2d34 0%, #474c56 50%, #20232a 100%);
-            border: 2px solid #606877;
-        }
-        
-        .cabin-texture-gold {
-            background: linear-gradient(180deg, #594511 0%, #B88E18 50%, #42320A 100%);
-            border: 2px solid #E6C363;
-            box-shadow: inset 0 0 30px rgba(255, 220, 120, 0.3);
-        }
-
-        .cabin-texture-glass {
-            background: rgba(40, 120, 180, 0.15);
-            border: 2px solid rgba(120, 200, 255, 0.4);
-            backdrop-filter: blur(4px);
-            box-shadow: inset 0 0 20px rgba(100, 200, 255, 0.2);
-        }
-
-        .cabin-texture-wood {
-            background: linear-gradient(180deg, #4A2810 0%, #2D1808 100%);
-            border: 2px solid #8B5A2B;
-            box-shadow: inset 0 0 25px rgba(212, 175, 55, 0.2);
-        }
-
-        .cabin-texture-rosegold {
-            background: linear-gradient(180deg, #60383A 0%, #A36B6E 50%, #422425 100%);
-            border: 2px solid #E0A0A3;
-            box-shadow: inset 0 0 25px rgba(240, 180, 185, 0.25);
-        }
-
-        /* Floor animation transition */
-        .lift-cabin-motion {
-            transition: transform 1.2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+        .style-walnut {
+            background: linear-gradient(135deg, #3f2314 0%, #24140b 50%, #170b05 100%);
+            border-color: #854d0e;
         }
     </style>
 </head>
-<body class="bg-darkbg-900 text-slate-100 font-sans antialiased selection:bg-gold-500 selection:text-darkbg-900 overflow-x-hidden">
+<body class="bg-[#090D16] text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white transition-colors duration-300 light:bg-slate-50 light:text-slate-900">
 
-    <!-- Sticky Navigation Bar -->
-    <header class="fixed top-0 left-0 w-full z-50 glass-card transition-all duration-300 border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl gold-gradient-bg flex items-center justify-center text-darkbg-900 font-black text-xl shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform">
-                    L
-                </div>
-                <div>
-                    <span class="text-xl font-bold tracking-wider text-white font-serif block leading-none">LEO <span class="gold-gradient-text">ELEVATORS</span></span>
-                    <span class="text-[10px] tracking-widest text-slate-400 uppercase font-medium">Vertical Engineering Excellence</span>
-                </div>
-            </a>
-
-            <!-- Navigation Links -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#calculator" class="hover:text-gold-400 transition-colors flex items-center gap-1.5">
-                    <i data-lucide="calculator" class="w-4 h-4 text-gold-500"></i>
-                    Cost Estimator
-                </a>
-                <a href="#models" class="hover:text-gold-400 transition-colors">Elevator Series</a>
-                <a href="#tech" class="hover:text-gold-400 transition-colors">Smart Tech</a>
-                <a href="#projects" class="hover:text-gold-400 transition-colors">Projects</a>
-                <a href="#faq" class="hover:text-gold-400 transition-colors">FAQ</a>
-            </nav>
-
-            <!-- Currency Switcher & CTA -->
-            <div class="flex items-center gap-4">
-                <!-- Currency Toggle -->
-                <div class="bg-darkbg-800 p-1 rounded-lg border border-slate-700/60 flex items-center text-xs font-semibold">
-                    <button id="curr-inr" onclick="setCurrency('INR')" class="px-2.5 py-1 rounded-md transition-all bg-gold-500 text-darkbg-900 shadow">₹ INR</button>
-                    <button id="curr-usd" onclick="setCurrency('USD')" class="px-2.5 py-1 rounded-md transition-all text-slate-400 hover:text-white">$ USD</button>
-                </div>
-
-                <!-- Primary CTA -->
-                <a href="#calculator" class="hidden sm:inline-flex items-center gap-2 gold-gradient-bg text-darkbg-900 font-bold px-5 py-2.5 rounded-xl hover:brightness-110 transition-all shadow-md shadow-gold-500/20 text-sm">
-                    <i data-lucide="sliders" class="w-4 h-4"></i>
-                    <span>Customize & Price</span>
+    <!-- Header / Navigation Bar -->
+    <header class="sticky top-0 z-50 w-full transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 glass-panel mt-3 rounded-2xl px-6 border border-white/10 shadow-2xl">
+                
+                <!-- Brand SVG Logo -->
+                <a href="#" class="logo-link flex items-center gap-3 group" aria-label="leo Elevators Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 50" width="220" height="42" class="aesthetic-logo transition-transform duration-300 group-hover:scale-[1.02]">
+                        <defs>
+                            <linearGradient id="elevatorGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#4F46E5" />
+                                <stop offset="50%" stop-color="#06B6D4" />
+                                <stop offset="100%" stop-color="#10B981" />
+                            </linearGradient>
+                            <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#06B6D4" flood-opacity="0.35" />
+                            </filter>
+                        </defs>
+                        <!-- Icon Mark -->
+                        <g filter="url(#logoGlow)">
+                            <rect x="4" y="4" width="42" height="42" rx="12" fill="url(#elevatorGradient)" />
+                            <rect x="13" y="15" width="2.5" height="20" rx="1.25" fill="#FFFFFF" opacity="0.4" />
+                            <rect x="34.5" y="15" width="2.5" height="20" rx="1.25" fill="#FFFFFF" opacity="0.4" />
+                            <path d="M25 13 L33 22 H28.5 V34 H21.5 V22 H17 Z" fill="#FFFFFF" />
+                        </g>
+                        <!-- Typography -->
+                        <g transform="translate(62, 0)">
+                            <text x="0" y="32" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="currentColor" letter-spacing="1.5">
+                                LEO
+                            </text>
+                            <text x="54" y="32" font-family="'Outfit', sans-serif" font-weight="400" font-size="14" fill="url(#elevatorGradient)" letter-spacing="3">
+                                ELEVATORS
+                            </text>
+                        </g>
+                    </svg>
                 </a>
 
-                <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white p-2">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#hero" class="text-slate-300 hover:text-cyan-400 transition-colors py-1">Home</a>
+                    <a href="#simulator" class="text-slate-300 hover:text-cyan-400 transition-colors py-1 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Live Simulator
+                    </a>
+                    <a href="#customizer" class="text-slate-300 hover:text-cyan-400 transition-colors py-1">3D Customizer</a>
+                    <a href="#models" class="text-slate-300 hover:text-cyan-400 transition-colors py-1">Elevator Models</a>
+                    <a href="#tech" class="text-slate-300 hover:text-cyan-400 transition-colors py-1">Smart Tech</a>
+                    <a href="#contact" class="text-slate-300 hover:text-cyan-400 transition-colors py-1">Contact</a>
+                </nav>
+
+                <!-- Right Action Cluster -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <!-- Theme Toggle Button -->
+                    <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-cyan-400 border border-slate-700/50 transition-all focus:outline-none" aria-label="Toggle Dark/Light Mode">
+                        <i class="fa-solid fa-moon text-lg dark:hidden"></i>
+                        <i class="fa-solid fa-sun text-lg hidden dark:block"></i>
+                    </button>
+
+                    <!-- Quote Action Button -->
+                    <a href="#customizer" class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-indigo-600 via-cyan-600 to-emerald-500 hover:opacity-95 shadow-lg shadow-cyan-500/20 transition-all hover:scale-[1.02]">
+                        <i class="fa-solid fa-calculator mr-2"></i> Instant Quote
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl text-slate-300 hover:bg-slate-800 focus:outline-none" aria-label="Toggle Mobile Menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Drawer Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-darkbg-800 border-b border-slate-700 px-6 py-4 space-y-3">
-            <a href="#calculator" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 py-1 font-medium">Cost Estimator</a>
-            <a href="#models" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 py-1 font-medium">Elevator Series</a>
-            <a href="#tech" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 py-1 font-medium">Smart Tech</a>
-            <a href="#projects" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 py-1 font-medium">Projects</a>
-            <a href="#faq" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-gold-400 py-1 font-medium">FAQ</a>
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden max-w-7xl mx-auto px-4 mt-2">
+            <div class="glass-panel rounded-2xl p-6 space-y-4 border border-white/10 shadow-2xl flex flex-col">
+                <a href="#hero" class="text-slate-200 hover:text-cyan-400 font-medium text-base py-1">Home</a>
+                <a href="#simulator" class="text-slate-200 hover:text-cyan-400 font-medium text-base py-1">Live Shaft Simulator</a>
+                <a href="#customizer" class="text-slate-200 hover:text-cyan-400 font-medium text-base py-1">Cabin Customizer</a>
+                <a href="#models" class="text-slate-200 hover:text-cyan-400 font-medium text-base py-1">Elevator Models</a>
+                <a href="#tech" class="text-slate-200 hover:text-cyan-400 font-medium text-base py-1">Smart Tech & Safety</a>
+                <a href="#contact" class="text-slate-200 hover:text-cyan-400 font-medium text-base py-1">Contact Us</a>
+                
+                <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                    <span class="text-xs text-slate-400">Switch Theme</span>
+                    <button id="mobileThemeToggle" class="px-4 py-2 rounded-xl bg-slate-800 text-cyan-400 text-xs font-semibold">
+                        Toggle Light/Dark
+                    </button>
+                </div>
+                <a href="#customizer" class="w-full text-center py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-indigo-600 to-emerald-500">
+                    Get Custom Quote
+                </a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-darkbg-900 via-darkbg-800 to-darkbg-900">
-        <!-- Background Lighting Orbs -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/10 blur-[140px] rounded-full pointer-events-none"></div>
-        <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-amber-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+    <section id="hero" class="relative pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden">
+        <!-- Ambient Radial Background Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-cyan-500/15 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <!-- Left Text Content -->
-                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-gold-500/30 text-gold-400 text-xs font-semibold uppercase tracking-wider animate-pulse-glow">
-                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                        <span>Next-Gen German Hydraulic & Gearless Technology</span>
+                
+                <!-- Hero Left Copy -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-semibold text-cyan-400 border border-cyan-500/30">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        Next-Gen Mobility Systems & Artificial Intelligence Drive
                     </div>
 
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-white tracking-tight leading-tight">
-                        Redefining <span class="gold-gradient-text">Vertical Mobility</span> With Luxury & Precision.
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+                        Elevating Architectural <br class="hidden sm:block"/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-cyan-400 to-emerald-400">
+                            Luxury & Engineering Precision
+                        </span>
                     </h1>
 
-                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-                        Engineering whisper-quiet, ultra-safe, and architecturally stunning elevators for modern villas, luxury penthouses, high-rise towers, and hospitals.
+                    <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Smart, sustainable, ultra-smooth elevator systems designed for modern residential villas, luxury high-rises, and industrial towers. Powered by AI predictive maintenance and zero-energy regenerative drives.
                     </p>
 
-                    <!-- CTAs -->
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                        <a href="#calculator" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 gold-gradient-bg text-darkbg-900 font-bold px-8 py-4 rounded-xl hover:scale-105 transition-all shadow-lg shadow-gold-500/25 text-base">
-                            <i data-lucide="calculator" class="w-5 h-5"></i>
-                            <span>Build & Calculate Cost Now</span>
+                        <a href="#customizer" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-indigo-600 via-cyan-600 to-emerald-500 hover:opacity-90 shadow-xl shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5 text-center">
+                            <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Configure Custom Lift
                         </a>
-                        <a href="#models" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 glass-card text-white hover:text-gold-400 font-semibold px-7 py-4 rounded-xl border border-slate-700 hover:border-gold-500/50 transition-all text-base">
-                            <i data-lucide="eye" class="w-5 h-5 text-gold-400"></i>
-                            <span>View Elevator Models</span>
+                        <a href="#simulator" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-sm text-slate-200 glass-panel hover:bg-slate-800/80 transition-all border border-slate-700/60 text-center">
+                            <i class="fa-solid fa-play mr-2 text-cyan-400"></i> Try Lift Simulator
                         </a>
                     </div>
 
-                    <!-- Dynamic Statistics Counter -->
-                    <div class="pt-8 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-4 gap-6 text-left">
-                        <div class="p-3 rounded-lg bg-darkbg-800/50 border border-slate-800">
-                            <div class="text-2xl sm:text-3xl font-extrabold text-gold-400 font-serif">1,850+</div>
-                            <div class="text-xs text-slate-400 mt-1 font-medium">Lifts Installed</div>
-                        </div>
-                        <div class="p-3 rounded-lg bg-darkbg-800/50 border border-slate-800">
-                            <div class="text-2xl sm:text-3xl font-extrabold text-white font-serif">99.98%</div>
-                            <div class="text-xs text-slate-400 mt-1 font-medium">Safety Rating</div>
-                        </div>
-                        <div class="p-3 rounded-lg bg-darkbg-800/50 border border-slate-800">
-                            <div class="text-2xl sm:text-3xl font-extrabold text-gold-400 font-serif">&lt;15 Min</div>
-                            <div class="text-xs text-slate-400 mt-1 font-medium">Emergency Response</div>
-                        </div>
-                        <div class="p-3 rounded-lg bg-darkbg-800/50 border border-slate-800">
-                            <div class="text-2xl sm:text-3xl font-extrabold text-white font-serif">15 Yrs</div>
-                            <div class="text-xs text-slate-400 mt-1 font-medium">Warranty Options</div>
-                        </div>
+                    <!-- Trust Badges -->
+                    <div class="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-400">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-emerald-400 text-base"></i> ISO 9001 Certified</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-bolt text-amber-400 text-base"></i> Class A+++ Eco Drive</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-building text-cyan-400 text-base"></i> EN81 Safety Compliance</span>
                     </div>
                 </div>
 
-                <!-- Right Hero Visual Banner -->
-                <div class="lg:col-span-5 relative flex justify-center">
-                    <div class="relative w-full max-w-md aspect-[3/4] rounded-3xl glass-card overflow-hidden p-6 gold-border-glow animate-float">
-                        <!-- Glass Elevator Shaft Graphic -->
-                        <div class="w-full h-full rounded-2xl bg-gradient-to-b from-darkbg-900/90 via-darkbg-700/60 to-darkbg-900/90 border border-gold-500/20 relative flex flex-col justify-between p-4 overflow-hidden">
-                            <!-- Cables -->
-                            <div class="absolute inset-y-0 left-1/4 w-[1px] bg-gradient-to-b from-gold-500/40 via-slate-500/20 to-gold-500/40"></div>
-                            <div class="absolute inset-y-0 right-1/4 w-[1px] bg-gradient-to-b from-gold-500/40 via-slate-500/20 to-gold-500/40"></div>
+                <!-- Hero Visual Showcase Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none glass-panel p-6 rounded-3xl border border-slate-700/50 shadow-2xl overflow-hidden group">
+                        
+                        <div class="relative h-[420px] rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1000&q=80" alt="Luxury Elevator Architecture" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/800x1000/1e293b/ffffff?text=LEO+Elevators+Luxury+Tower'">
                             
-                            <div class="flex justify-between items-center z-10">
-                                <span class="text-[10px] font-mono uppercase bg-gold-500/20 text-gold-300 px-2.5 py-1 rounded-full border border-gold-500/30">LEO-SERIES 2026</span>
-                                <div class="flex items-center gap-1">
-                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                                    <span class="text-xs text-emerald-400 font-semibold">ONLINE READY</span>
-                                </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+
+                            <!-- Floating Tech Overlay Tag -->
+                            <div class="absolute top-4 left-4 glass-panel px-4 py-2 rounded-xl border border-white/20 text-xs font-semibold flex items-center gap-2">
+                                <i class="fa-solid fa-gauge-high text-cyan-400"></i> Up to 6.0 m/s Speed
                             </div>
 
-                            <!-- Animated Visual Lift Box -->
-                            <div class="relative w-full h-48 rounded-xl cabin-texture-gold p-4 flex flex-col justify-between shadow-2xl my-auto transition-all">
-                                <div class="flex justify-between items-center text-xs text-amber-200">
-                                    <span class="font-mono">FLOOR: 12</span>
-                                    <div class="flex items-center gap-1 text-[10px] bg-darkbg-900/80 px-2 py-0.5 rounded text-gold-400">
-                                        <i data-lucide="shield-check" class="w-3 h-3"></i> ARD ACTIVE
-                                    </div>
+                            <!-- Live Audio / Gear Dynamic Indicator -->
+                            <div class="absolute bottom-6 left-6 right-6 glass-panel p-4 rounded-xl border border-white/10 space-y-2">
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-cyan-400 font-mono font-semibold">LEO SYNAPSE AI ENGINE</span>
+                                    <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle text-[8px] mr-1"></i> OPTIMAL</span>
                                 </div>
-
-                                <!-- Cabin Interior Lighting Visual -->
-                                <div class="flex justify-center items-center gap-3">
-                                    <div class="w-12 h-20 rounded border border-white/30 bg-white/10 flex items-center justify-center">
-                                        <i data-lucide="user" class="w-6 h-6 text-gold-300/80"></i>
-                                    </div>
-                                    <div class="w-12 h-20 rounded border border-white/30 bg-white/10 flex items-center justify-center">
-                                        <i data-lucide="user" class="w-6 h-6 text-gold-300/80"></i>
-                                    </div>
+                                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-gradient-to-r from-indigo-500 via-cyan-400 to-emerald-400 h-full w-[88%] animate-pulse"></div>
                                 </div>
-
-                                <div class="h-1 w-full bg-gradient-to-r from-transparent via-gold-300 to-transparent"></div>
-                            </div>
-
-                            <div class="text-center z-10">
-                                <p class="text-xs text-slate-300 font-medium">Smart PMSM Direct Drive Motor</p>
-                                <p class="text-[10px] text-slate-500">Ultra Low Power • No Gearbox Noise</p>
+                                <div class="flex justify-between text-[11px] text-slate-400 font-mono">
+                                    <span>Vibration: 0.01m/s²</span>
+                                    <span>Energy Recycled: 34.2 kW</span>
+                                </div>
                             </div>
                         </div>
+
                     </div>
+                </div>
+
+            </div>
+
+            <!-- Stats Ticker Bar -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-500/40 transition-colors">
+                    <div class="font-display text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">5,000+</div>
+                    <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Global Installations</div>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-500/40 transition-colors">
+                    <div class="font-display text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">99.98%</div>
+                    <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Operational Uptime</div>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-500/40 transition-colors">
+                    <div class="font-display text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-indigo-400">15 Mins</div>
+                    <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1">24/7 Rapid Response</div>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-500/40 transition-colors">
+                    <div class="font-display text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-emerald-400">18+</div>
+                    <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Countries Served</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Interactive Calculator Section -->
-    <section id="calculator" class="py-20 bg-darkbg-900 relative">
+    <!-- Interactive Elevator Shaft Simulator Section -->
+    <section id="simulator" class="py-20 relative bg-slate-950/60 border-y border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/20">Instant Budget Engine</span>
-                <h2 class="text-3xl sm:text-4xl font-bold font-serif text-white mt-4">Elevator Customizer & Price Calculator</h2>
-                <p class="text-slate-400 mt-3 text-sm sm:text-base">Configure your project specifications below. Watch the cabin visual preview and real-time estimate update instantly.</p>
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full glass-panel border border-cyan-500/30">
+                    Interactive Tech Experience
+                </span>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold">
+                    Live Shaft & Floor Call Simulator
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Test our ultra-smooth leveling algorithms and interactive floor dispatch control panel in real time.
+                </p>
+            </div>
+
+            <!-- Simulator Card Container -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Shaft Graphic Tower (Left Column) -->
+                    <div class="lg:col-span-7 bg-slate-900 rounded-2xl p-6 border border-slate-800 shaft-grid relative min-h-[460px] flex flex-col justify-between overflow-hidden">
+                        
+                        <!-- Shaft Top Overhead Machinery Room -->
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-3 z-10 bg-slate-900/90 px-2 rounded-lg">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span class="text-xs font-mono text-slate-300">LEO GEARLESS TRACTION MOTOR #01</span>
+                            </div>
+                            <span class="text-[11px] font-mono text-cyan-400" id="liftSpeedReadout">0.0 m/s</span>
+                        </div>
+
+                        <!-- Elevator Shaft Track Area -->
+                        <div class="relative flex-1 my-4 shaft-track-container" id="shaftTrack">
+                            
+                            <!-- Floor Level Guides (5 to G) -->
+                            <div class="absolute inset-0 flex flex-col justify-between pointer-events-none py-2 text-xs font-mono text-slate-600">
+                                <div class="border-b border-dashed border-slate-800 flex justify-between items-center pb-1">
+                                    <span>FL 5 - Sky Deck</span>
+                                    <span class="text-[10px] text-slate-700">20.0m</span>
+                                </div>
+                                <div class="border-b border-dashed border-slate-800 flex justify-between items-center pb-1">
+                                    <span>FL 4 - Penthouse Executive</span>
+                                    <span class="text-[10px] text-slate-700">16.0m</span>
+                                </div>
+                                <div class="border-b border-dashed border-slate-800 flex justify-between items-center pb-1">
+                                    <span>FL 3 - Corporate Suites</span>
+                                    <span class="text-[10px] text-slate-700">12.0m</span>
+                                </div>
+                                <div class="border-b border-dashed border-slate-800 flex justify-between items-center pb-1">
+                                    <span>FL 2 - Tech Hub</span>
+                                    <span class="text-[10px] text-slate-700">8.0m</span>
+                                </div>
+                                <div class="border-b border-dashed border-slate-800 flex justify-between items-center pb-1">
+                                    <span>FL 1 - Innovation Lounge</span>
+                                    <span class="text-[10px] text-slate-700">4.0m</span>
+                                </div>
+                                <div class="border-b border-dashed border-slate-800 flex justify-between items-center pb-1">
+                                    <span>FL 0 - Grand Lobby (G)</span>
+                                    <span class="text-[10px] text-slate-700">0.0m</span>
+                                </div>
+                            </div>
+
+                            <!-- Animated Elevator Cabin -->
+                            <div id="elevatorCab" class="absolute left-1/2 -translate-x-1/2 w-48 h-16 sm:h-20 bg-slate-800 rounded-xl border-2 border-cyan-500 shadow-lg shadow-cyan-500/20 transition-all duration-700 ease-in-out flex items-center justify-between px-2 overflow-hidden" style="bottom: 0%;">
+                                
+                                <!-- Internal Cabin Ambient LED Light -->
+                                <div class="absolute inset-0 bg-cyan-500/10 pointer-events-none"></div>
+
+                                <!-- Animated Doors Container -->
+                                <div class="relative w-full h-full rounded-lg bg-slate-950 flex overflow-hidden border border-slate-700" id="doorContainer">
+                                    <!-- Left Door Panel -->
+                                    <div class="door-left w-1/2 h-full bg-gradient-to-r from-slate-800 to-slate-700 border-r border-cyan-500/50 flex items-center justify-end pr-1">
+                                        <div class="w-1 h-8 bg-slate-600 rounded-full"></div>
+                                    </div>
+                                    <!-- Right Door Panel -->
+                                    <div class="door-right w-1/2 h-full bg-gradient-to-l from-slate-800 to-slate-700 border-l border-cyan-500/50 flex items-center justify-start pl-1">
+                                        <div class="w-1 h-8 bg-slate-600 rounded-full"></div>
+                                    </div>
+
+                                    <!-- Inside Cabin Silhouette Visible when doors open -->
+                                    <div class="absolute inset-0 -z-10 bg-slate-900 flex items-center justify-center text-slate-400 text-xs font-mono">
+                                        <i class="fa-solid fa-user-tie text-cyan-400 mr-1"></i> PASSENGERS
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Shaft Bottom Buffer Info -->
+                        <div class="flex items-center justify-between border-t border-slate-800 pt-3 text-[11px] font-mono text-slate-400 z-10 bg-slate-900/90 px-2 rounded-lg">
+                            <span>HYDRAULIC BUFFER: READY</span>
+                            <span class="text-emerald-400"><i class="fa-solid fa-lock text-[10px] mr-1"></i> SAFETY GEAR ENGAGED</span>
+                        </div>
+
+                    </div>
+
+                    <!-- Elevator Control Panel (Right Column) -->
+                    <div class="lg:col-span-5 bg-slate-900/90 rounded-2xl p-6 border border-slate-800 flex flex-col items-center justify-center space-y-6">
+                        
+                        <!-- Digital LED Display Box -->
+                        <div class="w-full bg-black p-4 rounded-xl border-2 border-slate-800 text-center space-y-1 shadow-inner">
+                            <div class="flex items-center justify-between text-xs font-mono text-slate-500 border-b border-slate-800 pb-2">
+                                <span>DIGITAL COP DISPLAY</span>
+                                <span id="soundStatus" class="cursor-pointer text-cyan-400" onclick="toggleAudio()"><i class="fa-solid fa-volume-high"></i> CHIME ON</span>
+                            </div>
+                            
+                            <div class="flex items-center justify-center gap-4 pt-2">
+                                <span id="directionArrow" class="text-slate-600 font-bold text-3xl">▲</span>
+                                <span id="floorDisplay" class="font-mono text-5xl font-black text-cyan-400 tracking-wider">0</span>
+                            </div>
+
+                            <div id="statusMessage" class="text-xs font-mono text-emerald-400 pt-1">
+                                STATIONARY AT GRAND LOBBY
+                            </div>
+                        </div>
+
+                        <!-- Floor Call Buttons Grid (Floor 0 to 5) -->
+                        <div class="w-full space-y-3">
+                            <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider block text-center">Select Destination Floor</label>
+                            
+                            <div class="grid grid-cols-3 gap-3">
+                                <button onclick="goToFloor(5)" class="cop-btn h-14 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-bold text-lg font-mono flex flex-col items-center justify-center transition-all focus:ring-2 focus:ring-cyan-500" data-floor="5">
+                                    5
+                                    <span class="text-[9px] font-sans font-normal text-slate-400">Sky Deck</span>
+                                </button>
+                                <button onclick="goToFloor(4)" class="cop-btn h-14 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-bold text-lg font-mono flex flex-col items-center justify-center transition-all focus:ring-2 focus:ring-cyan-500" data-floor="4">
+                                    4
+                                    <span class="text-[9px] font-sans font-normal text-slate-400">Penthouse</span>
+                                </button>
+                                <button onclick="goToFloor(3)" class="cop-btn h-14 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-bold text-lg font-mono flex flex-col items-center justify-center transition-all focus:ring-2 focus:ring-cyan-500" data-floor="3">
+                                    3
+                                    <span class="text-[9px] font-sans font-normal text-slate-400">Corporate</span>
+                                </button>
+                                <button onclick="goToFloor(2)" class="cop-btn h-14 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-bold text-lg font-mono flex flex-col items-center justify-center transition-all focus:ring-2 focus:ring-cyan-500" data-floor="2">
+                                    2
+                                    <span class="text-[9px] font-sans font-normal text-slate-400">Tech Hub</span>
+                                </button>
+                                <button onclick="goToFloor(1)" class="cop-btn h-14 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-bold text-lg font-mono flex flex-col items-center justify-center transition-all focus:ring-2 focus:ring-cyan-500" data-floor="1">
+                                    1
+                                    <span class="text-[9px] font-sans font-normal text-slate-400">Lounge</span>
+                                </button>
+                                <button onclick="goToFloor(0)" class="cop-btn h-14 rounded-xl bg-slate-800 hover:bg-slate-700 border border-cyan-500/80 text-cyan-400 font-bold text-lg font-mono flex flex-col items-center justify-center transition-all focus:ring-2 focus:ring-cyan-500 shadow-sm shadow-cyan-500/30" data-floor="0">
+                                    G
+                                    <span class="text-[9px] font-sans font-normal text-slate-400">Lobby</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Door & Emergency Buttons -->
+                        <div class="w-full grid grid-cols-3 gap-3 pt-2">
+                            <button onclick="triggerDoors(true)" class="py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs border border-slate-700 flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-arrows-left-right text-cyan-400"></i> Open
+                            </button>
+                            <button onclick="triggerDoors(false)" class="py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs border border-slate-700 flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-compress text-cyan-400"></i> Close
+                            </button>
+                            <button onclick="emergencyStop()" class="py-2.5 rounded-xl bg-rose-950/80 hover:bg-rose-900 text-rose-300 font-bold text-xs border border-rose-800 flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-triangle-exclamation text-rose-400"></i> STOP
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Cabin Customizer & Price Estimator Section -->
+    <section id="customizer" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-emerald-400 text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/30">
+                    Real-time Configurator
+                </span>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold">
+                    Cabin Customizer & Instant Estimator
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Tailor materials, lighting, doors, and floor capacity to generate an accurate architectural cost estimate.
+                </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
-                <!-- LEFT COLUMN: Multi-Step Configuration Panel (7 Columns) -->
-                <div class="lg:col-span-7 space-y-8">
+                <!-- Customizer Options Column (Left) -->
+                <div class="lg:col-span-6 space-y-6 glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800">
                     
-                    <!-- STEP 1: Select Elevator Type -->
-                    <div class="glass-card p-6 rounded-2xl border border-slate-800">
-                        <div class="flex items-center gap-3 mb-5">
-                            <div class="w-8 h-8 rounded-lg gold-gradient-bg flex items-center justify-center text-darkbg-900 font-bold text-sm">1</div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white">Select Elevator Type</h3>
-                                <p class="text-xs text-slate-400">Choose the ideal application for your building structure</p>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="lift-type-container">
-                            <!-- Rendered dynamically or styled via JS -->
-                            <button onclick="selectLiftType('passenger')" id="type-passenger" class="lift-type-card p-4 rounded-xl border border-gold-500 bg-gold-500/10 text-left transition-all hover:border-gold-400 group relative">
-                                <div class="flex items-center justify-between mb-2">
-                                    <i data-lucide="building" class="w-6 h-6 text-gold-400"></i>
-                                    <span class="text-[10px] uppercase font-bold text-gold-400 bg-gold-500/20 px-2 py-0.5 rounded">Most Popular</span>
-                                </div>
-                                <h4 class="font-bold text-white text-sm">Passenger Elevator</h4>
-                                <p class="text-xs text-slate-400 mt-1">Residential apartments & office towers</p>
-                            </button>
-
-                            <button onclick="selectLiftType('villa')" id="type-villa" class="lift-type-card p-4 rounded-xl border border-slate-800 bg-darkbg-800 text-left transition-all hover:border-gold-400 group">
-                                <div class="flex items-center justify-between mb-2">
-                                    <i data-lucide="home" class="w-6 h-6 text-slate-400 group-hover:text-gold-400"></i>
-                                </div>
-                                <h4 class="font-bold text-white text-sm">Luxury Villa / Home Lift</h4>
-                                <p class="text-xs text-slate-400 mt-1">Compact pitless design for private homes</p>
-                            </button>
-
-                            <button onclick="selectLiftType('panoramic')" id="type-panoramic" class="lift-type-card p-4 rounded-xl border border-slate-800 bg-darkbg-800 text-left transition-all hover:border-gold-400 group">
-                                <div class="flex items-center justify-between mb-2">
-                                    <i data-lucide="sparkles" class="w-6 h-6 text-slate-400 group-hover:text-gold-400"></i>
-                                </div>
-                                <h4 class="font-bold text-white text-sm">Panoramic Glass Lift</h4>
-                                <p class="text-xs text-slate-400 mt-1">360° Scenic glass view for luxury estates</p>
-                            </button>
-
-                            <button onclick="selectLiftType('freight')" id="type-freight" class="lift-type-card p-4 rounded-xl border border-slate-800 bg-darkbg-800 text-left transition-all hover:border-gold-400 group">
-                                <div class="flex items-center justify-between mb-2">
-                                    <i data-lucide="truck" class="w-6 h-6 text-slate-400 group-hover:text-gold-400"></i>
-                                </div>
-                                <h4 class="font-bold text-white text-sm">Commercial & Goods</h4>
-                                <p class="text-xs text-slate-400 mt-1">Heavy payload industrial freight</p>
-                            </button>
-
-                            <button onclick="selectLiftType('hospital')" id="type-hospital" class="lift-type-card sm:col-span-2 p-4 rounded-xl border border-slate-800 bg-darkbg-800 text-left transition-all hover:border-gold-400 group">
-                                <div class="flex items-center justify-between mb-2">
-                                    <i data-lucide="heart-pulse" class="w-6 h-6 text-slate-400 group-hover:text-gold-400"></i>
-                                </div>
-                                <h4 class="font-bold text-white text-sm">Hospital Bed Elevator</h4>
-                                <p class="text-xs text-slate-400 mt-1">Deep cabin for stretchers, smooth stretch shock absorption</p>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- STEP 2: Floors / Stops Slider -->
-                    <div class="glass-card p-6 rounded-2xl border border-slate-800">
-                        <div class="flex items-center justify-between mb-5">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-lg gold-gradient-bg flex items-center justify-center text-darkbg-900 font-bold text-sm">2</div>
-                                <div>
-                                    <h3 class="text-lg font-bold text-white">Number of Floors / Stops</h3>
-                                    <p class="text-xs text-slate-400">Select total levels (Ground + Floors)</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <span id="floor-display-val" class="text-2xl font-extrabold text-gold-400 font-serif">G + 2 Floors</span>
-                                <span id="floor-count-sub" class="text-xs text-slate-400 block">(3 Stops Total)</span>
-                            </div>
-                        </div>
-
-                        <!-- Range Slider -->
-                        <div class="space-y-4">
-                            <input type="range" id="floor-slider" min="1" max="25" value="2" oninput="updateFloors(this.value)" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-gold-500">
-                            
-                            <!-- Quick Floor Buttons -->
-                            <div class="flex flex-wrap gap-2 pt-2">
-                                <button onclick="setFloorVal(1)" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-darkbg-800 border border-slate-700 hover:border-gold-500 text-slate-300">G+1 (2 Stops)</button>
-                                <button onclick="setFloorVal(2)" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gold-500/20 border border-gold-500 text-gold-400">G+2 (3 Stops)</button>
-                                <button onclick="setFloorVal(4)" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-darkbg-800 border border-slate-700 hover:border-gold-500 text-slate-300">G+4 (5 Stops)</button>
-                                <button onclick="setFloorVal(7)" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-darkbg-800 border border-slate-700 hover:border-gold-500 text-slate-300">G+7 (8 Stops)</button>
-                                <button onclick="setFloorVal(12)" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-darkbg-800 border border-slate-700 hover:border-gold-500 text-slate-300">G+12 High Rise</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- STEP 3: Capacity Selection -->
-                    <div class="glass-card p-6 rounded-2xl border border-slate-800">
-                        <div class="flex items-center gap-3 mb-5">
-                            <div class="w-8 h-8 rounded-lg gold-gradient-bg flex items-center justify-center text-darkbg-900 font-bold text-sm">3</div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white">Passenger Capacity & Weight Limit</h3>
-                                <p class="text-xs text-slate-400">Select duty load capacity for your cabin</p>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5" id="capacity-container">
-                            <button onclick="selectCapacity(4, 300, 1.0, this)" class="cap-btn p-3 rounded-xl border border-slate-800 bg-darkbg-800 text-center hover:border-gold-500 transition-all">
-                                <span class="block text-sm font-bold text-white">4 Pax</span>
-                                <span class="text-[10px] text-slate-400">300 kg</span>
-                            </button>
-                            <button onclick="selectCapacity(6, 408, 1.12, this)" class="cap-btn p-3 rounded-xl border border-gold-500 bg-gold-500/10 text-center transition-all">
-                                <span class="block text-sm font-bold text-gold-400">6 Pax</span>
-                                <span class="text-[10px] text-slate-400">408 kg</span>
-                            </button>
-                            <button onclick="selectCapacity(8, 544, 1.25, this)" class="cap-btn p-3 rounded-xl border border-slate-800 bg-darkbg-800 text-center hover:border-gold-500 transition-all">
-                                <span class="block text-sm font-bold text-white">8 Pax</span>
-                                <span class="text-[10px] text-slate-400">544 kg</span>
-                            </button>
-                            <button onclick="selectCapacity(10, 680, 1.40, this)" class="cap-btn p-3 rounded-xl border border-slate-800 bg-darkbg-800 text-center hover:border-gold-500 transition-all">
-                                <span class="block text-sm font-bold text-white">10 Pax</span>
-                                <span class="text-[10px] text-slate-400">680 kg</span>
-                            </button>
-                            <button onclick="selectCapacity(13, 1000, 1.65, this)" class="cap-btn col-span-2 sm:col-span-1 p-3 rounded-xl border border-slate-800 bg-darkbg-800 text-center hover:border-gold-500 transition-all">
-                                <span class="block text-sm font-bold text-white">13+ Pax</span>
-                                <span class="text-[10px] text-slate-400">1000 kg+</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- STEP 4: Cabin Interior Finish & Texture -->
-                    <div class="glass-card p-6 rounded-2xl border border-slate-800">
-                        <div class="flex items-center gap-3 mb-5">
-                            <div class="w-8 h-8 rounded-lg gold-gradient-bg flex items-center justify-center text-darkbg-900 font-bold text-sm">4</div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white">Interior Cabin Finish & Style</h3>
-                                <p class="text-xs text-slate-400">Selecting a style updates the dynamic visual preview</p>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <button onclick="selectFinish('hairline', 'Stainless Steel Hairline', 0, this)" class="finish-btn p-3.5 rounded-xl border border-slate-800 bg-darkbg-800 flex items-center gap-3 text-left hover:border-gold-500 transition-all">
-                                <div class="w-8 h-8 rounded-lg bg-gradient-to-r from-slate-500 to-slate-400 border border-slate-300"></div>
-                                <div>
-                                    <div class="text-sm font-bold text-white">Hairline Stainless Steel</div>
-                                    <div class="text-[10px] text-slate-400">Standard Sleek & Durable</div>
-                                </div>
-                            </button>
-
-                            <button onclick="selectFinish('gold', 'Mirror Gold Luxury', 120000, this)" class="finish-btn p-3.5 rounded-xl border border-gold-500 bg-gold-500/10 flex items-center gap-3 text-left transition-all">
-                                <div class="w-8 h-8 rounded-lg bg-gradient-to-r from-amber-300 to-yellow-600 border border-amber-200"></div>
-                                <div>
-                                    <div class="text-sm font-bold text-gold-400">Mirror Gold Luxury</div>
-                                    <div class="text-[10px] text-gold-300/80">Imperial Brass Accent</div>
-                                </div>
-                            </button>
-
-                            <button onclick="selectFinish('glass', 'Panoramic Full Glass', 210000, this)" class="finish-btn p-3.5 rounded-xl border border-slate-800 bg-darkbg-800 flex items-center gap-3 text-left hover:border-gold-500 transition-all">
-                                <div class="w-8 h-8 rounded-lg bg-sky-500/30 border border-sky-300 backdrop-blur"></div>
-                                <div>
-                                    <div class="text-sm font-bold text-white">Panoramic Full Glass</div>
-                                    <div class="text-[10px] text-slate-400">Transparent Scenic Glass</div>
-                                </div>
-                            </button>
-
-                            <button onclick="selectFinish('wood', 'Warm Wood & Ambient LED', 150000, this)" class="finish-btn p-3.5 rounded-xl border border-slate-800 bg-darkbg-800 flex items-center gap-3 text-left hover:border-gold-500 transition-all">
-                                <div class="w-8 h-8 rounded-lg bg-amber-900 border border-amber-700"></div>
-                                <div>
-                                    <div class="text-sm font-bold text-white">Wood Grain & Ambient Light</div>
-                                    <div class="text-[10px] text-slate-400">Luxury Interior Warmth</div>
-                                </div>
-                            </button>
-
-                            <button onclick="selectFinish('rosegold', 'Brushed Rose Gold', 180000, this)" class="finish-btn sm:col-span-2 p-3.5 rounded-xl border border-slate-800 bg-darkbg-800 flex items-center gap-3 text-left hover:border-gold-500 transition-all">
-                                <div class="w-8 h-8 rounded-lg bg-gradient-to-r from-rose-400 to-rose-700 border border-rose-300"></div>
-                                <div>
-                                    <div class="text-sm font-bold text-white">Brushed Rose Gold</div>
-                                    <div class="text-[10px] text-slate-400">Elegantly Tinted Metallic Shine</div>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- STEP 5: Smart Features & Upgrades -->
-                    <div class="glass-card p-6 rounded-2xl border border-slate-800">
-                        <div class="flex items-center gap-3 mb-5">
-                            <div class="w-8 h-8 rounded-lg gold-gradient-bg flex items-center justify-center text-darkbg-900 font-bold text-sm">5</div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white">Smart Technology & Safety Upgrades</h3>
-                                <p class="text-xs text-slate-400">Select optional safety systems and premium comforts</p>
-                            </div>
-                        </div>
-
-                        <div class="space-y-3">
-                            <label class="flex items-center justify-between p-3.5 rounded-xl bg-darkbg-800 border border-slate-800 hover:border-slate-700 cursor-pointer transition-all">
-                                <div class="flex items-center gap-3">
-                                    <input type="checkbox" checked onchange="toggleUpgrade('ard', 65000, this)" class="w-4 h-4 rounded text-gold-500 focus:ring-gold-500 bg-darkbg-900 border-slate-700">
-                                    <div>
-                                        <div class="text-sm font-semibold text-white">Automatic Rescue Device (ARD)</div>
-                                        <div class="text-xs text-slate-400">Emergency battery backup lowers lift safely during power loss</div>
-                                    </div>
-                                </div>
-                                <span class="text-xs font-mono text-gold-400 font-bold">+<span class="upgrade-price" data-inr="65000">₹65,000</span></span>
-                            </label>
-
-                            <label class="flex items-center justify-between p-3.5 rounded-xl bg-darkbg-800 border border-slate-800 hover:border-slate-700 cursor-pointer transition-all">
-                                <div class="flex items-center gap-3">
-                                    <input type="checkbox" onchange="toggleUpgrade('touchless', 45000, this)" class="w-4 h-4 rounded text-gold-500 focus:ring-gold-500 bg-darkbg-900 border-slate-700">
-                                    <div>
-                                        <div class="text-sm font-semibold text-white">Smart Touchless & Gesture Buttons</div>
-                                        <div class="text-xs text-slate-400">Infrared proximity touchless call controls</div>
-                                    </div>
-                                </div>
-                                <span class="text-xs font-mono text-gold-400 font-bold">+<span class="upgrade-price" data-inr="45000">₹45,000</span></span>
-                            </label>
-
-                            <label class="flex items-center justify-between p-3.5 rounded-xl bg-darkbg-800 border border-slate-800 hover:border-slate-700 cursor-pointer transition-all">
-                                <div class="flex items-center gap-3">
-                                    <input type="checkbox" checked onchange="toggleUpgrade('vvvf', 85000, this)" class="w-4 h-4 rounded text-gold-500 focus:ring-gold-500 bg-darkbg-900 border-slate-700">
-                                    <div>
-                                        <div class="text-sm font-semibold text-white">VVVF Energy Efficient Inverter Drive</div>
-                                        <div class="text-xs text-slate-400">Reduces electricity consumption by up to 40% & silky smooth stop</div>
-                                    </div>
-                                </div>
-                                <span class="text-xs font-mono text-gold-400 font-bold">+<span class="upgrade-price" data-inr="85000">₹85,000</span></span>
-                            </label>
-
-                            <label class="flex items-center justify-between p-3.5 rounded-xl bg-darkbg-800 border border-slate-800 hover:border-slate-700 cursor-pointer transition-all">
-                                <div class="flex items-center gap-3">
-                                    <input type="checkbox" onchange="toggleUpgrade('marble', 55000, this)" class="w-4 h-4 rounded text-gold-500 focus:ring-gold-500 bg-darkbg-900 border-slate-700">
-                                    <div>
-                                        <div class="text-sm font-semibold text-white">Designer Italian Marble Flooring</div>
-                                        <div class="text-[11px] text-slate-400">Custom carved marble inset floor design</div>
-                                    </div>
-                                </div>
-                                <span class="text-xs font-mono text-gold-400 font-bold">+<span class="upgrade-price" data-inr="55000">₹55,000</span></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RIGHT COLUMN: Sticky Live Preview & Price Engine (5 Columns) -->
-                <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
-                    
-                    <!-- Live Visual Cabin Preview Card -->
-                    <div class="glass-card p-6 rounded-2xl gold-border-glow space-y-4">
-                        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                            <span class="text-xs font-bold uppercase tracking-wider text-gold-400 flex items-center gap-2">
-                                <i data-lucide="eye" class="w-4 h-4"></i>
-                                Live Cabin & Shaft Visualizer
-                            </span>
-                            <span id="finish-badge" class="text-[11px] font-mono bg-gold-500/20 text-gold-300 px-2.5 py-0.5 rounded-full border border-gold-500/30">Mirror Gold Luxury</span>
-                        </div>
-
-                        <!-- Dynamic Visual Simulator Box -->
-                        <div class="relative w-full h-64 rounded-xl bg-darkbg-800 border border-slate-700 overflow-hidden flex flex-col items-center justify-between p-4">
-                            <!-- Elevator Cables -->
-                            <div class="absolute inset-y-0 left-1/3 w-[1px] bg-gold-500/30"></div>
-                            <div class="absolute inset-y-0 right-1/3 w-[1px] bg-gold-500/30"></div>
-
-                            <!-- Top Shaft Header -->
-                            <div class="w-full flex justify-between items-center z-10 text-[10px] font-mono text-slate-400 bg-darkbg-900/80 px-3 py-1 rounded">
-                                <span id="sim-floor-display" class="text-gold-400 font-bold">POS: FLOOR 0</span>
-                                <span id="sim-speed-display" class="text-emerald-400">1.0 m/s VVVF</span>
-                            </div>
-
-                            <!-- Animated Elevator Cabin Box -->
-                            <div id="visual-cabin" class="w-full max-w-[220px] h-36 rounded-lg cabin-texture-gold p-3 flex flex-col justify-between shadow-2xl transition-all duration-500 relative">
-                                <!-- Cabin Top Ambient Light -->
-                                <div class="w-full h-1 bg-amber-200/80 rounded-full shadow-[0_0_10px_#FFE082]"></div>
-
-                                <!-- Dynamic Interior Preview Content -->
-                                <div class="flex items-center justify-center gap-4 my-auto">
-                                    <div class="w-10 h-16 rounded border border-white/20 bg-white/5 flex flex-col items-center justify-center">
-                                        <i data-lucide="user" class="w-5 h-5 text-gold-200"></i>
-                                    </div>
-                                    <div class="w-10 h-16 rounded border border-white/20 bg-white/5 flex flex-col items-center justify-center">
-                                        <i data-lucide="user" class="w-5 h-5 text-gold-200"></i>
-                                    </div>
-                                </div>
-
-                                <!-- Handrail & Flooring Line -->
-                                <div class="w-full h-1.5 bg-gradient-to-r from-slate-400 via-amber-200 to-slate-400 rounded-full"></div>
-                            </div>
-
-                            <!-- Motion Simulation Controls -->
-                            <div class="w-full flex items-center justify-between z-10 gap-2">
-                                <span class="text-[10px] text-slate-400 font-medium">Interactive Motion:</span>
-                                <div class="flex gap-1">
-                                    <button onclick="moveLiftTo('G')" class="px-2 py-0.5 text-[10px] rounded bg-slate-800 border border-slate-700 hover:border-gold-500 text-slate-200 font-mono">G Floor</button>
-                                    <button onclick="moveLiftTo('Mid')" class="px-2 py-0.5 text-[10px] rounded bg-slate-800 border border-slate-700 hover:border-gold-500 text-slate-200 font-mono">Mid Floor</button>
-                                    <button onclick="moveLiftTo('Top')" class="px-2 py-0.5 text-[10px] rounded bg-slate-800 border border-slate-700 hover:border-gold-500 text-slate-200 font-mono">Top Floor</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- REAL-TIME PRICE & BUDGET ENGINE BOX -->
-                    <div class="glass-card p-6 rounded-2xl border border-gold-500/40 bg-gradient-to-b from-darkbg-800/90 to-darkbg-900/90 space-y-6">
-                        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                            <span class="text-sm font-bold uppercase tracking-wider text-white flex items-center gap-2">
-                                <i data-lucide="receipt" class="w-4 h-4 text-gold-400"></i>
-                                Real-Time Budget Breakdown
-                            </span>
-                            <span class="text-[11px] font-semibold text-slate-400">Estimated Total</span>
-                        </div>
-
-                        <!-- Price Itemized Breakdown List -->
-                        <div class="space-y-2.5 text-xs">
-                            <div class="flex justify-between text-slate-300">
-                                <span>Base Equipment (<span id="summary-type-name">Passenger Lift</span>):</span>
-                                <span id="cost-base" class="font-mono font-semibold">₹9,50,000</span>
-                            </div>
-                            <div class="flex justify-between text-slate-300">
-                                <span>Floor Height Addition (<span id="summary-floors-count">2 Floors</span>):</span>
-                                <span id="cost-floors" class="font-mono font-semibold">₹1,50,000</span>
-                            </div>
-                            <div class="flex justify-between text-slate-300">
-                                <span>Capacity Multiplier (<span id="summary-capacity">6 Pax</span>):</span>
-                                <span id="cost-capacity" class="font-mono font-semibold">x1.12</span>
-                            </div>
-                            <div class="flex justify-between text-slate-300">
-                                <span>Interior Finish (<span id="summary-finish">Mirror Gold</span>):</span>
-                                <span id="cost-finish" class="font-mono font-semibold">₹1,20,000</span>
-                            </div>
-                            <div class="flex justify-between text-slate-300">
-                                <span>Smart Upgrades & Safety:</span>
-                                <span id="cost-upgrades" class="font-mono font-semibold">₹1,50,000</span>
-                            </div>
-                            <div class="flex justify-between text-slate-300">
-                                <span>Estimated Installation & Site Prep (~8%):</span>
-                                <span id="cost-installation" class="font-mono font-semibold">₹1,10,000</span>
-                            </div>
-                        </div>
-
-                        <div class="pt-4 border-t border-slate-700/80">
-                            <div class="text-xs text-slate-400 font-medium">Estimated Turnkey Project Total:</div>
-                            <div class="flex items-baseline justify-between mt-1">
-                                <div id="total-price-display" class="text-3xl font-extrabold font-serif gold-gradient-text tracking-tight">
-                                    ₹14,82,000
-                                </div>
-                                <span class="text-[10px] text-slate-400 uppercase font-mono">Taxes & AMC Extra</span>
-                            </div>
-                            <p class="text-[11px] text-slate-400 mt-1">
-                                Estimated EMI available from <span id="emi-display" class="text-gold-400 font-semibold">₹24,500/mo</span>
-                            </p>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="space-y-3 pt-2">
-                            <button onclick="openQuoteModal()" class="w-full gold-gradient-bg text-darkbg-900 font-bold py-3.5 px-4 rounded-xl hover:brightness-110 transition-all flex items-center justify-center gap-2 text-sm shadow-md shadow-gold-500/20">
-                                <i data-lucide="file-text" class="w-4 h-4"></i>
-                                Get Detailed Quote & Blueprint PDF
-                            </button>
-                            <button onclick="openSiteModal()" class="w-full glass-card hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-xl border border-slate-700 transition-all flex items-center justify-center gap-2 text-xs">
-                                <i data-lucide="calendar" class="w-4 h-4 text-gold-400"></i>
-                                Book Free On-Site Shaft Survey
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Elevator Showcase Section -->
-    <section id="models" class="py-20 bg-darkbg-800/60 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/20">Product Engineering</span>
-                <h2 class="text-3xl sm:text-4xl font-bold font-serif text-white mt-4">Leo Premium Elevator Series</h2>
-                <p class="text-slate-400 mt-3 text-sm">Crafted for architectural elegance, energy efficiency, and total passenger security.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Model Card 1 -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-gold-500/40 transition-all group">
-                    <div class="h-56 bg-darkbg-900 p-6 flex items-center justify-center relative overflow-hidden">
-                        <div class="w-32 h-44 rounded-lg cabin-texture-gold p-3 flex flex-col justify-between group-hover:scale-105 transition-transform">
-                            <div class="h-1 bg-amber-200/80"></div>
-                            <div class="text-center font-serif text-xs text-gold-200">LEO IMPERIAL</div>
-                            <div class="h-1 bg-amber-200/80"></div>
-                        </div>
-                    </div>
-                    <div class="p-6 space-y-4">
-                        <h3 class="text-xl font-bold text-white font-serif">Leo Imperial Villa Series</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">Engineered specifically for luxury home residences. Requires minimum pit depth (just 150mm) and operates on single-phase household power.</p>
-                        <div class="pt-2 border-t border-slate-800 flex justify-between items-center text-xs text-slate-300">
-                            <span>Speed: 0.4 - 1.0 m/s</span>
-                            <span class="text-gold-400 font-semibold">Max 4 Floors</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Model Card 2 -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-gold-500/40 transition-all group">
-                    <div class="h-56 bg-darkbg-900 p-6 flex items-center justify-center relative overflow-hidden">
-                        <div class="w-32 h-44 rounded-lg cabin-texture-glass p-3 flex flex-col justify-between group-hover:scale-105 transition-transform">
-                            <div class="h-1 bg-sky-200/80"></div>
-                            <div class="text-center font-serif text-xs text-sky-200">LEO VISTA GLASS</div>
-                            <div class="h-1 bg-sky-200/80"></div>
-                        </div>
-                    </div>
-                    <div class="p-6 space-y-4">
-                        <h3 class="text-xl font-bold text-white font-serif">Leo Vista Panoramic Glass</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">Circular or semi-octagonal toughened laminated glass structures that showcase surrounding architecture with silent magnetic traction.</p>
-                        <div class="pt-2 border-t border-slate-800 flex justify-between items-center text-xs text-slate-300">
-                            <span>Speed: 1.0 - 1.75 m/s</span>
-                            <span class="text-gold-400 font-semibold">360° Glass</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Model Card 3 -->
-                <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-gold-500/40 transition-all group">
-                    <div class="h-56 bg-darkbg-900 p-6 flex items-center justify-center relative overflow-hidden">
-                        <div class="w-32 h-44 rounded-lg cabin-texture-hairline p-3 flex flex-col justify-between group-hover:scale-105 transition-transform">
-                            <div class="h-1 bg-slate-300/80"></div>
-                            <div class="text-center font-serif text-xs text-slate-300">LEO TITAN TOWER</div>
-                            <div class="h-1 bg-slate-300/80"></div>
-                        </div>
-                    </div>
-                    <div class="p-6 space-y-4">
-                        <h3 class="text-xl font-bold text-white font-serif">Leo Titan High-Rise Series</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">Designed for commercial office towers, hotels, and high-density residential buildings with high-speed VVVF motor technology.</p>
-                        <div class="pt-2 border-t border-slate-800 flex justify-between items-center text-xs text-slate-300">
-                            <span>Speed: Up to 2.5 m/s</span>
-                            <span class="text-gold-400 font-semibold">High Duty Cycle</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Safety & Engineering Section -->
-    <section id="tech" class="py-20 bg-darkbg-900 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <span class="text-gold-400 text-xs font-bold uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/20">German Engineering Standard</span>
-                    <h2 class="text-3xl sm:text-4xl font-bold font-serif text-white leading-tight">
-                        Zero-Compromise <span class="gold-gradient-text">Safety Architecture</span>
-                    </h2>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Every Leo Elevator is engineered with multiple redundant safety layers to ensure absolute peace of mind for you and your family.
-                    </p>
-
-                    <div class="space-y-4 pt-2">
-                        <div class="flex items-start gap-4 p-4 rounded-xl bg-darkbg-800 border border-slate-800">
-                            <div class="p-2.5 rounded-lg gold-gradient-bg text-darkbg-900 shrink-0">
-                                <i data-lucide="shield-alert" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm">Automatic Rescue Device (ARD)</h4>
-                                <p class="text-xs text-slate-400 mt-1">In the event of a power blackout, the emergency battery drive takes control, safely bringing the elevator to the nearest floor and opening the doors automatically.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4 p-4 rounded-xl bg-darkbg-800 border border-slate-800">
-                            <div class="p-2.5 rounded-lg gold-gradient-bg text-darkbg-900 shrink-0">
-                                <i data-lucide="cpu" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm">Smart IoT Remote Diagnostics</h4>
-                                <p class="text-xs text-slate-400 mt-1">Continuous 24/7 cloud monitoring detects component wear before failures occur, dispatching automated service alerts to our engineers.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4 p-4 rounded-xl bg-darkbg-800 border border-slate-800">
-                            <div class="p-2.5 rounded-lg gold-gradient-bg text-darkbg-900 shrink-0">
-                                <i data-lucide="zap" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm">Permanent Magnet Gearless Synchronous Motor</h4>
-                                <p class="text-xs text-slate-400 mt-1">Saves up to 45% electricity compared to traditional geared motors with virtually zero mechanical noise or vibration.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Graphic Illustration Box -->
-                <div class="glass-card p-8 rounded-3xl border border-slate-800 text-center space-y-6">
-                    <div class="w-20 h-20 mx-auto rounded-2xl gold-gradient-bg flex items-center justify-center text-darkbg-900 shadow-xl shadow-gold-500/20">
-                        <i data-lucide="award" class="w-10 h-10"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold font-serif text-white">ISO 9001 & CE Certified Safety</h3>
-                    <p class="text-xs text-slate-400 max-w-md mx-auto leading-relaxed">
-                        Tested under rigorous load capacities up to 200% threshold. Comes standard with infra-red full height door light curtains to prevent accidental door pinches.
-                    </p>
-                    <div class="pt-4 grid grid-cols-2 gap-4 border-t border-slate-800 text-left">
-                        <div class="p-3 bg-darkbg-900 rounded-xl">
-                            <span class="text-xs text-slate-400 block">Infrared Beams</span>
-                            <span class="text-sm font-bold text-gold-400">128 Light Curtains</span>
-                        </div>
-                        <div class="p-3 bg-darkbg-900 rounded-xl">
-                            <span class="text-xs text-slate-400 block">Brake System</span>
-                            <span class="text-sm font-bold text-gold-400">Dual Disk Magnetic</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Gallery Section -->
-    <section id="projects" class="py-20 bg-darkbg-800/40 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/20">Portfolio</span>
-                <h2 class="text-3xl sm:text-4xl font-bold font-serif text-white mt-4">Featured Installations</h2>
-                <p class="text-slate-400 mt-3 text-sm">Explore real-world Leo Elevator projects installed across premier residences and commercial spaces.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-gold-500/30 transition-all">
-                    <div class="h-48 bg-gradient-to-br from-slate-800 to-darkbg-900 p-6 flex flex-col justify-end relative">
-                        <span class="text-[10px] uppercase tracking-wider font-bold text-gold-400 bg-darkbg-900/80 px-2.5 py-1 rounded w-max mb-2">Private Villa</span>
-                        <h4 class="text-lg font-bold text-white font-serif">The Royal Estate Villa</h4>
-                        <p class="text-xs text-slate-400">Mirror Gold Glass Hydraulic Lift (G+3)</p>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-gold-500/30 transition-all">
-                    <div class="h-48 bg-gradient-to-br from-slate-800 to-darkbg-900 p-6 flex flex-col justify-end relative">
-                        <span class="text-[10px] uppercase tracking-wider font-bold text-gold-400 bg-darkbg-900/80 px-2.5 py-1 rounded w-max mb-2">Commercial Tower</span>
-                        <h4 class="text-lg font-bold text-white font-serif">Apex Tech Park</h4>
-                        <p class="text-xs text-slate-400">Dual High-Speed Passenger Lifts (G+18)</p>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-gold-500/30 transition-all">
-                    <div class="h-48 bg-gradient-to-br from-slate-800 to-darkbg-900 p-6 flex flex-col justify-end relative">
-                        <span class="text-[10px] uppercase tracking-wider font-bold text-gold-400 bg-darkbg-900/80 px-2.5 py-1 rounded w-max mb-2">Healthcare Center</span>
-                        <h4 class="text-lg font-bold text-white font-serif">City Care Multi-Specialty Hospital</h4>
-                        <p class="text-xs text-slate-400">Heavy Stretcher Bed Elevators with ARD</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Accordion Section -->
-    <section id="faq" class="py-20 bg-darkbg-900">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-500/20">Questions Answered</span>
-                <h2 class="text-3xl font-bold font-serif text-white mt-4">Frequently Asked Questions</h2>
-            </div>
-
-            <div class="space-y-4">
-                <div class="glass-card p-5 rounded-2xl border border-slate-800">
-                    <h4 class="text-base font-bold text-white flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <span>How long does elevator manufacturing and installation take?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gold-400"></i>
-                    </h4>
-                    <p class="text-xs text-slate-400 mt-3 hidden leading-relaxed">
-                        Standard residential and villa home lifts take approximately 3 to 4 weeks for custom manufacturing and 7-10 days for installation on site. Commercial high-rise lifts vary depending on shaft height.
-                    </p>
-                </div>
-
-                <div class="glass-card p-5 rounded-2xl border border-slate-800">
-                    <h4 class="text-base font-bold text-white flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <span>Can an elevator be installed in an existing home without a pit?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gold-400"></i>
-                    </h4>
-                    <p class="text-xs text-slate-400 mt-3 hidden leading-relaxed">
-                        Yes! Our Leo Imperial Home Series features pitless hydraulic and belt-traction technology requiring only 150mm pit depth or a small ramp step. No major civil structural demolition required.
-                    </p>
-                </div>
-
-                <div class="glass-card p-5 rounded-2xl border border-slate-800">
-                    <h4 class="text-base font-bold text-white flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <span>What warranty and Annual Maintenance Contracts (AMC) do you provide?</span>
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-gold-400"></i>
-                    </h4>
-                    <p class="text-xs text-slate-400 mt-3 hidden leading-relaxed">
-                        All new installations come with a 2-year comprehensive warranty and 1 year of complimentary AMC including quarterly routine safety inspections and 24/7 breakdown callouts.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DETAILED QUOTE & RECEIPT GENERATOR MODAL -->
-    <div id="quote-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-        <div class="glass-card w-full max-w-2xl rounded-3xl border border-gold-500/40 p-6 sm:p-8 space-y-6 my-8 relative">
-            <button onclick="closeQuoteModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-
-            <!-- Form Screen -->
-            <div id="modal-form-screen" class="space-y-6">
-                <div>
-                    <span class="text-xs font-bold uppercase text-gold-400 tracking-widest">Official Proposal Request</span>
-                    <h3 class="text-2xl font-bold text-white font-serif mt-1">Get Detailed Quotation & Specs Sheet</h3>
-                    <p class="text-xs text-slate-400">Enter your contact details to generate an instant formal quotation receipt.</p>
-                </div>
-
-                <form onsubmit="generateQuoteReceipt(event)" class="space-y-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="text-xs text-slate-300 font-medium block mb-1">Full Name *</label>
-                            <input type="text" id="cust-name" required placeholder="e.g. Rahul Sharma" class="w-full bg-darkbg-800 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
-                        </div>
-                        <div>
-                            <label class="text-xs text-slate-300 font-medium block mb-1">Phone / WhatsApp Number *</label>
-                            <input type="tel" id="cust-phone" required placeholder="+91 98765 43210" class="w-full bg-darkbg-800 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="text-xs text-slate-300 font-medium block mb-1">Email Address *</label>
-                            <input type="email" id="cust-email" required placeholder="name@example.com" class="w-full bg-darkbg-800 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
-                        </div>
-                        <div>
-                            <label class="text-xs text-slate-300 font-medium block mb-1">City / Location *</label>
-                            <input type="text" id="cust-city" required placeholder="e.g. Mumbai, New Delhi" class="w-full bg-darkbg-800 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
-                        </div>
-                    </div>
-
-                    <button type="submit" class="w-full gold-gradient-bg text-darkbg-900 font-bold py-3.5 rounded-xl hover:brightness-110 transition-all text-sm shadow-lg shadow-gold-500/20">
-                        Generate & Download Quotation Summary
-                    </button>
-                </form>
-            </div>
-
-            <!-- Instant Receipt/Quote Preview Screen (Shown after form submission) -->
-            <div id="modal-receipt-screen" class="hidden space-y-6">
-                <div class="text-center p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl">
-                    <i data-lucide="check-circle-2" class="w-10 h-10 text-emerald-400 mx-auto mb-2"></i>
-                    <h4 class="text-lg font-bold text-white">Quotation Generated Successfully!</h4>
-                    <p class="text-xs text-emerald-300">A copy has been sent to your WhatsApp & Email.</p>
-                </div>
-
-                <!-- Printable Receipt Sheet -->
-                <div class="p-6 bg-darkbg-900 rounded-2xl border border-slate-800 text-xs space-y-4 font-mono text-slate-300">
-                    <div class="flex justify-between border-b border-slate-800 pb-3">
-                        <div>
-                            <span class="font-serif text-sm font-bold text-white">LEO ELEVATORS PVT LTD</span>
-                            <span class="block text-[10px] text-slate-400">Ref ID: <span id="rec-id" class="text-gold-400">LEO-2026-8891</span></span>
-                        </div>
-                        <div class="text-right">
-                            <span id="rec-date" class="text-[10px] text-slate-400 block">Date: 30 Sep 2026</span>
-                            <span class="text-[10px] text-emerald-400 font-bold">STATUS: ESTIMATE</span>
-                        </div>
-                    </div>
-
+                    <!-- Building Application Type -->
                     <div>
-                        <span class="text-slate-400 block text-[10px]">PREPARED FOR:</span>
-                        <div id="rec-client" class="text-white font-bold text-sm">Rahul Sharma (+91 98765 43210)</div>
-                        <div id="rec-location" class="text-slate-400 text-[10px]">Mumbai, MH</div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">1. Building Application</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button type="button" onclick="setBuildingType('villa', 22000)" class="type-btn p-3.5 rounded-xl bg-slate-800 border border-cyan-500 text-slate-100 text-left transition-all" data-type="villa">
+                                <div class="font-bold text-sm"><i class="fa-solid fa-house-chimney text-cyan-400 mr-1.5"></i> Luxury Villa</div>
+                                <div class="text-[11px] text-slate-400 mt-1">Residential 2-4 Stop</div>
+                            </button>
+                            <button type="button" onclick="setBuildingType('commercial', 42000)" class="type-btn p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 text-left transition-all hover:bg-slate-800" data-type="commercial">
+                                <div class="font-bold text-sm"><i class="fa-solid fa-building text-indigo-400 mr-1.5"></i> Commercial Tower</div>
+                                <div class="text-[11px] text-slate-400 mt-1">High Speed Passenger</div>
+                            </button>
+                            <button type="button" onclick="setBuildingType('heavy', 55000)" class="type-btn p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 text-left transition-all hover:bg-slate-800" data-type="heavy">
+                                <div class="font-bold text-sm"><i class="fa-solid fa-truck-ramp-box text-amber-400 mr-1.5"></i> Heavy Industrial</div>
+                                <div class="text-[11px] text-slate-400 mt-1">Cargo & Goods Lift</div>
+                            </button>
+                            <button type="button" onclick="setBuildingType('panoramic', 38000)" class="type-btn p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 text-left transition-all hover:bg-slate-800" data-type="panoramic">
+                                <div class="font-bold text-sm"><i class="fa-solid fa-eye text-emerald-400 mr-1.5"></i> Glass Panoramic</div>
+                                <div class="text-[11px] text-slate-400 mt-1">Observation Aesthetic</div>
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="border-t border-b border-slate-800 py-3 space-y-1">
-                        <div class="flex justify-between"><span class="text-slate-400">Lift Type:</span><span id="rec-type" class="text-white">Passenger Elevator</span></div>
-                        <div class="flex justify-between"><span class="text-slate-400">Floors/Stops:</span><span id="rec-floors" class="text-white">G + 2 (3 Stops)</span></div>
-                        <div class="flex justify-between"><span class="text-slate-400">Capacity:</span><span id="rec-capacity" class="text-white">6 Passengers (408 kg)</span></div>
-                        <div class="flex justify-between"><span class="text-slate-400">Interior Style:</span><span id="rec-style" class="text-white">Mirror Gold Luxury</span></div>
+                    <!-- Number of Floors Slider -->
+                    <div class="space-y-2 pt-2">
+                        <div class="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-slate-300">
+                            <span>2. Number of Floors / Stops</span>
+                            <span id="floorSliderVal" class="text-cyan-400 font-mono text-base font-extrabold">4 Stops</span>
+                        </div>
+                        <input type="range" id="floorSlider" min="2" max="30" value="4" oninput="updateEstimate()" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
+                        <div class="flex justify-between text-[10px] text-slate-500 font-mono">
+                            <span>2 Floors</span>
+                            <span>15 Floors</span>
+                            <span>30 Floors</span>
+                        </div>
                     </div>
 
-                    <div class="flex justify-between items-baseline pt-2">
-                        <span class="text-slate-400 text-sm">Estimated Turnkey Budget:</span>
-                        <span id="rec-total" class="text-xl font-bold font-serif text-gold-400">₹14,82,000</span>
+                    <!-- Interior Cabin Finishes -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">3. Cabin Interior Finishes</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button type="button" onclick="setFinish('gold', 4500)" class="finish-btn p-3 rounded-xl bg-slate-800 border border-amber-500/80 text-left flex items-center gap-3 transition-all" data-finish="gold">
+                                <span class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-400 flex items-center justify-center text-amber-400"><i class="fa-solid fa-gem"></i></span>
+                                <div>
+                                    <div class="font-semibold text-xs text-slate-200">Gold Mirror & LED</div>
+                                    <div class="text-[10px] text-amber-400">+$4,500</div>
+                                </div>
+                            </button>
+
+                            <button type="button" onclick="setFinish('steel', 0)" class="finish-btn p-3 rounded-xl bg-slate-900 border border-slate-800 text-left flex items-center gap-3 transition-all hover:bg-slate-800" data-finish="steel">
+                                <span class="w-8 h-8 rounded-lg bg-slate-700 border border-slate-500 flex items-center justify-center text-slate-300"><i class="fa-solid fa-layer-group"></i></span>
+                                <div>
+                                    <div class="font-semibold text-xs text-slate-200">Brushed Stainless</div>
+                                    <div class="text-[10px] text-slate-400">Included</div>
+                                </div>
+                            </button>
+
+                            <button type="button" onclick="setFinish('glass', 6500)" class="finish-btn p-3 rounded-xl bg-slate-900 border border-slate-800 text-left flex items-center gap-3 transition-all hover:bg-slate-800" data-finish="glass">
+                                <span class="w-8 h-8 rounded-lg bg-sky-500/20 border border-sky-400 flex items-center justify-center text-sky-400"><i class="fa-solid fa-glasses"></i></span>
+                                <div>
+                                    <div class="font-semibold text-xs text-slate-200">Curved Glass Wall</div>
+                                    <div class="text-[10px] text-cyan-400">+$6,500</div>
+                                </div>
+                            </button>
+
+                            <button type="button" onclick="setFinish('walnut', 3200)" class="finish-btn p-3 rounded-xl bg-slate-900 border border-slate-800 text-left flex items-center gap-3 transition-all hover:bg-slate-800" data-finish="walnut">
+                                <span class="w-8 h-8 rounded-lg bg-amber-900/30 border border-amber-800 flex items-center justify-center text-amber-600"><i class="fa-solid fa-tree"></i></span>
+                                <div>
+                                    <div class="font-semibold text-xs text-slate-200">Walnut & Matte Black</div>
+                                    <div class="text-[10px] text-amber-500">+$3,200</div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Door Style -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">4. Door Mechanism Style</label>
+                        <select id="doorSelect" onchange="updateEstimate()" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-cyan-500">
+                            <option value="0">Automatic Center Opening (Standard)</option>
+                            <option value="1500">Telescopic Side Sliding (Compact Shaft +$1,500)</option>
+                            <option value="3000">Frameless Glass Automatic Doors (+$3,000)</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- Customizer Visual Preview & Dynamic Estimate Box (Right) -->
+                <div class="lg:col-span-6 space-y-6">
+                    
+                    <!-- Dynamic Cabin Graphic Canvas Preview -->
+                    <div class="glass-panel p-6 rounded-3xl border border-slate-800 text-center relative overflow-hidden">
+                        <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-4">
+                            <span><i class="fa-solid fa-cube text-cyan-400 mr-1"></i> LIVE INTERIOR PREVIEW</span>
+                            <span id="finishBadge" class="text-amber-400 font-semibold">GOLD MIRROR STYLE</span>
+                        </div>
+
+                        <!-- Elevator Cabin Box Graphic View -->
+                        <div id="cabinPreviewBox" class="w-full h-64 rounded-2xl border-4 transition-all duration-500 relative flex flex-col justify-between p-4 overflow-hidden style-gold">
+                            
+                            <!-- Ceiling LED Lighting Strip -->
+                            <div class="w-full h-3 rounded-full bg-white shadow-lg shadow-white/80 transition-all" id="ceilingLight"></div>
+
+                            <!-- Back Wall Mirror & Handrail Visual -->
+                            <div class="flex-1 my-3 border border-white/20 rounded-xl bg-white/5 backdrop-blur-sm relative flex items-center justify-center">
+                                <div class="w-3/4 h-1 bg-slate-300/60 rounded-full shadow-md"></div>
+                                <span class="absolute top-2 text-[10px] font-mono text-white/50 tracking-widest">LEO ARCHITECTURAL</span>
+                            </div>
+
+                            <!-- Floor Slab Visual -->
+                            <div class="w-full h-5 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-lg border-t border-white/20 flex items-center justify-center">
+                                <div class="w-12 h-1 bg-cyan-400/80 rounded-full"></div>
+                            </div>
+                        </div>
+
+                        <p class="text-[11px] text-slate-500 mt-3">Visual representation only. Exact textures & handrails subject to custom architectural drawings.</p>
+                    </div>
+
+                    <!-- Dynamic Cost Breakdown Card -->
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-slate-900/90 to-indigo-950/40 shadow-xl space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                            <div>
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400">Estimated Project Investment</h3>
+                                <div id="totalPrice" class="font-display text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-cyan-400 to-emerald-400 mt-1">
+                                    $30,500
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-semibold">
+                                <i class="fa-solid fa-check text-[10px] mr-1"></i> Budget Estimate
+                            </span>
+                        </div>
+
+                        <!-- Itemized List -->
+                        <div class="space-y-2 text-xs font-mono text-slate-300">
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Base Equipment:</span>
+                                <span id="itemBase">$22,000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Floor Shaft Expansion:</span>
+                                <span id="itemFloors">$4,000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Interior Styling Package:</span>
+                                <span id="itemFinish">$4,500</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Door System:</span>
+                                <span id="itemDoors">$0</span>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                            <button onclick="downloadSpecPDF()" class="py-3 px-4 rounded-xl glass-panel hover:bg-slate-800 text-xs font-bold text-slate-200 border border-slate-700 transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-file-arrow-down text-cyan-400"></i> Save Spec Sheet
+                            </button>
+                            <a href="#contact" onclick="prefillContactForm()" class="py-3 px-4 rounded-xl bg-gradient-to-r from-indigo-600 to-emerald-500 hover:opacity-90 text-xs font-bold text-white transition-all text-center flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i> Lock In Quote
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Elevator Models Gallery Section -->
+    <section id="models" class="py-24 bg-slate-950/60 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="text-indigo-400 text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full glass-panel border border-indigo-500/30">
+                    Product Portfolio
+                </span>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold">
+                    Flagship Elevator Models
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    From compact shaftless home lifts to high-speed skyscraper elevators.
+                </p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+                <button onclick="filterModels('all')" class="model-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all bg-gradient-to-r from-indigo-600 to-cyan-600 text-white shadow-lg" data-filter="all">All Models</button>
+                <button onclick="filterModels('residential')" class="model-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all glass-panel text-slate-400 hover:text-white" data-filter="residential">Residential</button>
+                <button onclick="filterModels('commercial')" class="model-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all glass-panel text-slate-400 hover:text-white" data-filter="commercial">Commercial</button>
+                <button onclick="filterModels('industrial')" class="model-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all glass-panel text-slate-400 hover:text-white" data-filter="industrial">Industrial</button>
+            </div>
+
+            <!-- Models Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="modelsGrid">
+                
+                <!-- Model 1 -->
+                <div class="model-card model-residential glass-panel rounded-3xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 group">
+                    <div class="h-56 relative overflow-hidden bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="LEO Villa-Lux" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=LEO+Villa-Lux'">
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-indigo-600 text-white text-[10px] font-bold uppercase tracking-wider">Residential</span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display text-xl font-bold">LEO Villa-Lux</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Compact gearless home elevator with zero pit requirements. Perfect for 2 to 4-story luxury private residences.</p>
+                        
+                        <div class="space-y-2 border-t border-slate-800 pt-4 text-xs font-mono text-slate-300">
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Speed:</span>
+                                <span>1.0 m/s</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Capacity:</span>
+                                <span>4 - 6 Persons (450 kg)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Drive:</span>
+                                <span class="text-emerald-400">Eco Silent Belt</span>
+                            </div>
+                        </div>
+
+                        <a href="#customizer" class="block w-full text-center py-2.5 rounded-xl glass-panel hover:bg-slate-800 text-xs font-bold text-cyan-400 border border-cyan-500/30 transition-all">
+                            Configure This Lift
+                        </a>
                     </div>
                 </div>
 
-                <div class="flex gap-3">
-                    <button onclick="window.print()" class="flex-1 glass-card hover:bg-slate-800 py-3 rounded-xl border border-slate-700 text-white font-bold text-xs flex items-center justify-center gap-2">
-                        <i data-lucide="printer" class="w-4 h-4 text-gold-400"></i> Print / Save PDF
-                    </button>
-                    <button onclick="closeQuoteModal()" class="flex-1 gold-gradient-bg text-darkbg-900 font-bold py-3 rounded-xl hover:brightness-110 text-xs">
-                        Done
-                    </button>
+                <!-- Model 2 -->
+                <div class="model-card model-commercial glass-panel rounded-3xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 group">
+                    <div class="h-56 relative overflow-hidden bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="LEO SkyPass 500" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=LEO+SkyPass'">
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-cyan-600 text-white text-[10px] font-bold uppercase tracking-wider">Commercial</span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display text-xl font-bold">LEO SkyPass 500</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Ultra high-speed commercial elevator for high-rise corporate towers and luxury hotel destinations.</p>
+                        
+                        <div class="space-y-2 border-t border-slate-800 pt-4 text-xs font-mono text-slate-300">
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Speed:</span>
+                                <span>Up to 6.0 m/s</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Capacity:</span>
+                                <span>16 - 24 Persons (1600 kg)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Drive:</span>
+                                <span class="text-emerald-400">Synapse AI Traction</span>
+                            </div>
+                        </div>
+
+                        <a href="#customizer" class="block w-full text-center py-2.5 rounded-xl glass-panel hover:bg-slate-800 text-xs font-bold text-cyan-400 border border-cyan-500/30 transition-all">
+                            Configure This Lift
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Model 3 -->
+                <div class="model-card model-industrial glass-panel rounded-3xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 group">
+                    <div class="h-56 relative overflow-hidden bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="LEO Titan Cargo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=LEO+Titan+Cargo'">
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-amber-600 text-white text-[10px] font-bold uppercase tracking-wider">Industrial</span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display text-xl font-bold">LEO Titan Cargo</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">Heavy-duty goods and vehicle elevator engineered for warehouses, hospitals, and manufacturing complexes.</p>
+                        
+                        <div class="space-y-2 border-t border-slate-800 pt-4 text-xs font-mono text-slate-300">
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Speed:</span>
+                                <span>1.5 m/s</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Capacity:</span>
+                                <span>Up to 5,000 kg</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Protection:</span>
+                                <span class="text-amber-400">Reinforced Steel Floor</span>
+                            </div>
+                        </div>
+
+                        <a href="#customizer" class="block w-full text-center py-2.5 rounded-xl glass-panel hover:bg-slate-800 text-xs font-bold text-cyan-400 border border-cyan-500/30 transition-all">
+                            Configure This Lift
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Model 4 -->
+                <div class="model-card model-residential glass-panel rounded-3xl overflow-hidden border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 group">
+                    <div class="h-56 relative overflow-hidden bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="LEO Vista Panoramic" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=LEO+Vista+Panoramic'">
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider">Panoramic</span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display text-xl font-bold">LEO Vista Glass</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">360-degree curved glass observation cabin designed for shopping malls, luxury atrium lobbies, and villas.</p>
+                        
+                        <div class="space-y-2 border-t border-slate-800 pt-4 text-xs font-mono text-slate-300">
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Speed:</span>
+                                <span>2.5 m/s</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Capacity:</span>
+                                <span>8 - 12 Persons (1000 kg)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Aesthetics:</span>
+                                <span class="text-emerald-400">Curved Safety Glass</span>
+                            </div>
+                        </div>
+
+                        <a href="#customizer" class="block w-full text-center py-2.5 rounded-xl glass-panel hover:bg-slate-800 text-xs font-bold text-cyan-400 border border-cyan-500/30 transition-all">
+                            Configure This Lift
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Smart Elevator Tech & Safety Features -->
+    <section id="tech" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-emerald-400 text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/30">
+                    Engineering Excellence
+                </span>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold">
+                    Smart Mobility & Safety Innovations
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Every LEO elevator is built around four core architectural pillars.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-emerald-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-3">Regenerative Drive</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Feeds up to 30% of braking energy back into the building's electrical grid, dramatically lowering operational power costs.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-cyan-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-3">AI Predictive Health</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Continuous IoT sensor monitoring detects mechanical wear before it leads to downtime, dispatching technicians automatically.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-indigo-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-3">Touchless Call Controls</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Hassle-free mobile app integration, QR code scanning, and gesture controls for hygienic cabin operation.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-rose-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-cat"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-3">ARED Rescue System</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Automatic Rescue Device safely lowers the cabin to the nearest floor and opens doors during grid power outages.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact & Quote Form Section -->
+    <section id="contact" class="py-24 bg-slate-950/60 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Contact info -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full glass-panel border border-cyan-500/30">
+                            Get In Touch
+                        </span>
+                        <h2 class="font-display text-3xl sm:text-4xl font-extrabold mt-4">
+                            Request Your Architectural Consultation
+                        </h2>
+                        <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                            Our elevator engineering team will assist with technical specifications, site shaft measurements, and custom pricing.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6 text-sm text-slate-300">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-white">Global Headquarters</div>
+                                <div class="text-xs text-slate-400 mt-0.5">LEO Mobility Tower, Innovation Park, London & Dubai</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-white">24/7 Hotline & Support</div>
+                                <div class="text-xs text-slate-400 mt-0.5">+1 (800) 536-ELEV / support@leoelevators.com</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-white">Response Time Guarantee</div>
+                                <div class="text-xs text-slate-400 mt-0.5">Formal quotes provided within 2 hours for commercial inquiries.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Card -->
+                <div class="lg:col-span-7 glass-panel p-8 sm:p-10 rounded-3xl border border-slate-800 shadow-2xl">
+                    <form id="quoteForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-2">Full Name *</label>
+                                <input type="text" required placeholder="e.g. Alexander Wright" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-cyan-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-2">Work Email *</label>
+                                <input type="email" required placeholder="alexander@architects.com" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-cyan-500">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-2">Phone Number</label>
+                                <input type="tel" placeholder="+1 (555) 000-0000" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-cyan-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-2">Building Type</label>
+                                <select id="formBuildingType" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-cyan-500">
+                                    <option>Residential Villa</option>
+                                    <option>Commercial Tower</option>
+                                    <option>Heavy Industrial Lift</option>
+                                    <option>Glass Panoramic Lift</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-2">Project Notes / Shaft Dimensions</label>
+                            <textarea id="formMessage" rows="4" placeholder="Mention floor stops, speed requirement, or architectural preferences..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-cyan-500 resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-indigo-600 via-cyan-600 to-emerald-500 hover:opacity-95 shadow-xl transition-all">
+                            Submit Consultation Request
+                        </button>
+                    </form>
+                </div>
+
             </div>
         </div>
-    </div>
-
-    <!-- SITE SURVEY BOOKING MODAL -->
-    <div id="site-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="glass-card w-full max-w-md rounded-3xl border border-gold-500/40 p-6 space-y-5 relative">
-            <button onclick="closeSiteModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-
-            <div>
-                <span class="text-xs font-bold uppercase text-gold-400 tracking-widest">Free Consultation</span>
-                <h3 class="text-xl font-bold text-white font-serif mt-1">Book On-Site Shaft Survey</h3>
-                <p class="text-xs text-slate-400">Our senior elevator engineer will visit your location to measure shaft dimensions.</p>
-            </div>
-
-            <form onsubmit="submitSiteSurvey(event)" class="space-y-3">
-                <div>
-                    <label class="text-xs text-slate-300 font-medium block mb-1">Your Name</label>
-                    <input type="text" required placeholder="Name" class="w-full bg-darkbg-800 border border-slate-700 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-gold-500">
-                </div>
-                <div>
-                    <label class="text-xs text-slate-300 font-medium block mb-1">Phone Number</label>
-                    <input type="tel" required placeholder="Phone" class="w-full bg-darkbg-800 border border-slate-700 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-gold-500">
-                </div>
-                <div>
-                    <label class="text-xs text-slate-300 font-medium block mb-1">Preferred Date</label>
-                    <input type="date" required class="w-full bg-darkbg-800 border border-slate-700 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-gold-500">
-                </div>
-                <button type="submit" class="w-full gold-gradient-bg text-darkbg-900 font-bold py-3 rounded-xl hover:brightness-110 transition-all text-xs shadow-md">
-                    Confirm Free Inspection Visit
-                </button>
-            </form>
-        </div>
-    </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-darkbg-900 border-t border-slate-800 pt-16 pb-12 text-slate-400 text-xs">
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="space-y-4 md:col-span-1">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-lg gold-gradient-bg flex items-center justify-center text-darkbg-900 font-black text-lg">L</div>
-                        <span class="text-lg font-bold font-serif text-white">LEO ELEVATORS</span>
-                    </div>
-                    <p class="text-slate-400 text-xs leading-relaxed">
-                        Industry leaders in passenger lifts, glass home elevators, hydraulic systems, and 24/7 elevator maintenance services.
-                    </p>
-                </div>
-
-                <div>
-                    <h5 class="text-white font-bold text-sm mb-3 font-serif">Quick Navigation</h5>
-                    <ul class="space-y-2">
-                        <li><a href="#calculator" class="hover:text-gold-400 transition-colors">Instant Budget Estimator</a></li>
-                        <li><a href="#models" class="hover:text-gold-400 transition-colors">Home Villa Elevators</a></li>
-                        <li><a href="#models" class="hover:text-gold-400 transition-colors">Panoramic Glass Lifts</a></li>
-                        <li><a href="#tech" class="hover:text-gold-400 transition-colors">Safety Systems</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h5 class="text-white font-bold text-sm mb-3 font-serif">Contact & Support</h5>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2"><i data-lucide="phone" class="w-3.5 h-3.5 text-gold-400"></i> Emergency Helpline: +91 1800-LEO-LIFT</li>
-                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-3.5 h-3.5 text-gold-400"></i> Sales: sales@leoelevators.com</li>
-                        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-400"></i> German Tech Industrial Park, India</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h5 class="text-white font-bold text-sm mb-3 font-serif">24/7 Rapid Response</h5>
-                    <p class="text-xs text-slate-400 mb-3">Facing an elevator emergency or need technician dispatch?</p>
-                    <a href="https://wa.me/919876543210?text=Hi%20Leo%20Elevators,%20I%20need%20a%20quick%20quote" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-xl transition-all">
-                        <i data-lucide="message-circle" class="w-4 h-4"></i> Chat on WhatsApp
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                
+                <div class="lg:col-span-2 space-y-4">
+                    <!-- Footer Logo -->
+                    <a href="#" class="inline-block">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 50" width="200" height="38">
+                            <g>
+                                <rect x="4" y="4" width="42" height="42" rx="12" fill="url(#elevatorGradient)" />
+                                <rect x="13" y="15" width="2.5" height="20" rx="1.25" fill="#FFFFFF" opacity="0.4" />
+                                <rect x="34.5" y="15" width="2.5" height="20" rx="1.25" fill="#FFFFFF" opacity="0.4" />
+                                <path d="M25 13 L33 22 H28.5 V34 H21.5 V22 H17 Z" fill="#FFFFFF" />
+                            </g>
+                            <g transform="translate(62, 0)">
+                                <text x="0" y="32" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" letter-spacing="1.5">
+                                    LEO
+                                </text>
+                                <text x="54" y="32" font-family="'Outfit', sans-serif" font-weight="400" font-size="14" fill="url(#elevatorGradient)" letter-spacing="3">
+                                    ELEVATORS
+                                </text>
+                            </g>
+                        </svg>
                     </a>
+                    <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+                        Leading the global transition to quiet, intelligent, and energy-regenerative architectural mobility solutions.
+                    </p>
+                    <div class="flex items-center space-x-3 text-slate-400">
+                        <a href="#" class="w-8 h-8 rounded-lg glass-panel flex items-center justify-center hover:text-cyan-400"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg glass-panel flex items-center justify-center hover:text-cyan-400"><i class="fa-brands fa-x-twitter text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg glass-panel flex items-center justify-center hover:text-cyan-400"><i class="fa-brands fa-youtube text-xs"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200 mb-4">Elevators</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#models" class="hover:text-cyan-400 transition-colors">Residential Lifts</a></li>
+                        <li><a href="#models" class="hover:text-cyan-400 transition-colors">Commercial High-Speed</a></li>
+                        <li><a href="#models" class="hover:text-cyan-400 transition-colors">Industrial Goods</a></li>
+                        <li><a href="#models" class="hover:text-cyan-400 transition-colors">Glass Panoramic</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200 mb-4">Interactive Tools</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#simulator" class="hover:text-cyan-400 transition-colors">Live Shaft Simulator</a></li>
+                        <li><a href="#customizer" class="hover:text-cyan-400 transition-colors">3D Cabin Customizer</a></li>
+                        <li><a href="#customizer" class="hover:text-cyan-400 transition-colors">Price Estimator</a></li>
+                        <li><a href="#tech" class="hover:text-cyan-400 transition-colors">AI Diagnostics</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200 mb-4">Compliance</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><span>ISO 9001:2015 Quality</span></li>
+                        <li><span>EN81 Safety Directives</span></li>
+                        <li><span>CE Certified Machinery</span></li>
+                        <li><span>Class A+++ Eco Drive</span></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <div>&copy; <span id="year">2026</span> leo Elevators Inc. All rights reserved.</div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-slate-400">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-400">Terms of Service</a>
+                    <a href="#" class="hover:text-slate-400">Safety Directives</a>
                 </div>
             </div>
 
-            <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500">
-                <p>© 2026 Leo Elevators Pvt. Ltd. All rights reserved.</p>
-                <div class="flex gap-6">
-                    <a href="#" class="hover:text-gold-400">Privacy Policy</a>
-                    <a href="#" class="hover:text-gold-400">Terms of Service</a>
-                    <a href="#" class="hover:text-gold-400">Safety Standards</a>
-                </div>
-            </div>
         </div>
     </footer>
 
-    <!-- JavaScript Application Engine -->
+    <!-- Form Success Notification Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden">
+        <div class="glass-panel max-w-md w-full p-8 rounded-3xl border border-emerald-500/40 text-center space-y-4 animate-bounce-short">
+            <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 text-3xl flex items-center justify-center mx-auto border border-emerald-400">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="font-display text-2xl font-bold">Quote Request Received!</h3>
+            <p class="text-slate-300 text-xs leading-relaxed">
+                Thank you for contacting leo Elevators. An engineering mobility consultant has been assigned to your project and will email your formal specification sheet shortly.
+            </p>
+            <button onclick="closeModal()" class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-emerald-500 text-white font-bold text-xs uppercase tracking-wider">
+                Close Window
+            </button>
+        </div>
+    </div>
+
+    <!-- Application JavaScript Logic -->
     <script>
-        /* Lucide Icons Initialization */
-        lucide.createIcons();
+        // Set dynamic current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        /* Application Global State */
-        let state = {
-            currency: 'INR', // 'INR' or 'USD'
-            exchangeRate: 83.5, // 1 USD = 83.5 INR
-            liftType: {
-                id: 'passenger',
-                name: 'Passenger Elevator',
-                basePriceINR: 950000
-            },
-            floors: 2, // G + 2 (3 Stops)
-            capacity: {
-                pax: 6,
-                kg: 408,
-                multiplier: 1.12
-            },
-            finish: {
-                id: 'gold',
-                name: 'Mirror Gold Luxury',
-                priceINR: 120000,
-                cssClass: 'cabin-texture-gold'
-            },
-            upgrades: {
-                ard: { name: 'ARD Emergency Battery', priceINR: 65000, active: true },
-                touchless: { name: 'Touchless Buttons', priceINR: 45000, active: false },
-                vvvf: { name: 'VVVF Drive Inverter', priceINR: 85000, active: true },
-                marble: { name: 'Italian Marble Floor', priceINR: 55000, active: false }
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Dark / Light Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+            } else {
+                document.documentElement.classList.remove('light');
+                document.documentElement.classList.add('dark');
             }
+        }
+        themeToggle.addEventListener('click', toggleTheme);
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+
+        // Web Audio Synthesizer for Elevator Arrive Chime
+        let audioEnabled = true;
+        function toggleAudio() {
+            audioEnabled = !audioEnabled;
+            const soundStatus = document.getElementById('soundStatus');
+            if (audioEnabled) {
+                soundStatus.innerHTML = '<i class="fa-solid fa-volume-high"></i> CHIME ON';
+                soundStatus.className = 'cursor-pointer text-cyan-400';
+            } else {
+                soundStatus.innerHTML = '<i class="fa-solid fa-volume-xmark"></i> CHIME OFF';
+                soundStatus.className = 'cursor-pointer text-slate-500';
+            }
+        }
+
+        function playArriveChime() {
+            if (!audioEnabled) return;
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+                const ctx = new AudioCtx();
+                
+                // Play double tone chime (E5 -> B5)
+                const playTone = (freq, delay, duration) => {
+                    setTimeout(() => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+                        gain.gain.setValueAtTime(0.15, ctx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start();
+                        osc.stop(ctx.currentTime + duration);
+                    }, delay);
+                };
+
+                playTone(659.25, 0, 0.6);   // E5
+                playTone(987.77, 200, 0.8); // B5
+            } catch (e) {
+                console.log('Audio playback restricted');
+            }
+        }
+
+        // --- ELEVATOR SHAFT SIMULATOR LOGIC ---
+        let currentFloor = 0;
+        let isMoving = false;
+        const floorNames = ["Grand Lobby (G)", "Innovation Lounge", "Tech Hub", "Corporate Suites", "Penthouse Executive", "Sky Deck"];
+
+        function goToFloor(targetFloor) {
+            if (isMoving || targetFloor === currentFloor) return;
+            isMoving = true;
+
+            const elevatorCab = document.getElementById('elevatorCab');
+            const directionArrow = document.getElementById('directionArrow');
+            const floorDisplay = document.getElementById('floorDisplay');
+            const statusMessage = document.getElementById('statusMessage');
+            const speedReadout = document.getElementById('liftSpeedReadout');
+            const doorContainer = document.getElementById('doorContainer');
+
+            // Close doors first if open
+            doorContainer.classList.remove('doors-open');
+
+            setTimeout(() => {
+                const isGoingUp = targetFloor > currentFloor;
+                directionArrow.textContent = isGoingUp ? '▲' : '▼';
+                directionArrow.className = isGoingUp ? 'text-emerald-400 font-bold text-3xl animate-bounce' : 'text-cyan-400 font-bold text-3xl animate-bounce';
+                statusMessage.textContent = `TRAVELING TO FLOOR ${targetFloor}...`;
+                speedReadout.textContent = '2.5 m/s';
+
+                // Highlight COP button
+                document.querySelectorAll('.cop-btn').forEach(btn => {
+                    btn.classList.remove('border-cyan-500', 'text-cyan-400');
+                    if (parseInt(btn.getAttribute('data-floor')) === targetFloor) {
+                        btn.classList.add('border-cyan-500', 'text-cyan-400');
+                    }
+                });
+
+                // Calculate vertical bottom position % (Floor 0 = 0%, Floor 5 = 80%)
+                const bottomPercentage = (targetFloor / 5) * 80;
+                
+                // Set speed transition based on distance
+                const distance = Math.abs(targetFloor - currentFloor);
+                const duration = Math.max(1.2, distance * 0.8);
+                elevatorCab.style.transitionDuration = `${duration}s`;
+                elevatorCab.style.bottom = `${bottomPercentage}%`;
+
+                // Intermediate floor update counter
+                let stepFloor = currentFloor;
+                const interval = setInterval(() => {
+                    if (stepFloor !== targetFloor) {
+                        stepFloor += isGoingUp ? 1 : -1;
+                        floorDisplay.textContent = stepFloor === 0 ? 'G' : stepFloor;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, (duration * 1000) / distance);
+
+                // Arrival callback
+                setTimeout(() => {
+                    currentFloor = targetFloor;
+                    isMoving = false;
+                    speedReadout.textContent = '0.0 m/s';
+                    directionArrow.className = 'text-slate-600 font-bold text-3xl';
+                    statusMessage.textContent = `ARRIVED AT ${floorNames[targetFloor].toUpperCase()}`;
+                    
+                    playArriveChime();
+
+                    // Open doors automatically on arrival
+                    setTimeout(() => {
+                        doorContainer.classList.add('doors-open');
+                    }, 300);
+
+                }, duration * 1000);
+
+            }, 400);
+        }
+
+        function triggerDoors(open) {
+            const doorContainer = document.getElementById('doorContainer');
+            if (open) {
+                doorContainer.classList.add('doors-open');
+            } else {
+                doorContainer.classList.remove('doors-open');
+            }
+        }
+
+        function emergencyStop() {
+            isMoving = false;
+            const speedReadout = document.getElementById('liftSpeedReadout');
+            const statusMessage = document.getElementById('statusMessage');
+            speedReadout.textContent = '0.0 m/s';
+            statusMessage.textContent = 'EMERGENCY BRAKE ENGAGED';
+            statusMessage.className = 'text-xs font-mono text-rose-500 font-bold pt-1 animate-pulse';
+        }
+
+        // --- CUSTOMIZER & ESTIMATOR LOGIC ---
+        let config = {
+            basePrice: 22000,
+            floors: 4,
+            pricePerFloor: 1000,
+            finishPrice: 4500,
+            finishType: 'gold',
+            doorPrice: 0
         };
 
-        /* Lift Type Options Data */
-        const LIFT_TYPES = {
-            passenger: { name: 'Passenger Elevator', baseINR: 950000 },
-            villa: { name: 'Luxury Villa / Home Lift', baseINR: 1100000 },
-            panoramic: { name: 'Panoramic Glass Lift', baseINR: 1450000 },
-            freight: { name: 'Commercial & Goods', baseINR: 1600000 },
-            hospital: { name: 'Hospital Bed Elevator', baseINR: 1350000 }
-        };
-
-        /* Currency Switcher */
-        function setCurrency(curr) {
-            state.currency = curr;
-            const inrBtn = document.getElementById('curr-inr');
-            const usdBtn = document.getElementById('curr-usd');
-
-            if (curr === 'INR') {
-                inrBtn.className = "px-2.5 py-1 rounded-md transition-all bg-gold-500 text-darkbg-900 shadow";
-                usdBtn.className = "px-2.5 py-1 rounded-md transition-all text-slate-400 hover:text-white";
-            } else {
-                usdBtn.className = "px-2.5 py-1 rounded-md transition-all bg-gold-500 text-darkbg-900 shadow";
-                inrBtn.className = "px-2.5 py-1 rounded-md transition-all text-slate-400 hover:text-white";
-            }
-            recalculate();
-        }
-
-        /* Format Currency Helper */
-        function formatMoney(amountINR) {
-            if (state.currency === 'USD') {
-                const usd = Math.round(amountINR / state.exchangeRate);
-                return '$' + usd.toLocaleString('en-US');
-            } else {
-                return '₹' + amountINR.toLocaleString('en-IN');
-            }
-        }
-
-        /* Select Lift Type handler */
-        function selectLiftType(typeKey) {
-            const info = LIFT_TYPES[typeKey];
-            state.liftType = { id: typeKey, name: info.name, basePriceINR: info.baseINR };
-
-            // Update UI card highlight
-            document.querySelectorAll('.lift-type-card').forEach(btn => {
-                btn.className = "lift-type-card p-4 rounded-xl border border-slate-800 bg-darkbg-800 text-left transition-all hover:border-gold-400 group relative";
+        function setBuildingType(type, price) {
+            config.basePrice = price;
+            document.querySelectorAll('.type-btn').forEach(btn => {
+                if (btn.getAttribute('data-type') === type) {
+                    btn.className = 'type-btn p-3.5 rounded-xl bg-slate-800 border border-cyan-500 text-slate-100 text-left transition-all';
+                } else {
+                    btn.className = 'type-btn p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 text-left transition-all hover:bg-slate-800';
+                }
             });
-            const activeBtn = document.getElementById(`type-${typeKey}`);
-            if (activeBtn) {
-                activeBtn.className = "lift-type-card p-4 rounded-xl border border-gold-500 bg-gold-500/10 text-left transition-all hover:border-gold-400 group relative";
-            }
-
-            recalculate();
+            updateEstimate();
         }
 
-        /* Floors Range & Buttons handler */
-        function updateFloors(val) {
-            state.floors = parseInt(val);
-            document.getElementById('floor-display-val').innerText = `G + ${state.floors} Floors`;
-            document.getElementById('floor-count-sub').innerText = `(${state.floors + 1} Stops Total)`;
-            recalculate();
-        }
+        function setFinish(finish, price) {
+            config.finishPrice = price;
+            config.finishType = finish;
 
-        function setFloorVal(val) {
-            document.getElementById('floor-slider').value = val;
-            updateFloors(val);
-        }
+            const box = document.getElementById('cabinPreviewBox');
+            const badge = document.getElementById('finishBadge');
 
-        /* Select Capacity handler */
-        function selectCapacity(pax, kg, mult, btnElement) {
-            state.capacity = { pax, kg, multiplier: mult };
-            document.querySelectorAll('.cap-btn').forEach(b => {
-                b.className = "cap-btn p-3 rounded-xl border border-slate-800 bg-darkbg-800 text-center hover:border-gold-500 transition-all";
-                const txt = b.querySelector('.block');
-                if (txt) txt.className = "block text-sm font-bold text-white";
-            });
-            btnElement.className = "cap-btn p-3 rounded-xl border border-gold-500 bg-gold-500/10 text-center transition-all";
-            btnElement.querySelector('.block').className = "block text-sm font-bold text-gold-400";
-            recalculate();
-        }
+            box.className = `w-full h-64 rounded-2xl border-4 transition-all duration-500 relative flex flex-col justify-between p-4 overflow-hidden style-${finish}`;
 
-        /* Select Interior Finish handler */
-        function selectFinish(id, name, priceINR, btnElement) {
-            const textureMap = {
-                hairline: 'cabin-texture-hairline',
-                gold: 'cabin-texture-gold',
-                glass: 'cabin-texture-glass',
-                wood: 'cabin-texture-wood',
-                rosegold: 'cabin-texture-rosegold'
+            const finishLabels = {
+                gold: 'GOLD MIRROR STYLE',
+                steel: 'BRUSHED STAINLESS STEEL',
+                glass: 'CURVED GLASS WALL',
+                walnut: 'WALNUT & MATTE BLACK'
             };
+            badge.textContent = finishLabels[finish];
 
-            state.finish = { id, name, priceINR, cssClass: textureMap[id] };
-
-            document.querySelectorAll('.finish-btn').forEach(b => {
-                b.className = "finish-btn p-3.5 rounded-xl border border-slate-800 bg-darkbg-800 flex items-center gap-3 text-left hover:border-gold-500 transition-all";
-            });
-            btnElement.className = "finish-btn p-3.5 rounded-xl border border-gold-500 bg-gold-500/10 flex items-center gap-3 text-left transition-all";
-
-            // Update Visual Preview Box Texture
-            const cabinEl = document.getElementById('visual-cabin');
-            cabinEl.className = `w-full max-w-[220px] h-36 rounded-lg ${textureMap[id]} p-3 flex flex-col justify-between shadow-2xl transition-all duration-500 relative`;
-
-            document.getElementById('finish-badge').innerText = name;
-            recalculate();
-        }
-
-        /* Toggle Upgrades */
-        function toggleUpgrade(key, priceINR, checkbox) {
-            state.upgrades[key].active = checkbox.checked;
-            recalculate();
-        }
-
-        /* Core Budget & Price Calculation Engine */
-        function recalculate() {
-            // Base Equipment
-            const baseINR = state.liftType.basePriceINR;
-
-            // Floor Addition (₹75,000 per additional floor over 1)
-            const floorCostINR = (state.floors - 1) * 75000;
-
-            // Apply Capacity Multiplier to Equipment Base
-            const baseWithCapacity = (baseINR + floorCostINR) * state.capacity.multiplier;
-
-            // Finish Premium
-            const finishCostINR = state.finish.priceINR;
-
-            // Upgrades Total
-            let upgradesTotalINR = 0;
-            Object.values(state.upgrades).forEach(up => {
-                if (up.active) upgradesTotalINR += up.priceINR;
+            document.querySelectorAll('.finish-btn').forEach(btn => {
+                if (btn.getAttribute('data-finish') === finish) {
+                    btn.classList.remove('bg-slate-900', 'border-slate-800');
+                    btn.classList.add('bg-slate-800', 'border-cyan-500');
+                } else {
+                    btn.classList.remove('bg-slate-800', 'border-cyan-500');
+                    btn.classList.add('bg-slate-900', 'border-slate-800');
+                }
             });
 
-            // Installation Estimate (~8% of total equipment)
-            const subtotalINR = baseWithCapacity + finishCostINR + upgradesTotalINR;
-            const installationINR = Math.round(subtotalINR * 0.08);
+            updateEstimate();
+        }
 
-            const totalTurnkeyINR = Math.round(subtotalINR + installationINR);
+        function updateEstimate() {
+            const floorSlider = document.getElementById('floorSlider');
+            const floorSliderVal = document.getElementById('floorSliderVal');
+            const doorSelect = document.getElementById('doorSelect');
 
-            // Update Summary Breakdown Text in UI
-            document.getElementById('summary-type-name').innerText = state.liftType.name;
-            document.getElementById('cost-base').innerText = formatMoney(baseINR);
+            config.floors = parseInt(floorSlider.value);
+            floorSliderVal.textContent = `${config.floors} Stops`;
 
-            document.getElementById('summary-floors-count').innerText = `G+${state.floors} (${state.floors + 1} Stops)`;
-            document.getElementById('cost-floors').innerText = formatMoney(floorCostINR);
+            config.doorPrice = parseInt(doorSelect.value);
 
-            document.getElementById('summary-capacity').innerText = `${state.capacity.pax} Pax / ${state.capacity.kg}kg`;
-            document.getElementById('cost-capacity').innerText = `x${state.capacity.multiplier}`;
+            const floorCost = (config.floors - 2) * config.pricePerFloor;
+            const total = config.basePrice + floorCost + config.finishPrice + config.doorPrice;
 
-            document.getElementById('summary-finish').innerText = state.finish.name;
-            document.getElementById('cost-finish').innerText = formatMoney(finishCostINR);
+            document.getElementById('totalPrice').textContent = `$${total.toLocaleString()}`;
+            document.getElementById('itemBase').textContent = `$${config.basePrice.toLocaleString()}`;
+            document.getElementById('itemFloors').textContent = `$${floorCost.toLocaleString()}`;
+            document.getElementById('itemFinish').textContent = `$${config.finishPrice.toLocaleString()}`;
+            document.getElementById('itemDoors').textContent = `$${config.doorPrice.toLocaleString()}`;
+        }
 
-            document.getElementById('cost-upgrades').innerText = formatMoney(upgradesTotalINR);
-            document.getElementById('cost-installation').innerText = formatMoney(installationINR);
+        function downloadSpecPDF() {
+            const specText = `leo ELEVATORS - PROJECT SPECIFICATION SHEET\n` +
+                             `==========================================\n` +
+                             `Estimated Total: ${document.getElementById('totalPrice').textContent}\n` +
+                             `Floors: ${config.floors} Stops\n` +
+                             `Interior Style: ${config.finishType.toUpperCase()}\n` +
+                             `Safety Directives: EN81, ISO 9001, CE Certified\n` +
+                             `Generated on: ${new Date().toLocaleDateString()}`;
 
-            // Final Total & EMI
-            document.getElementById('total-price-display').innerText = formatMoney(totalTurnkeyINR);
+            const blob = new Blob([specText], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `leo_Elevators_Spec_${Date.now()}.txt`;
+            link.click();
+        }
 
-            const emiINR = Math.round((totalTurnkeyINR * 0.018)); // Approx 1.8% monthly EMI factor
-            document.getElementById('emi-display').innerText = formatMoney(emiINR) + '/mo';
+        function prefillContactForm() {
+            const msg = document.getElementById('formMessage');
+            msg.value = `Hello, I generated a custom quote estimate for a ${config.floors}-floor lift with ${config.finishType.toUpperCase()} interior styling. Estimated total: ${document.getElementById('totalPrice').textContent}. Please provide full technical blueprints.`;
+        }
 
-            // Update Upgrade Price Tags in UI according to current currency
-            document.querySelectorAll('.upgrade-price').forEach(el => {
-                const inrVal = parseInt(el.getAttribute('data-inr'));
-                el.innerText = formatMoney(inrVal);
+        // --- MODEL GALLERY FILTERING ---
+        function filterModels(category) {
+            document.querySelectorAll('.model-tab').forEach(tab => {
+                if (tab.getAttribute('data-filter') === category) {
+                    tab.className = 'model-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all bg-gradient-to-r from-indigo-600 to-cyan-600 text-white shadow-lg';
+                } else {
+                    tab.className = 'model-tab px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all glass-panel text-slate-400 hover:text-white';
+                }
+            });
+
+            document.querySelectorAll('.model-card').forEach(card => {
+                if (category === 'all' || card.classList.contains(`model-${category}`)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
             });
         }
 
-        /* Lift Motion Visual Simulator */
-        function moveLiftTo(position) {
-            const cabin = document.getElementById('visual-cabin');
-            const floorDisp = document.getElementById('sim-floor-display');
-
-            if (position === 'Top') {
-                cabin.style.transform = 'translateY(-30px)';
-                floorDisp.innerText = `POS: FLOOR ${state.floors} (TOP)`;
-            } else if (position === 'Mid') {
-                cabin.style.transform = 'translateY(0px)';
-                floorDisp.innerText = `POS: FLOOR ${Math.round(state.floors / 2)} (MID)`;
-            } else { // Ground
-                cabin.style.transform = 'translateY(30px)';
-                floorDisp.innerText = `POS: GROUND FLOOR (0)`;
-            }
-        }
-
-        /* Modals & Receipts */
-        function openQuoteModal() {
-            document.getElementById('quote-modal').classList.remove('hidden');
-            document.getElementById('modal-form-screen').classList.remove('hidden');
-            document.getElementById('modal-receipt-screen').classList.add('hidden');
-        }
-
-        function closeQuoteModal() {
-            document.getElementById('quote-modal').classList.add('hidden');
-        }
-
-        function openSiteModal() {
-            document.getElementById('site-modal').classList.remove('hidden');
-        }
-
-        function closeSiteModal() {
-            document.getElementById('site-modal').classList.add('hidden');
-        }
-
-        function generateQuoteReceipt(e) {
+        // --- FORM SUBMISSION & MODAL ---
+        function handleFormSubmit(e) {
             e.preventDefault();
-            const name = document.getElementById('cust-name').value;
-            const phone = document.getElementById('cust-phone').value;
-            const email = document.getElementById('cust-email').value;
-            const city = document.getElementById('cust-city').value;
-
-            // Populate Receipt Fields
-            document.getElementById('rec-id').innerText = `LEO-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
-            document.getElementById('rec-date').innerText = `Date: ${new Date().toLocaleDateString()}`;
-            document.getElementById('rec-client').innerText = `${name} (${phone})`;
-            document.getElementById('rec-location').innerText = `${city} • ${email}`;
-
-            document.getElementById('rec-type').innerText = state.liftType.name;
-            document.getElementById('rec-floors').innerText = `G + ${state.floors} (${state.floors + 1} Stops)`;
-            document.getElementById('rec-capacity').innerText = `${state.capacity.pax} Pax (${state.capacity.kg} kg)`;
-            document.getElementById('rec-style').innerText = state.finish.name;
-
-            // Calculate total again for receipt display
-            const baseINR = state.liftType.basePriceINR;
-            const floorCostINR = (state.floors - 1) * 75000;
-            const baseWithCapacity = (baseINR + floorCostINR) * state.capacity.multiplier;
-            const finishCostINR = state.finish.priceINR;
-            let upgradesTotalINR = 0;
-            Object.values(state.upgrades).forEach(up => { if (up.active) upgradesTotalINR += up.priceINR; });
-            const subtotal = baseWithCapacity + finishCostINR + upgradesTotalINR;
-            const total = Math.round(subtotal * 1.08);
-
-            document.getElementById('rec-total').innerText = formatMoney(total);
-
-            // Switch to receipt screen
-            document.getElementById('modal-form-screen').classList.add('hidden');
-            document.getElementById('modal-receipt-screen').classList.remove('hidden');
+            document.getElementById('successModal').classList.remove('hidden');
         }
 
-        function submitSiteSurvey(e) {
-            e.preventDefault();
-            closeSiteModal();
-            // User feedback
-            const toast = document.createElement('div');
-            toast.className = 'fixed bottom-6 right-6 z-50 glass-card bg-emerald-500/20 border border-emerald-500 text-white px-5 py-3 rounded-2xl flex items-center gap-3 shadow-2xl';
-            toast.innerHTML = `<i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i><span class="text-xs font-bold">Site Survey Requested! Our team will contact you shortly.</span>`;
-            document.body.appendChild(toast);
-            lucide.createIcons();
-            setTimeout(() => toast.remove(), 4000);
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
         }
-
-        /* FAQ Accordion Toggle */
-        function toggleFaq(headerEl) {
-            const p = headerEl.nextElementSibling;
-            p.classList.toggle('hidden');
-            const icon = headerEl.querySelector('i');
-            if (p.classList.contains('hidden')) {
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                icon.style.transform = 'rotate(180deg)';
-            }
-        }
-
-        /* Mobile Menu Toggle */
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        /* Initial Calculation Run on Page Load */
-        window.onload = function() {
-            recalculate();
-        };
     </script>
 </body>
 </html>
