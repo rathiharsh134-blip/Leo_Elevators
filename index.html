@@ -1072,6 +1072,31 @@ select:focus, input:focus, textarea:focus { border-color: var(--blue); box-shado
 .pb-btn { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
 @media(max-width: 520px) { .pb-btn { grid-template-columns: 1fr; } }
 
+/* Attached Config Specs Pill on Contact Form */
+.attached-specs-pill {
+  background: linear-gradient(135deg, var(--ice), #fff);
+  border: 1.5px solid var(--blue2);
+  border-radius: 18px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 15px rgba(21, 86, 214, 0.08);
+}
+.attached-specs-pill i {
+  color: var(--blue);
+  font-size: 1.3rem;
+}
+.attached-specs-pill div {
+  font-size: 0.82rem;
+  color: var(--navy);
+  line-height: 1.4;
+}
+.attached-specs-pill b {
+  color: var(--blue);
+}
+
 /* ===== LITE AUTO-TYPING CONTACT INPUTS ===== */
 .auto-field-wrap {
   position: relative;
@@ -1143,6 +1168,8 @@ footer .logo-text { color: #fff; }
   gap: 10px;
 }
 #toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* Interactive Quote Spec Sheet Modal */
 #modal {
   position: fixed;
   inset: 0;
@@ -1154,10 +1181,45 @@ footer .logo-text { color: #fff; }
   padding: 20px;
 }
 #modal.show { display: grid; }
-.mbox { background: #fff; border-radius: 32px; max-width: 460px; width: 100%; padding: 36px 30px; text-align: center; }
-.mbox .ok { width: 68px; height: 68px; border-radius: 50%; background: #e3f8f1; color: var(--ok); display: grid; place-items: center; font-size: 2rem; margin: 0 auto 16px; }
-.mbox h3 { font-size: 1.6rem; margin-bottom: 8px; color: var(--navy); }
-.mbox p { color: var(--muted); font-size: 0.88rem; margin-bottom: 22px; }
+.mbox {
+  background: #fff;
+  border-radius: 32px;
+  max-width: 480px;
+  width: 100%;
+  padding: 34px 28px;
+  text-align: left;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+.mbox h3 { font-size: 1.55rem; color: var(--navy); margin-bottom: 6px; }
+.mbox p.modal-sub { color: var(--muted); font-size: 0.86rem; margin-bottom: 18px; }
+.modal-spec-card {
+  background: #f8fbff;
+  border: 1.5px solid var(--line);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 18px;
+  font-size: 0.82rem;
+  display: grid;
+  gap: 6px;
+}
+.modal-spec-card div { display: flex; justify-content: space-between; }
+.modal-spec-card span { color: var(--muted); }
+.modal-spec-card b { color: var(--navy); }
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--ice);
+  color: var(--blue);
+  font-size: 1rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
 </style>
 </head>
 <body class="lock">
@@ -1384,12 +1446,12 @@ footer .logo-text { color: #fff; }
       <div class="ticket-preview">
         <!-- Service Dispatch Connected to Formspree -->
         <form id="serviceDispatchForm" action="https://formspree.io/f/mnpneelk" method="POST">
-          <input type="hidden" name="Form_Category" value="Breakdown / AMC Service Ticket">
+          <input type="hidden" name="Form_Type" value="Breakdown / AMC Service Ticket">
           <input type="hidden" name="Generated_Ticket_ID" id="srvTicketField" value="">
 
           <div>
             <label>Contact Person & Phone *</label>
-            <input type="text" id="srvContact" name="Contact_Person_Phone" required placeholder="e.g. Harsh Rathi (+91 7056707055)">
+            <input type="text" id="srvContact" name="Customer_Contact" required placeholder="e.g. Harsh Rathi (+91 7056707055)">
           </div>
           <div style="margin-top:12px">
             <label>Building / Site Address *</label>
@@ -1598,9 +1660,26 @@ footer .logo-text { color: #fff; }
         </div>
       </div>
       <div class="box">
-        <!-- Main Contact Form Connected to Formspree -->
+        <!-- Main Contact Form: Full Configuration Details Automatically Bound and Sent to Gmail -->
         <form id="contactForm" action="https://formspree.io/f/mnpneelk" method="POST">
-          <input type="hidden" name="Form_Category" value="Customer Project Inquiry / Quote Request">
+          <input type="hidden" name="Form_Type" value="Full Project Estimate & Consultation Inquiry">
+          
+          <!-- Hidden Inputs for Full Lift Customization Specs -->
+          <input type="hidden" name="Configured_Lift_Model" id="cfgLiftModel" value="">
+          <input type="hidden" name="Configured_Floor_Stops" id="cfgFloorStops" value="">
+          <input type="hidden" name="Configured_Elevator_Quantity" id="cfgLiftQty" value="">
+          <input type="hidden" name="Configured_Cabin_Finish" id="cfgCabinFinish" value="">
+          <input type="hidden" name="Configured_Door_Style" id="cfgDoorStyle" value="">
+          <input type="hidden" name="Calculated_Total_Budget" id="cfgTotalCost" value="">
+
+          <!-- Attached Specs Indicator -->
+          <div class="attached-specs-pill">
+            <i class="fa-solid fa-sliders"></i>
+            <div>
+              <span>Attached Selected Specification:</span><br>
+              <b id="attachedSpecsText">LEO Home & Villa Lift • 4 Stops • 1 Unit • Est: ₹8,96,800</b>
+            </div>
+          </div>
 
           <!-- Name Field with Lite Animated Ghost Example -->
           <div class="auto-field-wrap">
@@ -1626,11 +1705,11 @@ footer .logo-text { color: #fff; }
           <!-- Message Field with Lite Animated Ghost Example -->
           <div class="auto-field-wrap">
             <label style="font-size:.74rem;font-weight:800;color:var(--navy2);display:block;margin-bottom:6px">Site Requirements / Message</label>
-            <textarea rows="3" id="custMsgInput" name="Project_Requirements"></textarea>
+            <textarea rows="3" id="custMsgInput" name="Site_Requirements_Message"></textarea>
             <div class="lite-typewriter-ghost" id="ghostMsg" style="top:44px"><span></span><span class="lite-cursor"></span></div>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:20px"><i class="fa-solid fa-paper-plane"></i> Send Inquiry</button>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:20px"><i class="fa-solid fa-paper-plane"></i> Send Inquiry with Lift Specs</button>
         </form>
       </div>
     </div>
@@ -1687,13 +1766,43 @@ footer .logo-text { color: #fff; }
 
 <div id="toast"></div>
 
-<!-- Quote Modal -->
+<!-- Interactive Modal with Full Specs Delivery to Formspree -->
 <div id="modal">
   <div class="mbox">
-    <div class="ok"><i class="fa-solid fa-check"></i></div>
-    <h3>Quote Saved</h3>
-    <p>Your custom elevator configuration has been registered. An engineer will share technical drawings and civil hoistway dimensions directly to your contact number.</p>
-    <button class="btn btn-primary" id="closeModal" style="width:100%">Close</button>
+    <button class="modal-close-btn" id="closeModal">&times;</button>
+    <h3>Get Official Quote Sheet</h3>
+    <p class="modal-sub">We will send full AutoCAD hoistway drawings and itemized estimates for your customized project:</p>
+
+    <div class="modal-spec-card">
+      <div><span>Elevator Model:</span><b id="mSpecModel">LEO Home & Villa Lift</b></div>
+      <div><span>Floors / Stops:</span><b id="mSpecFloors">4 Stops</b></div>
+      <div><span>Elevator Quantity:</span><b id="mSpecQty">1 Unit</b></div>
+      <div><span>Cabin Finish:</span><b id="mSpecFinish">Royal Blue & Silver</b></div>
+      <div><span>Door Automation:</span><b id="mSpecDoor">Automatic Centre Opening</b></div>
+      <div style="border-top:1px dashed #cbd5e1;padding-top:6px;margin-top:2px">
+        <span>Net Estimate (incl. 18% GST):</span><b id="mSpecTotal" style="color:var(--blue);font-size:0.95rem">₹8,96,800</b>
+      </div>
+    </div>
+
+    <form id="modalQuoteForm" action="https://formspree.io/f/mnpneelk" method="POST">
+      <input type="hidden" name="Form_Type" value="Instant Quote & Specification Request">
+      <input type="hidden" name="Configured_Lift_Model" id="mCfgLiftModel" value="">
+      <input type="hidden" name="Configured_Floor_Stops" id="mCfgFloorStops" value="">
+      <input type="hidden" name="Configured_Elevator_Quantity" id="mCfgLiftQty" value="">
+      <input type="hidden" name="Configured_Cabin_Finish" id="mCfgCabinFinish" value="">
+      <input type="hidden" name="Configured_Door_Style" id="mCfgDoorStyle" value="">
+      <input type="hidden" name="Calculated_Total_Budget" id="mCfgTotalCost" value="">
+
+      <div>
+        <label style="font-size:0.74rem;font-weight:700;display:block;margin-bottom:4px;color:var(--navy2)">Your Name *</label>
+        <input type="text" name="Customer_Name" required placeholder="e.g. Harsh Rathi" style="padding:0.75rem 0.9rem">
+      </div>
+      <div style="margin-top:10px">
+        <label style="font-size:0.74rem;font-weight:700;display:block;margin-bottom:4px;color:var(--navy2)">Phone Number *</label>
+        <input type="tel" name="Customer_Phone" required placeholder="e.g. +91 7056707055" style="padding:0.75rem 0.9rem">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px"><i class="fa-solid fa-paper-plane"></i> Send Complete Quote to LEO</button>
+    </form>
   </div>
 </div>
 
@@ -2191,6 +2300,7 @@ if (doorSelect) doorSelect.onchange = calculateBudget;
 function calculateBudget() {
   const stops = parseInt(floorsInput ? floorsInput.value : 4, 10);
   const doorCost = parseInt(doorSelect ? doorSelect.value : 0, 10);
+  const doorText = doorSelect ? doorSelect.options[doorSelect.selectedIndex].text : 'Standard';
   const basePrice = activeLift.base;
   const floorCost = (stops - 2) * 55000;
   const finishCost = activeFinish.addon;
@@ -2209,6 +2319,56 @@ function calculateBudget() {
   document.getElementById('pDoors').innerText = fmt((doorCost + finishCost) * activeQty);
   document.getElementById('pGst').innerText = fmt(gst);
   document.getElementById('pNet').innerText = fmt(netTotal);
+
+  // Auto-Update Hidden Inputs for Main Contact Form
+  const cfgLiftModel = document.getElementById('cfgLiftModel');
+  const cfgFloorStops = document.getElementById('cfgFloorStops');
+  const cfgLiftQty = document.getElementById('cfgLiftQty');
+  const cfgCabinFinish = document.getElementById('cfgCabinFinish');
+  const cfgDoorStyle = document.getElementById('cfgDoorStyle');
+  const cfgTotalCost = document.getElementById('cfgTotalCost');
+  const attachedSpecsText = document.getElementById('attachedSpecsText');
+
+  if (cfgLiftModel) cfgLiftModel.value = activeLift.name;
+  if (cfgFloorStops) cfgFloorStops.value = `${stops} Stops`;
+  if (cfgLiftQty) cfgLiftQty.value = `${activeQty} Unit(s)`;
+  if (cfgCabinFinish) cfgCabinFinish.value = activeFinish.name;
+  if (cfgDoorStyle) cfgDoorStyle.value = doorText;
+  if (cfgTotalCost) cfgTotalCost.value = fmt(netTotal);
+
+  if (attachedSpecsText) {
+    attachedSpecsText.innerHTML = `${activeLift.name} • ${stops} Stops • ${activeQty} Unit(s) • Est: <b>${fmt(netTotal)}</b>`;
+  }
+
+  // Auto-Update Values in Modal Form
+  const mCfgLiftModel = document.getElementById('mCfgLiftModel');
+  const mCfgFloorStops = document.getElementById('mCfgFloorStops');
+  const mCfgLiftQty = document.getElementById('mCfgLiftQty');
+  const mCfgCabinFinish = document.getElementById('mCfgCabinFinish');
+  const mCfgDoorStyle = document.getElementById('mCfgDoorStyle');
+  const mCfgTotalCost = document.getElementById('mCfgTotalCost');
+
+  if (mCfgLiftModel) mCfgLiftModel.value = activeLift.name;
+  if (mCfgFloorStops) mCfgFloorStops.value = `${stops} Stops`;
+  if (mCfgLiftQty) mCfgLiftQty.value = `${activeQty} Unit(s)`;
+  if (mCfgCabinFinish) mCfgCabinFinish.value = activeFinish.name;
+  if (mCfgDoorStyle) mCfgDoorStyle.value = doorText;
+  if (mCfgTotalCost) mCfgTotalCost.value = fmt(netTotal);
+
+  // Update Visible Modal Spec Card
+  const mSpecModel = document.getElementById('mSpecModel');
+  const mSpecFloors = document.getElementById('mSpecFloors');
+  const mSpecQty = document.getElementById('mSpecQty');
+  const mSpecFinish = document.getElementById('mSpecFinish');
+  const mSpecDoor = document.getElementById('mSpecDoor');
+  const mSpecTotal = document.getElementById('mSpecTotal');
+
+  if (mSpecModel) mSpecModel.innerText = activeLift.name;
+  if (mSpecFloors) mSpecFloors.innerText = `${stops} Stops`;
+  if (mSpecQty) mSpecQty.innerText = `${activeQty} Unit(s)`;
+  if (mSpecFinish) mSpecFinish.innerText = activeFinish.name;
+  if (mSpecDoor) mSpecDoor.innerText = doorText;
+  if (mSpecTotal) mSpecTotal.innerText = fmt(netTotal);
 }
 
 setupConfigurator();
@@ -2289,22 +2449,21 @@ autoTypers.forEach(item => {
   typeCycle();
 });
 
-// --- 6. Formspree Gmail Integration Engine ---
+// --- 6. Formspree Dispatcher Engine (Sends Full Project Specs to Gmail) ---
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.innerHTML = `<i class="fa-solid fa-circle-check" style="color:var(--ok)"></i> ${msg}`;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3500);
+  setTimeout(() => t.classList.remove('show'), 3800);
 }
 
-// Global AJAX Formspree Dispatcher
 async function sendToFormspreeGmail(formElement, successMsg) {
   const endpoint = 'https://formspree.io/f/mnpneelk';
   const submitBtn = formElement.querySelector('button[type="submit"]');
   const originalBtnContent = submitBtn.innerHTML;
 
   submitBtn.disabled = true;
-  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending to Gmail...';
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting to Gmail...';
 
   const formData = new FormData(formElement);
 
@@ -2318,8 +2477,11 @@ async function sendToFormspreeGmail(formElement, successMsg) {
     if (response.ok) {
       showToast(successMsg);
       formElement.reset();
+      calculateBudget(); // Refresh attached parameters
+      const modal = document.getElementById('modal');
+      if (modal && modal.classList.contains('show')) modal.classList.remove('show');
     } else {
-      showToast('Error sending message. Please call +91 7056707055');
+      showToast('Error submitting. Please call +91 7056707055');
     }
   } catch (err) {
     showToast('Network error. Please call our engineers directly.');
@@ -2337,20 +2499,29 @@ if (serviceForm) {
     const ticketId = 'LEO-SRV-' + Math.floor(1000 + Math.random() * 9000);
     const ticketField = document.getElementById('srvTicketField');
     if (ticketField) ticketField.value = ticketId;
-    sendToFormspreeGmail(serviceForm, `Service Ticket #${ticketId} created! Details sent to Gmail.`);
+    sendToFormspreeGmail(serviceForm, `Service Ticket #${ticketId} submitted! Details sent to Gmail.`);
   };
 }
 
-// 2. Main Customer Contact Form
+// 2. Main Contact Form (Includes Full Lift & Budget Parameters)
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.onsubmit = (e) => {
     e.preventDefault();
-    sendToFormspreeGmail(contactForm, 'Inquiry sent! Harsh Rathi / LEO engineering team will call you shortly.');
+    sendToFormspreeGmail(contactForm, 'Inquiry & Lift Specifications sent! Harsh Rathi / LEO team will contact you shortly.');
   };
 }
 
-// Quote Modal
+// 3. Modal Quote Form (Direct from Configurator)
+const modalQuoteForm = document.getElementById('modalQuoteForm');
+if (modalQuoteForm) {
+  modalQuoteForm.onsubmit = (e) => {
+    e.preventDefault();
+    sendToFormspreeGmail(modalQuoteForm, 'Custom elevator specifications sent to your engineer!');
+  };
+}
+
+// Modal open/close controls
 const modal = document.getElementById('modal');
 const openQuoteModal = document.getElementById('openQuoteModal');
 const closeModal = document.getElementById('closeModal');
