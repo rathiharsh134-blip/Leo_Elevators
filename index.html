@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LEO Elevators - premium home, passenger, panoramic, hospital, freight and car lifts for India.">
+<title>LEO Elevators | Premium Lifts & Elevators in India</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root{
+  --navy:#06173a; --navy2:#0a2a63; --blue:#1556d6; --blue2:#2f7bff; --sky:#6db6ff; --ice:#eef5ff; --ice2:#dbe9ff;
+  --white:#ffffff; --ink:#0b1b3a; --muted:#5b6b8c; --line:#d6e3fb; --ok:#12a37f;
+  --shadow:0 20px 50px -20px rgba(21,86,214,.35);
+  --serif:'Playfair Display',Georgia,serif; --sans:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;letter-spacing:-.01em}
+.container{max-width:1200px;margin:0 auto;padding:0 22px}
+.eyebrow{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);background:var(--ice);border:1px solid var(--line);padding:.45rem 1rem;border-radius:99px}
+.grad-text{background:linear-gradient(90deg,var(--blue),var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent}
+.em{font-style:italic;font-weight:500}
+.sec{padding:96px 0}
+.sec.alt{background:var(--ice)}
+.head{text-align:center;max-width:720px;margin:0 auto 54px}
+.head h2{font-size:clamp(2rem,4.2vw,3rem);margin:18px 0 12px}
+.head p{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.95rem 1.7rem;border-radius:14px;font-weight:700;font-size:.9rem;transition:.25s}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;box-shadow:var(--shadow)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 26px 50px -18px rgba(21,86,214,.6)}
+.btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--navy2)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn-light{background:#fff;color:var(--navy2)}
+.btn-light:hover{transform:translateY(-3px)}
+
+/* progress bar */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--blue),var(--sky));z-index:120;transition:width .1s}
+
+/* ===== SPLASH ===== */
+#splash{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center}
+.sp-door{position:absolute;top:0;bottom:0;width:50%;background:linear-gradient(160deg,#0a2a63,#06173a 70%);transition:transform 1.2s cubic-bezier(.77,0,.18,1);overflow:hidden}
+.sp-door::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 38px,rgba(109,182,255,.06) 38px 39px)}
+.sp-l{left:0;border-right:2px solid rgba(109,182,255,.5)} .sp-r{right:0;border-left:2px solid rgba(109,182,255,.5)}
+#splash.open .sp-l{transform:translateX(-101%)} #splash.open .sp-r{transform:translateX(101%)}
+.sp-center{position:relative;z-index:3;text-align:center;color:#fff;transition:opacity .5s,transform .8s}
+#splash.open .sp-center{opacity:0;transform:scale(1.15)}
+.sp-mark{width:78px;height:78px;margin:0 auto 22px;border-radius:22px;background:linear-gradient(135deg,var(--blue),var(--sky));display:grid;place-items:center;font-size:2rem;box-shadow:0 0 60px rgba(47,123,255,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{transform:scale(1.08);box-shadow:0 0 90px rgba(109,182,255,.9)}}
+.sp-title{font-family:var(--serif);font-size:clamp(2.8rem,9vw,5.4rem);font-weight:700;letter-spacing:.14em;display:flex;justify-content:center}
+.sp-title span{display:inline-block;opacity:0;transform:translateY(40px) rotateX(70deg);animation:letter .8s forwards cubic-bezier(.2,.8,.2,1)}
+@keyframes letter{to{opacity:1;transform:none}}
+.sp-sub{font-size:.8rem;letter-spacing:.55em;text-transform:uppercase;color:var(--sky);margin-top:6px;opacity:0;animation:fadeUp 1s .9s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.sp-floor{margin:34px auto 0;width:min(320px,70vw)}
+.sp-bar{height:4px;background:rgba(255,255,255,.15);border-radius:9px;overflow:hidden}
+.sp-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue2),var(--sky),#fff);box-shadow:0 0 14px var(--sky)}
+.sp-row{display:flex;justify-content:space-between;font-size:.72rem;letter-spacing:.2em;color:var(--sky);margin-top:10px;font-weight:700}
+.sp-skip{position:absolute;z-index:4;bottom:30px;right:30px;color:#fff;border:1px solid rgba(255,255,255,.35);padding:.55rem 1.2rem;border-radius:99px;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;transition:.2s}
+.sp-skip:hover{background:#fff;color:var(--navy)}
+
+/* ===== NAV ===== */
+header{position:sticky;top:0;z-index:100;padding:12px 0;background:rgba(255,255,255,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--blue),var(--sky));display:grid;place-items:center;color:#fff;box-shadow:var(--shadow)}
+.logo-text{font-family:var(--serif);font-weight:800;font-size:1.45rem;letter-spacing:.08em;color:var(--navy)}
+.logo-text small{display:block;font-family:var(--sans);font-size:.55rem;font-weight:700;letter-spacing:.45em;color:var(--blue);margin-top:-4px}
+.links{display:none;gap:4px;align-items:center}
+.links a{font-size:.84rem;font-weight:600;color:var(--muted);padding:.5rem .85rem;border-radius:99px;transition:.2s}
+.links a:hover{color:var(--blue);background:var(--ice)}
+.links a.active{color:#fff;background:var(--blue)}
+.nav-cta{display:none}
+.burger{width:44px;height:44px;border-radius:12px;background:var(--ice);color:var(--blue);font-size:1.2rem}
+#mmenu{display:none;padding:14px 0 6px}
+#mmenu.show{display:grid;gap:4px}
+#mmenu a{padding:.8rem 1rem;border-radius:12px;font-weight:600;color:var(--ink)}
+#mmenu a.active{background:var(--ice);color:var(--blue)}
+@media(min-width:1040px){.links{display:flex}.nav-cta{display:inline-flex}.burger{display:none}#mmenu{display:none!important}}
+
+/* ===== PAGES ===== */
+.page{display:none}
+.page.active{display:block;animation:pageIn .7s cubic-bezier(.2,.8,.2,1)}
+@keyframes pageIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(42px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.reveal[data-a=left]{transform:translateX(-60px)} .reveal[data-a=right]{transform:translateX(60px)} .reveal[data-a=zoom]{transform:scale(.9)}
+.reveal.in{opacity:1;transform:none}
+
+.page-hero{position:relative;background:linear-gradient(135deg,var(--navy),var(--navy2) 60%,var(--blue));color:#fff;padding:90px 0 80px;overflow:hidden}
+.page-hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 60px,rgba(255,255,255,.04) 60px 61px)}
+.page-hero .container{position:relative}
+.page-hero h1{font-size:clamp(2.3rem,5.5vw,4rem);margin:16px 0 12px}
+.page-hero p{max-width:620px;color:#c9dcff}
+.page-hero .eyebrow{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:#cfe3ff}
+.crumb{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);font-weight:700}
+
+/* ===== HOME HERO ===== */
+.hero{position:relative;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 55%,#0f47b8 100%);color:#fff;overflow:hidden;padding:80px 0 100px}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 70px,rgba(255,255,255,.035) 70px 71px),repeating-linear-gradient(0deg,transparent 0 70px,rgba(255,255,255,.035) 70px 71px)}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:drift 12s ease-in-out infinite}
+.orb.o1{width:420px;height:420px;background:#2f7bff;top:-100px;left:-80px}
+.orb.o2{width:360px;height:360px;background:#6db6ff;bottom:-120px;right:10%;animation-delay:-5s}
+@keyframes drift{50%{transform:translate(40px,30px)}}
+.hero-grid{position:relative;display:grid;gap:50px;align-items:center}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.15fr .85fr}}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);margin:22px 0 20px;font-weight:700}
+.hero p.lead{color:#c9dcff;font-size:1.08rem;max-width:560px}
+.hero .eyebrow{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:#cfe3ff}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin:34px 0}
+.trust{display:flex;flex-wrap:wrap;gap:22px;font-size:.82rem;color:#bcd3ff;border-top:1px solid rgba(255,255,255,.15);padding-top:22px}
+.trust i{color:var(--sky);margin-right:8px}
+.shaft-wrap{position:relative;max-width:360px;margin:0 auto;width:100%}
+.shaft{position:relative;height:470px;border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.25);overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.shaft::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(255,255,255,.25);transform:translateX(-50%)}
+.tick{position:absolute;left:14px;right:14px;border-top:1px dashed rgba(255,255,255,.2);font-size:.62rem;color:#9fc3ff;letter-spacing:.1em}
+.mini-cab{position:absolute;left:50%;width:128px;height:112px;margin-left:-64px;border-radius:16px;background:linear-gradient(180deg,#fff,#dbe9ff);border:3px solid var(--sky);box-shadow:0 0 50px rgba(109,182,255,.8);animation:ride 9s ease-in-out infinite;overflow:hidden;display:flex}
+@keyframes ride{0%,8%{bottom:22px}44%,56%{bottom:340px}92%,100%{bottom:22px}}
+.mini-cab i{position:absolute;inset:0;display:grid;place-items:center;color:var(--blue);font-size:1.6rem}
+.mini-cab b{position:relative;z-index:2;flex:1;background:linear-gradient(180deg,#2f7bff,#0a2a63)}
+.mini-cab b:first-of-type{animation:dl 9s ease-in-out infinite}
+.mini-cab b:last-of-type{animation:dr 9s ease-in-out infinite}
+@keyframes dl{0%,8%{transform:translateX(-95%)}14%,41%{transform:none}47%,53%{transform:translateX(-95%)}59%,86%{transform:none}92%,100%{transform:translateX(-95%)}}
+@keyframes dr{0%,8%{transform:translateX(95%)}14%,41%{transform:none}47%,53%{transform:translateX(95%)}59%,86%{transform:none}92%,100%{transform:translateX(95%)}}
+.chip{position:absolute;background:#fff;color:var(--ink);padding:.7rem 1rem;border-radius:16px;box-shadow:var(--shadow);font-size:.78rem;font-weight:700;display:flex;align-items:center;gap:.6rem;animation:float 6s ease-in-out infinite}
+.chip i{color:var(--blue)}
+.chip.c1{top:50px;left:-30px} .chip.c2{bottom:70px;right:-24px;animation-delay:-3s}
+@keyframes float{50%{transform:translateY(-12px)}}
+@media(max-width:600px){.chip.c1{left:-6px}.chip.c2{right:-6px}}
+
+/* marquee */
+.marquee{background:var(--blue);color:#fff;overflow:hidden;white-space:nowrap;padding:16px 0}
+.marquee-track{display:inline-flex;gap:46px;animation:scrollx 38s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{font-family:var(--serif);font-size:1.15rem;font-style:italic;display:inline-flex;align-items:center;gap:46px}
+.marquee span::after{content:"✦";font-style:normal;color:var(--sky);font-size:.8rem}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:-56px;position:relative;z-index:5}
+@media(min-width:800px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px 16px;text-align:center;box-shadow:var(--shadow)}
+.stat b{display:block;font-family:var(--serif);font-size:2.4rem;color:var(--blue)}
+.stat span{font-size:.82rem;color:var(--muted);font-weight:600}
+
+/* ===== LIFT CARDS ===== */
+.lift-scroller{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:34px 0 40px;scrollbar-width:none;perspective:1200px;cursor:grab}
+.lift-scroller::-webkit-scrollbar{display:none}
+.lift-scroller.dragging{cursor:grabbing;scroll-snap-type:none}
+.lift-card{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 14px 40px -22px rgba(21,86,214,.4);position:relative;text-align:left;cursor:pointer;transition:border-color .3s,box-shadow .3s}
+.lift-scroller .lift-card{flex:0 0 310px;scroll-snap-align:center;opacity:0;transform:translateY(60px) scale(.9);transition:transform .25s ease-out,opacity .25s ease-out,border-color .3s,box-shadow .3s;will-change:transform}
+.lift-scroller.ready .lift-card{opacity:1}
+.lift-card:hover,.lift-card:focus-visible{border-color:var(--blue);box-shadow:0 26px 60px -22px rgba(21,86,214,.65);outline:none}
+.lift-card.selected{border-color:var(--ok);box-shadow:0 0 0 3px var(--ok)}
+.photo{height:210px;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--ice2),var(--ice))}
+.photo img{position:absolute;inset:-10% -8%;width:116%;height:120%;object-fit:cover;transition:transform .6s;will-change:transform}
+.lift-card:hover .photo img{scale:1.07}
+.photo .fb{position:absolute;inset:0;display:none;place-items:center;font-size:4rem;color:var(--blue);opacity:.45}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(6,23,58,.55))}
+.tag{position:absolute;top:14px;left:14px;z-index:2;color:#fff;background:var(--blue);font-size:.64rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:.35rem .8rem;border-radius:99px}
+.tick-ok{position:absolute;top:12px;right:12px;z-index:2;width:32px;height:32px;border-radius:50%;background:var(--ok);color:#fff;display:none;place-items:center;font-size:.8rem}
+.lift-card.selected .tick-ok{display:grid}
+.lc-body{padding:22px}
+.lc-body h3{font-size:1.28rem;margin-bottom:8px;color:var(--navy)}
+.lc-body h3 i{color:var(--blue);margin-right:8px;font-size:1rem}
+.lc-body p{font-size:.82rem;color:var(--muted);min-height:56px}
+.spec{border-top:1px solid var(--line);margin-top:14px;padding-top:12px;display:grid;gap:6px;font-size:.78rem}
+.spec div{display:flex;justify-content:space-between;gap:12px}
+.spec span{color:var(--muted)} .spec b{text-align:right;font-weight:700;color:var(--navy2)}
+.spec b.price{color:var(--blue)}
+.pick{margin-top:16px;text-align:center;background:var(--ice);color:var(--blue);font-weight:700;font-size:.8rem;padding:.75rem;border-radius:12px;transition:.2s}
+.lift-card:hover .pick{background:var(--blue);color:#fff}
+.car-nav{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:8px}
+.car-nav button{width:48px;height:48px;border-radius:50%;background:#fff;border:1.5px solid var(--line);color:var(--blue);transition:.2s}
+.car-nav button:hover{background:var(--blue);color:#fff}
+.prog{flex:0 1 240px;height:4px;background:var(--line);border-radius:9px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--sky))}
+.lift-grid{display:grid;gap:26px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+
+/* generic cards */
+.cards{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px;transition:.3s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-8px);border-color:var(--blue);box-shadow:var(--shadow)}
+.ico{width:58px;height:58px;border-radius:18px;background:linear-gradient(135deg,var(--ice2),var(--ice));display:grid;place-items:center;color:var(--blue);font-size:1.4rem;margin-bottom:20px;transition:.3s}
+.card:hover .ico{background:var(--blue);color:#fff;transform:rotate(-8deg) scale(1.08)}
+.card h3{font-size:1.28rem;margin-bottom:10px;color:var(--navy)}
+.card p{font-size:.88rem;color:var(--muted)}
+.cta-band{background:linear-gradient(135deg,var(--blue),var(--navy2));color:#fff;border-radius:34px;padding:60px 30px;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:"";position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(109,182,255,.25);filter:blur(60px);top:-150px;right:-100px}
+.cta-band h2{font-size:clamp(1.9rem,4vw,2.8rem);position:relative}
+.cta-band p{color:#cfe0ff;max-width:560px;margin:14px auto 28px;position:relative}
+.cta-band .btn{position:relative}
+
+/* ===== LEARN ===== */
+.tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:30px}
+.tab{padding:.7rem 1.3rem;border-radius:99px;background:#fff;border:1.5px solid var(--line);font-weight:700;font-size:.84rem;color:var(--muted);transition:.2s}
+.tab.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.tabpane{display:none;grid-template-columns:1fr;gap:30px;background:#fff;border:1px solid var(--line);border-radius:28px;padding:34px;align-items:center}
+.tabpane.on{display:grid;animation:pageIn .5s}
+@media(min-width:860px){.tabpane{grid-template-columns:1.2fr .8fr}}
+.tabpane h3{font-size:1.7rem;margin-bottom:12px;color:var(--navy)}
+.tabpane ul{list-style:none;margin-top:16px;display:grid;gap:8px;font-size:.88rem}
+.tabpane li::before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;color:var(--ok);margin-right:10px}
+.tabpane .big{height:210px;border-radius:22px;background:linear-gradient(135deg,var(--ice2),var(--ice));display:grid;place-items:center;font-size:5rem;color:var(--blue)}
+.timeline{position:relative;max-width:760px;margin:0 auto;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--blue),var(--sky))}
+.tl{position:relative;margin-bottom:34px}
+.tl::before{content:"";position:absolute;left:-34px;top:6px;width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--blue)}
+.tl b{font-family:var(--serif);font-size:1.5rem;color:var(--blue)}
+.tl h4{font-size:1.1rem;margin:2px 0 4px;color:var(--navy)}
+.tl p{font-size:.88rem;color:var(--muted)}
+.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:22px}
+table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:560px}
+th{background:var(--navy2);color:#fff;text-align:left;padding:15px 18px;font-weight:700;letter-spacing:.04em;font-size:.78rem;text-transform:uppercase}
+td{padding:14px 18px;border-top:1px solid var(--line)}
+tr:hover td{background:var(--ice)}
+details{background:#fff;border:1px solid var(--line);border-radius:18px;padding:0 24px;margin-bottom:14px;transition:.2s}
+details[open]{border-color:var(--blue);box-shadow:var(--shadow)}
+summary{list-style:none;cursor:pointer;padding:20px 0;font-weight:700;display:flex;justify-content:space-between;gap:16px;color:var(--navy)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.5rem;color:var(--blue);line-height:1;transition:.3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding-bottom:20px;color:var(--muted);font-size:.9rem}
+.narrow{max-width:820px;margin:0 auto}
+
+/* ===== SIMULATOR ===== */
+.sim{display:grid;gap:26px;background:#fff;border:1px solid var(--line);border-radius:30px;padding:26px;box-shadow:var(--shadow)}
+@media(min-width:900px){.sim{grid-template-columns:1.3fr .8fr;padding:34px}}
+.sim-shaft{background:linear-gradient(180deg,var(--ice),#fff);border:1px solid var(--line);border-radius:22px;padding:18px;min-height:470px;display:flex;flex-direction:column;position:relative}
+.sim-top,.sim-bot{display:flex;justify-content:space-between;font-size:.7rem;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.sim-top{border-bottom:1px solid var(--line);padding-bottom:10px}
+.sim-bot{border-top:1px solid var(--line);padding-top:10px}
+.sim-top b{color:var(--blue)}
+#shaftTrack{position:relative;flex:1;margin:14px 0}
+.fl{position:absolute;left:0;right:0;border-bottom:1px dashed #b8cdf3;font-size:.7rem;color:#7d93bd;font-weight:600;display:flex;justify-content:space-between;padding-bottom:2px}
+#cab{position:absolute;left:50%;width:170px;height:78px;margin-left:-85px;bottom:0;border-radius:14px;border:3px solid var(--blue);background:#fff;box-shadow:0 12px 30px -8px rgba(21,86,214,.55);overflow:hidden;transition-property:bottom;transition-timing-function:ease-in-out;transition-duration:0s}
+#doorBox{position:relative;width:100%;height:100%;display:flex;overflow:hidden;background:var(--ice2)}
+#doorBox .in{position:absolute;inset:0;display:grid;place-items:center;font-size:.7rem;font-weight:800;letter-spacing:.14em;color:var(--blue)}
+.dl,.dr{position:relative;z-index:2;width:50%;transition:transform .8s cubic-bezier(.77,0,.18,1);background:linear-gradient(180deg,#2f7bff,#0a2a63)}
+.dl{border-right:1px solid var(--sky)} .dr{border-left:1px solid var(--sky)}
+#doorBox.open .dl{transform:translateX(-92%)} #doorBox.open .dr{transform:translateX(92%)}
+.panel{background:var(--navy);border-radius:22px;padding:22px;color:#fff;display:flex;flex-direction:column;gap:20px}
+.lcd{background:#02102b;border:2px solid #17407f;border-radius:16px;padding:14px;text-align:center}
+.lcd-top{display:flex;justify-content:space-between;font-size:.62rem;letter-spacing:.14em;color:#7ba5ee;border-bottom:1px solid #17407f;padding-bottom:8px}
+.lcd-top button{color:var(--sky);font-size:.62rem;letter-spacing:.14em}
+.lcd-mid{display:flex;justify-content:center;align-items:center;gap:16px;padding-top:8px}
+#dirArrow{font-size:2rem;color:#2a4a85}
+#floorDisp{font-family:'Courier New',monospace;font-size:3.6rem;font-weight:900;color:var(--sky);text-shadow:0 0 18px rgba(109,182,255,.8)}
+#statusMsg{font-family:'Courier New',monospace;font-size:.7rem;color:#6ce0b9;margin-top:4px}
+.cop{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cop button{height:58px;border-radius:14px;background:#0d2a5c;border:1.5px solid #1f4a95;color:#fff;font-weight:800;font-size:1.1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:.2s}
+.cop button small{font-size:.54rem;font-weight:500;color:#8fb2ee}
+.cop button:hover{background:#15408a}
+.cop button.on{border-color:var(--sky);color:var(--sky);box-shadow:0 0 16px rgba(109,182,255,.5)}
+.ctl{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ctl button{padding:.7rem;border-radius:12px;background:#0d2a5c;border:1px solid #1f4a95;font-size:.78rem;font-weight:700;color:#cfe0ff}
+.ctl button.stop{background:#5b1224;border-color:#a8274a;color:#ffc2d0}
+.ctl button:hover{filter:brightness(1.25)}
+
+/* ===== CUSTOMIZER ===== */
+.cfg{display:grid;gap:30px;align-items:start}
+@media(min-width:960px){.cfg{grid-template-columns:1fr 1fr}}
+.box{background:#fff;border:1px solid var(--line);border-radius:28px;padding:30px;box-shadow:0 14px 40px -26px rgba(21,86,214,.5)}
+.lbl{font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--navy2);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.lbl em{font-style:normal;color:var(--blue);font-size:1rem;letter-spacing:0}
+.opt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:26px}
+.opt{border:1.5px solid var(--line);border-radius:14px;padding:12px;text-align:left;background:#fff;transition:.2s;font-size:.8rem;font-weight:700}
+.opt small{display:block;font-weight:500;color:var(--muted);font-size:.68rem;margin-top:2px}
+.opt i{color:var(--blue);margin-right:6px}
+.opt:hover{border-color:var(--sky)}
+.opt.on{border-color:var(--blue);background:var(--ice);box-shadow:0 0 0 2px rgba(47,123,255,.2)}
+input[type=range]{width:100%;accent-color:var(--blue);height:6px;margin-bottom:6px}
+.scale{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted);margin-bottom:26px}
+select,input,textarea{width:100%;font-family:inherit;font-size:.9rem;padding:.9rem 1rem;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);outline:none;transition:.2s}
+select:focus,input:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(47,123,255,.12)}
+/* cabin interior */
+.cabin{--back:#e9f1ff;--side:#cfe0ff;--ceil:#fff;--floor:#b9cdf2;--acc:#1556d6;position:relative;height:300px;border-radius:20px;overflow:hidden;background:var(--back);transition:.5s;border:4px solid #fff;box-shadow:0 0 0 1.5px var(--line)}
+.cabin>div{position:absolute;transition:background .5s}
+.c-back{left:18%;right:18%;top:22%;bottom:22%;background:linear-gradient(90deg,transparent 49.6%,rgba(255,255,255,.7) 50%,transparent 50.4%),var(--back)}
+.c-ceil{top:0;left:0;right:0;height:22%;background:var(--ceil);clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)}
+.c-led{top:5%;left:30%;right:30%;height:8%;border-radius:99px;background:#fff;box-shadow:0 0 28px 8px rgba(255,255,255,.9);z-index:2}
+.c-left{left:0;top:0;bottom:0;width:18%;background:var(--side);clip-path:polygon(0 0,100% 22%,100% 78%,0 100%)}
+.c-right{right:0;top:0;bottom:0;width:18%;background:var(--side);filter:brightness(.93);clip-path:polygon(0 22%,100% 0,100% 100%,0 78%)}
+.c-floor{bottom:0;left:0;right:0;height:22%;background:linear-gradient(180deg,var(--floor),#fff 140%);clip-path:polygon(18% 0,82% 0,100% 100%,0 100%)}
+.c-rail{left:22%;right:22%;top:55%;height:6px;border-radius:9px;background:linear-gradient(#fff,#9fb3d6);box-shadow:0 4px 8px rgba(0,0,0,.15);z-index:2}
+.c-acc{left:18%;right:18%;top:22%;height:4px;background:var(--acc);z-index:2}
+.c-panel{right:21%;top:34%;width:26px;height:52px;border-radius:7px;background:var(--acc);z-index:3;display:grid;place-items:center;color:#fff;font-size:.55rem;font-weight:800}
+.c-name{left:0;right:0;top:30%;text-align:center;font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--acc);opacity:.85;z-index:2}
+.cabin.royal{--back:#e6efff;--side:#2f7bff;--ceil:#fff;--floor:#9db9f2;--acc:#1556d6}
+.cabin.marble{--back:#fff;--side:#eef3fb;--ceil:#fff;--floor:#d4def0;--acc:#4a7bd9}
+.cabin.sky{--back:#bfe0ff;--side:#8ec7ff;--ceil:#f2f9ff;--floor:#a9d3ff;--acc:#0e6fe0}
+.cabin.navy{--back:#1a3a78;--side:#0a2a63;--ceil:#dbe9ff;--floor:#6d86b8;--acc:#cfe0ff}
+.cabin.navy .c-name{color:#cfe0ff}
+.badge{font-size:.7rem;font-weight:800;letter-spacing:.14em;color:var(--blue)}
+.price-box{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:28px;padding:30px;margin-top:24px;position:relative;overflow:hidden}
+.price-box h4{font-family:var(--sans);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sky)}
+#total{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:800;margin:6px 0 4px}
+.price-note{font-size:.76rem;color:#a9c4f5}
+.rows{margin:22px 0;display:grid;gap:9px;font-size:.84rem}
+.rows div{display:flex;justify-content:space-between;border-bottom:1px dashed rgba(255,255,255,.15);padding-bottom:8px;color:#cfe0ff}
+.rows div b{color:#fff}
+.rows .tot{border:0;font-size:.95rem}
+.pb-btn{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+@media(max-width:520px){.pb-btn{grid-template-columns:1fr}}
+.amc{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.plan{background:#fff;border:1.5px solid var(--line);border-radius:26px;padding:32px;text-align:center;transition:.3s}
+.plan:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.plan.best{background:linear-gradient(160deg,var(--navy),var(--blue));color:#fff;border-color:transparent}
+.plan h3{font-size:1.4rem}
+.plan .pr{font-family:var(--serif);font-size:2.3rem;font-weight:800;margin:12px 0 2px;color:var(--blue)}
+.plan.best .pr{color:#fff}
+.plan small{color:var(--muted)} .plan.best small{color:#bcd3ff}
+.plan ul{list-style:none;margin:20px 0;display:grid;gap:9px;font-size:.85rem;text-align:left}
+.plan li::before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;color:var(--ok);margin-right:10px}
+.plan.best li::before{color:var(--sky)}
+
+/* contact */
+.contact{display:grid;gap:40px}
+@media(min-width:960px){.contact{grid-template-columns:.9fr 1.1fr}}
+.cinfo{display:flex;gap:16px;margin-bottom:24px}
+.cinfo .ico{margin:0;flex-shrink:0;width:50px;height:50px;font-size:1.1rem}
+.cinfo b{display:block;color:var(--navy)} .cinfo span{font-size:.86rem;color:var(--muted)}
+.fgrid{display:grid;gap:16px}
+@media(min-width:620px){.fgrid.two{grid-template-columns:1fr 1fr}}
+.fgrid label{display:block;font-size:.76rem;font-weight:700;margin-bottom:6px;color:var(--navy2)}
+
+footer{background:var(--navy);color:#a9c1ee;padding:70px 0 30px}
+.fgrid4{display:grid;gap:36px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+footer h5{color:#fff;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px;font-family:var(--sans)}
+footer li{list-style:none;margin-bottom:9px;font-size:.86rem}
+footer a:hover{color:var(--sky)}
+footer .logo-text{color:#fff}
+.copy{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-top:24px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.78rem}
+
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;pointer-events:none;background:var(--navy);color:#fff;padding:.9rem 1.5rem;border-radius:16px;font-weight:700;font-size:.86rem;z-index:300;transition:.35s;box-shadow:var(--shadow)}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#modal{position:fixed;inset:0;background:rgba(6,23,58,.7);backdrop-filter:blur(8px);z-index:400;display:none;place-items:center;padding:20px}
+#modal.show{display:grid}
+.mbox{background:#fff;border-radius:30px;max-width:440px;width:100%;padding:40px 30px;text-align:center;animation:pageIn .4s}
+.mbox .ok{width:72px;height:72px;border-radius:50%;background:#e3f8f1;color:var(--ok);display:grid;place-items:center;font-size:2rem;margin:0 auto 18px}
+.mbox h3{font-size:1.7rem;margin-bottom:10px;color:var(--navy)}
+.mbox p{color:var(--muted);font-size:.9rem;margin-bottom:24px}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal,.lift-scroller .lift-card{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body class="lock">
+
+<div id="progress"></div>
+
+<!-- ===== SPLASH INTRO ===== -->
+<div id="splash" aria-label="Loading LEO Elevators">
+  <div class="sp-door sp-l"></div><div class="sp-door sp-r"></div>
+  <div class="sp-center">
+    <div class="sp-mark"><i class="fa-solid fa-elevator"></i></div>
+    <div class="sp-title" aria-label="LEO"><span style="animation-delay:.2s">L</span><span style="animation-delay:.4s">E</span><span style="animation-delay:.6s">O</span></div>
+    <div class="sp-sub">Elevators</div>
+    <div class="sp-floor">
+      <div class="sp-bar"><i id="spBar"></i></div>
+      <div class="sp-row"><span>FLOOR <b id="spFloor">G</b></span><span id="spPct">0%</span></div>
+    </div>
+  </div>
+  <button class="sp-skip" id="spSkip">Skip intro</button>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="container">
+    <div class="nav">
+      <a href="#/home" class="logo" aria-label="LEO Elevators home">
+        <span class="logo-mark"><i class="fa-solid fa-elevator"></i></span>
+        <span class="logo-text">LEO<small>ELEVATORS</small></span>
+      </a>
+      <nav class="links" id="navLinks" aria-label="Main">
+        <a href="#/home" data-p="home">Home</a>
+        <a href="#/lifts" data-p="lifts">Lift Types</a>
+        <a href="#/learn" data-p="learn">Learn</a>
+        <a href="#/simulator" data-p="simulator">Simulator</a>
+        <a href="#/safety" data-p="safety">Safety</a>
+        <a href="#/quote" data-p="quote">Get Quote</a>
+        <a href="#/about" data-p="about">About</a>
+        <a href="#/contact" data-p="contact">Contact</a>
+      </nav>
+      <a href="#/quote" class="btn btn-primary nav-cta"><i class="fa-solid fa-indian-rupee-sign"></i> Instant Quote</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div id="mmenu">
+      <a href="#/home" data-p="home">Home</a><a href="#/lifts" data-p="lifts">Lift Types</a><a href="#/learn" data-p="learn">Learn</a>
+      <a href="#/simulator" data-p="simulator">Simulator</a><a href="#/safety" data-p="safety">Safety</a><a href="#/quote" data-p="quote">Get Quote</a>
+      <a href="#/about" data-p="about">About</a><a href="#/contact" data-p="contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ========== PAGE: HOME ========== -->
+<section class="page" id="page-home">
+  <div class="hero">
+    <div class="orb o1"></div><div class="orb o2"></div>
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow reveal">India's Smart Mobility Partner</span>
+        <h1 class="reveal" style="--d:.1s">Rise in <span class="em grad-text">elegance,</span><br>move with precision.</h1>
+        <p class="lead reveal" style="--d:.2s">Silent, safe and beautifully designed lifts for homes, hospitals, offices and industries. From compact villa lifts to high-speed tower elevators, all engineered with AI-assisted care.</p>
+        <div class="hero-btns reveal" style="--d:.3s">
+          <a href="#/lifts" class="btn btn-light"><i class="fa-solid fa-elevator"></i> Choose Your Lift</a>
+          <a href="#/simulator" class="btn btn-ghost" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4)"><i class="fa-solid fa-play"></i> Try Simulator</a>
+        </div>
+        <div class="trust reveal" style="--d:.4s">
+          <span><i class="fa-solid fa-shield-halved"></i>ISO 9001 Certified</span>
+          <span><i class="fa-solid fa-bolt"></i>Energy-Saving Drive</span>
+          <span><i class="fa-solid fa-certificate"></i>Built to Indian Standards (IS 14665)</span>
+        </div>
+      </div>
+      <div class="shaft-wrap reveal" data-a="right" style="--d:.2s">
+        <div class="shaft" aria-hidden="true">
+          <div class="tick" style="top:12%">FL 5</div><div class="tick" style="top:32%">FL 4</div><div class="tick" style="top:52%">FL 3</div><div class="tick" style="top:72%">FL 2</div>
+          <div class="mini-cab"><i class="fa-solid fa-user-group"></i><b></b><b></b></div>
+        </div>
+        <div class="chip c1"><i class="fa-solid fa-gauge-high"></i> Up to 6 m/s</div>
+        <div class="chip c2"><i class="fa-solid fa-leaf"></i> 30% Energy Regenerated</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+  <div class="container">
+    <div class="stats">
+      <div class="stat reveal"><b data-count="5000" data-suffix="+">5,000+</b><span>Lifts Installed</span></div>
+      <div class="stat reveal" style="--d:.1s"><b data-count="99.98" data-dec="2" data-suffix="%">99.98%</b><span>Uptime</span></div>
+      <div class="stat reveal" style="--d:.2s"><b data-count="2" data-suffix=" hr">2 hr</b><span>Service Response</span></div>
+      <div class="stat reveal" style="--d:.3s"><b data-count="120" data-suffix="+">120+</b><span>Indian Cities Served</span></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="container">
+      <div class="head reveal">
+        <span class="eyebrow">Our Lifts</span>
+        <h2>Pick the lift that <span class="em grad-text">fits your space</span></h2>
+        <p>Swipe through every type we make. Tap a lift to select it and head straight to your instant quote.</p>
+      </div>
+      <div class="lift-scroller" id="homeScroller" role="listbox" aria-label="Lift types"></div>
+      <div class="car-nav">
+        <button id="cPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="prog"><i id="cProg"></i></div>
+        <button id="cNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec alt">
+    <div class="container">
+      <div class="head reveal">
+        <span class="eyebrow">Why LEO</span>
+        <h2>Engineering you can <span class="em grad-text">feel</span></h2>
+      </div>
+      <div class="cards">
+        <div class="card reveal"><div class="ico"><i class="fa-solid fa-volume-xmark"></i></div><h3>Whisper-Quiet Rides</h3><p>Gearless machines and vibration-damped guides keep noise below 50 dB inside the cabin.</p></div>
+        <div class="card reveal" style="--d:.1s"><div class="ico"><i class="fa-solid fa-leaf"></i></div><h3>Regenerative Drive</h3><p>Braking energy is fed back into the building supply, cutting running electricity costs.</p></div>
+        <div class="card reveal" style="--d:.2s"><div class="ico"><i class="fa-solid fa-headset"></i></div><h3>24x7 Service Network</h3><p>Remote monitoring and trained technicians across India, with annual maintenance plans.</p></div>
+        <div class="card reveal" style="--d:.3s"><div class="ico"><i class="fa-solid fa-palette"></i></div><h3>Design Freedom</h3><p>Blue-and-white cabins, glass walls, marble floors. Make the lift part of your interiors.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="container">
+      <div class="cta-band reveal" data-a="zoom">
+        <h2>Ready to <span class="em">elevate</span> your building?</h2>
+        <p>Configure your lift, see the price in rupees instantly, and talk to an engineer the same day.</p>
+        <a href="#/quote" class="btn btn-light"><i class="fa-solid fa-calculator"></i> Get Instant Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PAGE: LIFT TYPES ========== -->
+<section class="page" id="page-lifts">
+  <div class="page-hero"><div class="container">
+    <span class="crumb">Home / Lift Types</span>
+    <h1>Every kind of <span class="em">lift,</span> one trusted maker</h1>
+    <p>Nine lift families for homes, healthcare, hospitality, industry and accessibility. Click any lift to configure it.</p>
+  </div></div>
+  <div class="sec"><div class="container">
+    <div class="lift-grid" id="liftGrid"></div>
+  </div></div>
+  <div class="sec alt"><div class="container">
+    <div class="head reveal"><span class="eyebrow">Not sure?</span><h2>Which lift is <span class="em grad-text">right for you?</span></h2></div>
+    <div class="cards">
+      <div class="card reveal"><div class="ico"><i class="fa-solid fa-house"></i></div><h3>For your home</h3><p>Choose a Home/Villa lift for 2-4 floors, or a Glass Panoramic lift for a design statement.</p></div>
+      <div class="card reveal" style="--d:.1s"><div class="ico"><i class="fa-solid fa-city"></i></div><h3>For apartments & offices</h3><p>Passenger lifts handle daily traffic. Go High-Speed for towers above 15 floors.</p></div>
+      <div class="card reveal" style="--d:.2s"><div class="ico"><i class="fa-solid fa-hospital"></i></div><h3>For care & access</h3><p>Hospital bed lifts and wheelchair platform lifts make buildings barrier-free.</p></div>
+      <div class="card reveal" style="--d:.3s"><div class="ico"><i class="fa-solid fa-industry"></i></div><h3>For goods & vehicles</h3><p>Freight and car lifts carry heavy loads with reinforced platforms and steady leveling.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ========== PAGE: LEARN ========== -->
+<section class="page" id="page-learn">
+  <div class="page-hero"><div class="container">
+    <span class="crumb">Home / Learn</span>
+    <h1>How <span class="em">lifts & elevators</span> work</h1>
+    <p>A plain-English guide to elevator technology, history, sizing and the questions buyers ask most.</p>
+  </div></div>
+
+  <div class="sec"><div class="container">
+    <div class="head reveal"><span class="eyebrow">Technology</span><h2>Four ways an elevator <span class="em grad-text">moves</span></h2></div>
+    <div class="tabs" id="mechTabs">
+      <button class="tab on" data-t="0">Traction</button><button class="tab" data-t="1">Machine-Room-Less</button>
+      <button class="tab" data-t="2">Hydraulic</button><button class="tab" data-t="3">Pneumatic</button>
+    </div>
+    <div class="tabpane on reveal">
+      <div><h3>Traction (geared & gearless)</h3><p>Steel ropes or belts run over a motor-driven sheave. A counterweight balances the cabin, so the motor only lifts the difference. Gearless versions are quieter and faster, suited to mid and high-rise buildings.</p>
+      <ul><li>Best for 6+ floors and high speeds</li><li>Counterweight saves energy</li><li>Smooth, quiet ride</li></ul></div>
+      <div class="big"><i class="fa-solid fa-gears"></i></div>
+    </div>
+    <div class="tabpane">
+      <div><h3>Machine-Room-Less (MRL)</h3><p>A compact gearless motor sits inside the shaft, removing the separate machine room. This saves roughly a floor's worth of space and construction cost, a popular choice in Indian apartments and villas.</p>
+      <ul><li>No machine room needed</li><li>Lower construction cost</li><li>Efficient permanent-magnet motor</li></ul></div>
+      <div class="big"><i class="fa-solid fa-compress"></i></div>
+    </div>
+    <div class="tabpane">
+      <div><h3>Hydraulic</h3><p>A piston pushed by pressurised oil raises the cabin from below. Hydraulic lifts suit low-rise buildings and heavy loads, such as goods and car lifts, but travel slower and use more energy.</p>
+      <ul><li>Ideal up to about 5-6 floors</li><li>Handles very heavy loads</li><li>Simple, robust mechanism</li></ul></div>
+      <div class="big"><i class="fa-solid fa-oil-can"></i></div>
+    </div>
+    <div class="tabpane">
+      <div><h3>Pneumatic (vacuum)</h3><p>Air pressure difference moves a sealed cylindrical cabin up and down a tube. It needs no pit, ropes or machine room, making it a striking option for compact home installations.</p>
+      <ul><li>Very compact footprint</li><li>Stylish transparent cabin</li><li>Home use, small capacity</li></ul></div>
+      <div class="big"><i class="fa-solid fa-wind"></i></div>
+    </div>
+  </div></div>
+
+  <div class="sec alt"><div class="container">
+    <div class="head reveal"><span class="eyebrow">Sizing guide</span><h2>Persons, <span class="em grad-text">capacity</span> and use</h2><p>Typical capacities in line with Indian lift practice. Final sizes depend on your shaft and local code.</p></div>
+    <div class="table-wrap reveal"><table>
+      <thead><tr><th>Persons</th><th>Capacity (kg)</th><th>Typical use</th></tr></thead>
+      <tbody>
+        <tr><td>4</td><td>272</td><td>Small homes, platform lifts</td></tr>
+        <tr><td>6</td><td>408</td><td>Villas, small apartments</td></tr>
+        <tr><td>8</td><td>544</td><td>Apartments, small offices</td></tr>
+        <tr><td>10</td><td>680</td><td>Mid-size residential towers</td></tr>
+        <tr><td>13</td><td>884</td><td>Commercial buildings, hotels</td></tr>
+        <tr><td>16</td><td>1088</td><td>Malls, hospitals, large offices</td></tr>
+        <tr><td>20</td><td>1360</td><td>High traffic towers, bed lifts</td></tr>
+      </tbody>
+    </table></div>
+  </div></div>
+
+  <div class="sec"><div class="container">
+    <div class="head reveal"><span class="eyebrow">History</span><h2>A short story of <span class="em grad-text">going up</span></h2></div>
+    <div class="timeline">
+      <div class="tl reveal" data-a="left"><b>1854</b><h4>The safety brake</h4><p>Elisha Otis dramatically demonstrates his safety brake in New York, making lifts trusted for passengers.</p></div>
+      <div class="tl reveal" data-a="left"><b>1857</b><h4>First passenger elevator store</h4><p>The Haughwout department store in New York installs a commercial passenger elevator.</p></div>
+      <div class="tl reveal" data-a="left"><b>1903</b><h4>Gearless traction</h4><p>Gearless traction machines enable much taller buildings and smoother travel.</p></div>
+      <div class="tl reveal" data-a="left"><b>1970s</b><h4>Microprocessor control</h4><p>Electronic controls make dispatching smarter and rides more comfortable.</p></div>
+      <div class="tl reveal" data-a="left"><b>Today</b><h4>Smart & connected</h4><p>IoT monitoring, destination dispatch, regenerative drives and touchless calls define modern lifts.</p></div>
+    </div>
+  </div></div>
+
+  <div class="sec alt"><div class="container narrow">
+    <div class="head reveal"><span class="eyebrow">FAQ</span><h2>Questions we <span class="em grad-text">often hear</span></h2></div>
+    <details class="reveal"><summary>How much space does a home lift need?</summary><p>A compact 4-person home lift typically needs a shaft of about 1.2 m x 1.4 m. Exact dimensions depend on the model and door type, so we recommend a free site survey.</p></details>
+    <details class="reveal"><summary>How long does installation take?</summary><p>For a standard residential lift, installation commonly takes two to four weeks once the shaft is ready. Larger or custom lifts take longer.</p></details>
+    <details class="reveal"><summary>Does the lift work during a power cut?</summary><p>Yes, our Automatic Rescue Device (ARD) brings the cabin to the nearest floor and opens the doors safely. Optional backup power can keep it running.</p></details>
+    <details class="reveal"><summary>How often should a lift be serviced?</summary><p>We recommend a service visit at least every month under an Annual Maintenance Contract (AMC), plus a yearly safety inspection as required by your state's lift rules.</p></details>
+    <details class="reveal"><summary>Is GST charged on lifts?</summary><p>Yes, lifts are generally charged GST at 18%. Our instant quote shows the amount before and after GST.</p></details>
+    <details class="reveal"><summary>Can the cabin be customised?</summary><p>Absolutely. Choose from blue-and-white finishes, glass walls, marble floors, lighting and door styles in our customizer.</p></details>
+  </div></div>
+</section>
+
+<!-- ========== PAGE: SIMULATOR ========== -->
+<section class="page" id="page-simulator">
+  <div class="page-hero"><div class="container">
+    <span class="crumb">Home / Simulator</span>
+    <h1>Ride it <span class="em">live</span></h1>
+    <p>Press a floor button and watch the cabin, doors and display respond just like a real lift.</p>
+  </div></div>
+  <div class="sec"><div class="container">
+    <div class="sim reveal" data-a="zoom">
+      <div class="sim-shaft">
+        <div class="sim-top"><span><i class="fa-solid fa-circle" style="color:#12a37f;font-size:.5rem"></i> GEARLESS TRACTION MOTOR #01</span><b id="speedOut">0.0 m/s</b></div>
+        <div id="shaftTrack">
+          <div id="floorLines"></div>
+          <div id="cab"><div id="doorBox"><div class="in"><i class="fa-solid fa-user-group" style="margin-right:6px"></i>LEO</div><div class="dl"></div><div class="dr"></div></div></div>
+        </div>
+        <div class="sim-bot"><span>BUFFER: READY</span><span style="color:#12a37f"><i class="fa-solid fa-lock"></i> SAFETY GEAR ARMED</span></div>
+      </div>
+      <div class="panel">
+        <div class="lcd">
+          <div class="lcd-top"><span>COP DISPLAY</span><button id="soundBtn"><i class="fa-solid fa-volume-high"></i> CHIME ON</button></div>
+          <div class="lcd-mid"><span id="dirArrow">▲</span><span id="floorDisp" aria-live="polite">G</span></div>
+          <div id="statusMsg" aria-live="polite">STATIONARY AT GRAND LOBBY</div>
+        </div>
+        <div class="cop" id="cop"></div>
+        <div class="ctl">
+          <button id="bOpen"><i class="fa-solid fa-left-right"></i> Open</button>
+          <button id="bClose"><i class="fa-solid fa-compress"></i> Close</button>
+          <button id="bStop" class="stop"><i class="fa-solid fa-triangle-exclamation"></i> STOP</button>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ========== PAGE: SAFETY ========== -->
+<section class="page" id="page-safety">
+  <div class="page-hero"><div class="container">
+    <span class="crumb">Home / Safety</span>
+    <h1>Safety is <span class="em">built in,</span> never added on</h1>
+    <p>Layers of mechanical, electrical and digital protection, backed by scheduled maintenance.</p>
+  </div></div>
+  <div class="sec"><div class="container">
+    <div class="cards">
+      <div class="card reveal"><div class="ico"><i class="fa-solid fa-brake-warning"></i></div><h3>Overspeed Governor</h3><p>If the cabin ever exceeds its safe speed, the governor triggers the safety gear to grip the guide rails.</p></div>
+      <div class="card reveal" style="--d:.1s"><div class="ico"><i class="fa-solid fa-life-ring"></i></div><h3>Automatic Rescue Device</h3><p>During power failure the lift travels to the nearest floor and opens its doors automatically.</p></div>
+      <div class="card reveal" style="--d:.2s"><div class="ico"><i class="fa-solid fa-hand"></i></div><h3>Door Sensors</h3><p>Light curtains detect passengers and objects, reversing the doors before contact.</p></div>
+      <div class="card reveal" style="--d:.3s"><div class="ico"><i class="fa-solid fa-weight-hanging"></i></div><h3>Overload Protection</h3><p>Load sensors prevent travel when the cabin is over capacity and sound an alert.</p></div>
+      <div class="card reveal" style="--d:.1s"><div class="ico"><i class="fa-solid fa-fire-extinguisher"></i></div><h3>Fireman's Mode</h3><p>In a fire alarm the lift returns to the ground floor and parks with doors open for rescue teams.</p></div>
+      <div class="card reveal" style="--d:.2s"><div class="ico"><i class="fa-solid fa-satellite-dish"></i></div><h3>Remote Monitoring</h3><p>Sensors report vibration, door cycles and faults to our service desk before you notice a problem.</p></div>
+    </div>
+  </div></div>
+
+  <div class="sec alt"><div class="container">
+    <div class="head reveal"><span class="eyebrow">Maintenance</span><h2>Annual maintenance <span class="em grad-text">plans</span></h2><p>Indicative yearly prices for a standard residential lift. Final pricing depends on lift type and floors.</p></div>
+    <div class="amc">
+      <div class="plan reveal"><h3>Basic</h3><div class="pr">₹18,000</div><small>per year</small><ul><li>Quarterly service visits</li><li>Lubrication & cleaning</li><li>Phone support</li></ul><a href="#/contact" class="btn btn-ghost" style="width:100%">Choose Basic</a></div>
+      <div class="plan best reveal" style="--d:.1s"><h3>Comprehensive</h3><div class="pr">₹32,000</div><small>per year</small><ul><li>Monthly service visits</li><li>Spare parts included</li><li>24x7 breakdown support</li><li>Annual safety inspection</li></ul><a href="#/contact" class="btn btn-light" style="width:100%">Choose Comprehensive</a></div>
+      <div class="plan reveal" style="--d:.2s"><h3>Premium</h3><div class="pr">₹55,000</div><small>per year</small><ul><li>Everything in Comprehensive</li><li>Remote IoT monitoring</li><li>Priority 2-hour response</li><li>Modernisation advice</li></ul><a href="#/contact" class="btn btn-ghost" style="width:100%">Choose Premium</a></div>
+    </div>
+  </div></div>
+
+  <div class="sec"><div class="container">
+    <div class="head reveal"><span class="eyebrow">Routine</span><h2>Our service <span class="em grad-text">rhythm</span></h2></div>
+    <div class="timeline">
+      <div class="tl reveal" data-a="left"><b>Daily</b><h4>User checks</h4><p>Look and listen: doors, lights, alarm button and levelling at each floor.</p></div>
+      <div class="tl reveal" data-a="left"><b>Monthly</b><h4>Technician visit</h4><p>Lubrication, door-gear adjustment, brake and control-panel checks.</p></div>
+      <div class="tl reveal" data-a="left"><b>Quarterly</b><h4>Component inspection</h4><p>Ropes, guide shoes, safety circuits and rescue device test.</p></div>
+      <div class="tl reveal" data-a="left"><b>Yearly</b><h4>Full safety inspection</h4><p>Load test, governor test and certification as required by your state's rules.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ========== PAGE: QUOTE ========== -->
+<section class="page" id="page-quote">
+  <div class="page-hero"><div class="container">
+    <span class="crumb">Home / Get Quote</span>
+    <h1>Design it. <span class="em">Price it</span> in rupees.</h1>
+    <p>Choose your lift, floors, cabin finish and doors. Your estimate updates instantly, including GST.</p>
+  </div></div>
+  <div class="sec"><div class="container">
+    <div class="cfg">
+      <div class="box reveal" data-a="left">
+        <div class="lbl">1. Lift type</div>
+        <div class="opt-grid" id="typeBtns"></div>
+        <div class="lbl"><span>2. Floors / stops</span><em id="floorVal">4 Stops</em></div>
+        <input type="range" id="floors" min="2" max="30" value="4" aria-label="Number of floors">
+        <div class="scale"><span>2</span><span id="midF">16</span><span id="maxF">30</span></div>
+        <div class="lbl">3. Blue & white cabin interior</div>
+        <div class="opt-grid" id="finBtns"></div>
+        <div class="lbl"><label for="doorSel">4. Door style</label></div>
+        <select id="doorSel">
+          <option value="0">Automatic Centre Opening (Standard)</option>
+          <option value="55000">Telescopic Side Sliding (+₹55,000)</option>
+          <option value="110000">Frameless Glass Automatic (+₹1,10,000)</option>
+        </select>
+      </div>
+      <div class="reveal" data-a="right">
+        <div class="box">
+          <div class="lbl"><span><i class="fa-solid fa-cube" style="color:var(--blue)"></i> Live interior preview</span><span class="badge" id="finBadge">ROYAL BLUE & WHITE</span></div>
+          <div class="cabin royal" id="cabin">
+            <div class="c-ceil"></div><div class="c-led"></div><div class="c-left"></div><div class="c-right"></div>
+            <div class="c-back"></div><div class="c-acc"></div><div class="c-name" id="cabinName">LEO Home Lift</div>
+            <div class="c-rail"></div><div class="c-panel"><i class="fa-solid fa-circle-dot"></i></div><div class="c-floor"></div>
+          </div>
+          <p style="font-size:.72rem;color:var(--muted);margin-top:10px">Visual representation only. Final materials per architectural drawings.</p>
