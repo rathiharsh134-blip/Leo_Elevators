@@ -417,7 +417,6 @@ header {
 }
 .lift-scroller::-webkit-scrollbar { display: none; }
 
-/* Capsule Glassmorphic Cards */
 .lift-card {
   flex: 0 0 330px;
   scroll-snap-align: center;
@@ -1084,7 +1083,7 @@ select:focus, input:focus, textarea:focus { border-color: var(--blue); box-shado
   background: rgba(255, 255, 255, 0.95);
 }
 .auto-field-wrap input::placeholder, .auto-field-wrap textarea::placeholder {
-  color: transparent; /* Native placeholder hidden to let lite animated layer shine */
+  color: transparent;
 }
 .lite-typewriter-ghost {
   position: absolute;
@@ -1380,24 +1379,28 @@ footer .logo-text { color: #fff; }
       <div>
         <span class="eyebrow" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff">Dispatch Engine</span>
         <h2 style="margin-top:14px">Book a Service Visit or Report an Issue</h2>
-        <p>Submit your service request. Our engineering coordinator will generate an immediate job ticket and dispatch our team.</p>
+        <p>Submit your service request. All details are sent directly to our Gmail dispatch inbox to notify our engineers immediately.</p>
       </div>
       <div class="ticket-preview">
-        <form id="serviceDispatchForm">
+        <!-- Service Dispatch Connected to Formspree -->
+        <form id="serviceDispatchForm" action="https://formspree.io/f/mnpneelk" method="POST">
+          <input type="hidden" name="Form_Category" value="Breakdown / AMC Service Ticket">
+          <input type="hidden" name="Generated_Ticket_ID" id="srvTicketField" value="">
+
           <div>
-            <label>Contact Person & Phone</label>
-            <input type="text" id="srvContact" required placeholder="e.g. Harsh Rathi (+91 7056707055)">
+            <label>Contact Person & Phone *</label>
+            <input type="text" id="srvContact" name="Contact_Person_Phone" required placeholder="e.g. Harsh Rathi (+91 7056707055)">
           </div>
           <div style="margin-top:12px">
-            <label>Building / Site Address</label>
-            <input type="text" id="srvLocation" required placeholder="e.g. Sector 57 Gurugram or Mansarovar Jaipur">
+            <label>Building / Site Address *</label>
+            <input type="text" id="srvLocation" name="Site_Address" required placeholder="e.g. Sector 57 Gurugram or Mansarovar Jaipur">
           </div>
           <div style="margin-top:12px">
-            <label>Service Type</label>
-            <select id="srvType">
-              <option value="routine">Routine AMC Monthly Servicing</option>
-              <option value="urgent">Urgent Breakdown / Door Sensor Issue</option>
-              <option value="modernize">Lift Modernization & Safety Audit</option>
+            <label>Service Type *</label>
+            <select id="srvType" name="Service_Type">
+              <option value="Routine AMC Monthly Servicing">Routine AMC Monthly Servicing</option>
+              <option value="Urgent Breakdown / Door Sensor Issue">Urgent Breakdown / Door Sensor Issue</option>
+              <option value="Lift Modernization & Safety Audit">Lift Modernization & Safety Audit</option>
             </select>
           </div>
           <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px"><i class="fa-solid fa-bolt"></i> Generate Service Ticket</button>
@@ -1575,7 +1578,7 @@ footer .logo-text { color: #fff; }
   </div>
 </section>
 
-<!-- ========== 7. CONTACT SECTION WITH LITE AUTO-TYPING PLACEHOLDERS ========== -->
+<!-- ========== 7. CONTACT SECTION CONNECTED TO FORMSPREE ========== -->
 <section class="sec alt" id="contact">
   <div class="container">
     <div class="head">
@@ -1595,32 +1598,35 @@ footer .logo-text { color: #fff; }
         </div>
       </div>
       <div class="box">
-        <form id="contactForm">
+        <!-- Main Contact Form Connected to Formspree -->
+        <form id="contactForm" action="https://formspree.io/f/mnpneelk" method="POST">
+          <input type="hidden" name="Form_Category" value="Customer Project Inquiry / Quote Request">
+
           <!-- Name Field with Lite Animated Ghost Example -->
           <div class="auto-field-wrap">
             <label style="font-size:.74rem;font-weight:800;color:var(--navy2);display:block;margin-bottom:6px">Full Name *</label>
-            <input type="text" id="custNameInput" required>
+            <input type="text" id="custNameInput" name="Customer_Full_Name" required>
             <div class="lite-typewriter-ghost" id="ghostName"><span></span><span class="lite-cursor"></span></div>
           </div>
 
           <!-- Phone Field with Lite Animated Ghost Example -->
           <div class="auto-field-wrap">
             <label style="font-size:.74rem;font-weight:800;color:var(--navy2);display:block;margin-bottom:6px">Phone Number *</label>
-            <input type="tel" id="custPhoneInput" required>
+            <input type="tel" id="custPhoneInput" name="Customer_Phone_Number" required>
             <div class="lite-typewriter-ghost" id="ghostPhone"><span></span><span class="lite-cursor"></span></div>
           </div>
 
           <!-- City Field with Lite Animated Ghost Example -->
           <div class="auto-field-wrap">
             <label style="font-size:.74rem;font-weight:800;color:var(--navy2);display:block;margin-bottom:6px">City / Location *</label>
-            <input type="text" id="custCityInput" required>
+            <input type="text" id="custCityInput" name="Customer_City_Location" required>
             <div class="lite-typewriter-ghost" id="ghostCity"><span></span><span class="lite-cursor"></span></div>
           </div>
 
           <!-- Message Field with Lite Animated Ghost Example -->
           <div class="auto-field-wrap">
             <label style="font-size:.74rem;font-weight:800;color:var(--navy2);display:block;margin-bottom:6px">Site Requirements / Message</label>
-            <textarea rows="3" id="custMsgInput"></textarea>
+            <textarea rows="3" id="custMsgInput" name="Project_Requirements"></textarea>
             <div class="lite-typewriter-ghost" id="ghostMsg" style="top:44px"><span></span><span class="lite-cursor"></span></div>
           </div>
 
@@ -1693,7 +1699,7 @@ footer .logo-text { color: #fff; }
 
 <!-- ================= JAVASCRIPT LOGIC ================= -->
 <script>
-// Catalog Data with High-Resolution Verified Imagery
+// Verified Models
 const LIFTS = [
   {
     id: 'villa',
@@ -1764,7 +1770,7 @@ const FINISHES = [
   { id: 'navy', name: 'Executive Dark Navy', class: 'navy', addon: 60000 }
 ];
 
-// --- 1. Bulletproof Splash Screen Handler ---
+// --- 1. Splash Screen ---
 (function initSplash() {
   const splash = document.getElementById('splash');
   const spBar = document.getElementById('spBar');
@@ -1821,14 +1827,11 @@ window.addEventListener('scroll', () => {
   const prog = document.getElementById('progress');
   if (prog) prog.style.width = pct + '%';
 
-  // Highlight active menu on scroll
   const sections = document.querySelectorAll('section[id], .hero[id]');
   let currentId = '';
   sections.forEach(sec => {
     const top = sec.offsetTop - 120;
-    if (window.scrollY >= top) {
-      currentId = sec.getAttribute('id');
-    }
+    if (window.scrollY >= top) currentId = sec.getAttribute('id');
   });
   document.querySelectorAll('#navLinks a').forEach(a => {
     if (a.getAttribute('href') === '#' + currentId) a.classList.add('active');
@@ -1844,13 +1847,12 @@ if (marquee) {
     'Offices in Gurugram & Jaipur',
     'Direct Support: +91 7056707055 / +91 9785019232',
     'IS 14665 & ISO 9001:2015 Standards',
-    'Automatic Rescue Device (ARD) In Every Model'
+    'Automatic Rescue Device (ARD) Standard'
   ];
-  const str = items.map(t => `<span>${t}</span>`).join('') + items.map(t => `<span>${t}</span>`).join('');
-  marquee.innerHTML = str;
+  marquee.innerHTML = items.map(t => `<span>${t}</span>`).join('') + items.map(t => `<span>${t}</span>`).join('');
 }
 
-// --- 2. Carousel with Round 3D Glass Scroll Dynamics & Glare ---
+// --- 2. 3D Glass Carousel Physics ---
 function renderLiftCards() {
   const scroller = document.getElementById('homeScroller');
   const cardMarkup = (item) => `
@@ -1888,7 +1890,6 @@ function updateRoundGlass3DEffect() {
     const offset = (cardCenter - centerX) / (scrollerRect.width / 2);
     const clampedOffset = Math.max(-1.5, Math.min(1.5, offset));
 
-    // Dynamic 3D Curved Cylindrical Motion
     const rotateY = clampedOffset * -18;
     const scale = 1 - Math.min(0.2, Math.abs(clampedOffset) * 0.12);
     const translateZ = -Math.abs(clampedOffset) * 55;
@@ -1899,7 +1900,6 @@ function updateRoundGlass3DEffect() {
   });
 }
 
-// Mouse glare reflection over cards
 if (scroller) {
   scroller.addEventListener('mousemove', (e) => {
     scroller.querySelectorAll('.lift-card').forEach(card => {
@@ -1922,7 +1922,6 @@ if (scroller) {
   setTimeout(updateRoundGlass3DEffect, 100);
 }
 
-// Click card: Animate and smoothly scroll straight to customizer
 window.handleCardSelection = function(cardEl, liftId) {
   cardEl.classList.add('card-selected');
   showToast(`Selected ${LIFTS.find(l => l.id === liftId).name}`);
@@ -1942,7 +1941,7 @@ if (scroller) {
   if (cNext) cNext.onclick = () => scroller.scrollBy({ left: 360, behavior: 'smooth' });
 }
 
-// --- 3. Realistic Slowed Hoistway Simulator ---
+// --- 3. Calibrated Simulator ---
 let simFloor = 0;
 let isMoving = false;
 let audioMuted = false;
@@ -1985,7 +1984,6 @@ function playDingDong() {
   } catch (e) {}
 }
 
-// Soft tactile mechanical click for hinge slider
 function playHingeTick() {
   try {
     const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -2078,7 +2076,6 @@ const hingeNotches = document.getElementById('hingeNotches');
 const floorMinus = document.getElementById('floorMinus');
 const floorPlus = document.getElementById('floorPlus');
 
-// Build physical magnetic notches for every floor
 if (hingeNotches) {
   for (let i = 2; i <= 25; i++) {
     const pin = document.createElement('div');
@@ -2123,7 +2120,6 @@ if (floorPlus) {
   };
 }
 
-// Quantity of Lifts Controls
 const qtyMinus = document.getElementById('qtyMinus');
 const qtyPlus = document.getElementById('qtyPlus');
 const qtyDisplay = document.getElementById('qtyDisplay');
@@ -2199,7 +2195,6 @@ function calculateBudget() {
   const floorCost = (stops - 2) * 55000;
   const finishCost = activeFinish.addon;
 
-  // Single unit subtotal multiplied by quantity
   const perUnit = basePrice + floorCost + doorCost + finishCost;
   const subtotal = perUnit * activeQty;
   const gst = Math.round(subtotal * 0.18);
@@ -2251,7 +2246,6 @@ autoTypers.forEach(item => {
   let isDeleting = false;
 
   function typeCycle() {
-    // If user has focused or typed anything, hide ghost
     if (item.input.value.length > 0 || document.activeElement === item.input) {
       item.ghost.classList.add('hidden');
       setTimeout(typeCycle, 500);
@@ -2272,7 +2266,7 @@ autoTypers.forEach(item => {
     let speed = isDeleting ? 40 : 80;
 
     if (!isDeleting && charIdx === currentWord.length) {
-      speed = 1800; // Pause at full word
+      speed = 1800;
       isDeleting = true;
     } else if (isDeleting && charIdx === 0) {
       isDeleting = false;
@@ -2295,33 +2289,68 @@ autoTypers.forEach(item => {
   typeCycle();
 });
 
-// --- 6. Forms & Toast Alerts ---
+// --- 6. Formspree Gmail Integration Engine ---
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.innerHTML = `<i class="fa-solid fa-circle-check" style="color:var(--ok)"></i> ${msg}`;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3200);
+  setTimeout(() => t.classList.remove('show'), 3500);
 }
 
+// Global AJAX Formspree Dispatcher
+async function sendToFormspreeGmail(formElement, successMsg) {
+  const endpoint = 'https://formspree.io/f/mnpneelk';
+  const submitBtn = formElement.querySelector('button[type="submit"]');
+  const originalBtnContent = submitBtn.innerHTML;
+
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending to Gmail...';
+
+  const formData = new FormData(formElement);
+
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      showToast(successMsg);
+      formElement.reset();
+    } else {
+      showToast('Error sending message. Please call +91 7056707055');
+    }
+  } catch (err) {
+    showToast('Network error. Please call our engineers directly.');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalBtnContent;
+  }
+}
+
+// 1. Service Ticket Dispatch Form
 const serviceForm = document.getElementById('serviceDispatchForm');
 if (serviceForm) {
   serviceForm.onsubmit = (e) => {
     e.preventDefault();
     const ticketId = 'LEO-SRV-' + Math.floor(1000 + Math.random() * 9000);
-    showToast(`Service Ticket #${ticketId} created! Gurugram & Jaipur team notified.`);
-    serviceForm.reset();
+    const ticketField = document.getElementById('srvTicketField');
+    if (ticketField) ticketField.value = ticketId;
+    sendToFormspreeGmail(serviceForm, `Service Ticket #${ticketId} created! Details sent to Gmail.`);
   };
 }
 
+// 2. Main Customer Contact Form
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.onsubmit = (e) => {
     e.preventDefault();
-    showToast('Inquiry received! Harsh Rathi / LEO engineering team will call you today.');
-    contactForm.reset();
+    sendToFormspreeGmail(contactForm, 'Inquiry sent! Harsh Rathi / LEO engineering team will call you shortly.');
   };
 }
 
+// Quote Modal
 const modal = document.getElementById('modal');
 const openQuoteModal = document.getElementById('openQuoteModal');
 const closeModal = document.getElementById('closeModal');
