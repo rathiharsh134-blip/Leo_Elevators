@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="LEO Elevators - Premium home, passenger, panoramic, hospital, freight, and car lifts in India.">
-<title>LEO Elevators | Premium Lifts & Elevators in India</title>
+<meta name="description" content="LEO Elevators - Luxury Villa, Commercial, Hospital, and Industrial Elevators in India.">
+<title>LEO Elevators | Precision Engineering & Smart Vertical Mobility</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,341 +12,1002 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-:root{
-  --navy:#06173a; --navy2:#0a2a63; --blue:#1556d6; --blue2:#2f7bff; --sky:#6db6ff; --ice:#eef5ff; --ice2:#dbe9ff;
-  --white:#ffffff; --ink:#0b1b3a; --muted:#5b6b8c; --line:#d6e3fb; --ok:#12a37f;
-  --shadow:0 20px 50px -20px rgba(21,86,214,.35);
-  --serif:'Playfair Display',Georgia,serif; --sans:'Manrope',system-ui,sans-serif;
+:root {
+  --navy: #051433;
+  --navy2: #092355;
+  --blue: #1556d6;
+  --blue2: #2f7bff;
+  --sky: #6db6ff;
+  --ice: #edf4ff;
+  --ice2: #d8e6fd;
+  --white: #ffffff;
+  --ink: #0b1a38;
+  --muted: #5e6f92;
+  --line: #d8e4f8;
+  --ok: #10b981;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+  --shadow: 0 20px 45px -18px rgba(21, 86, 214, 0.35);
+  --shadow-lg: 0 28px 60px -20px rgba(6, 23, 58, 0.45);
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Manrope', system-ui, sans-serif;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body.lock{overflow:hidden}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
-img{max-width:100%;height:auto;display:block}
-h1,h2,h3,h4{font-family:var(--serif);line-height:1.15;letter-spacing:-.01em}
-.container{max-width:1200px;margin:0 auto;padding:0 22px}
-.eyebrow{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);background:var(--ice);border:1px solid var(--line);padding:.45rem 1rem;border-radius:99px}
-.grad-text{background:linear-gradient(90deg,var(--blue),var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent}
-.em{font-style:italic;font-weight:500}
-.sec{padding:90px 0}
-.sec.alt{background:var(--ice)}
-.head{text-align:center;max-width:720px;margin:0 auto 54px}
-.head h2{font-size:clamp(2rem,4.2vw,3rem);margin:18px 0 12px}
-.head p{color:var(--muted)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.95rem 1.7rem;border-radius:14px;font-weight:700;font-size:.9rem;transition:.25s}
-.btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;box-shadow:var(--shadow)}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 26px 50px -18px rgba(21,86,214,.6)}
-.btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--navy2)}
-.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
-.btn-light{background:#fff;color:var(--navy2)}
-.btn-light:hover{transform:translateY(-3px)}
 
-/* Top Scroll Progress */
-#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--blue),var(--sky));z-index:999;transition:width .1s}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+body.lock { overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3, h4 { font-family: var(--serif); line-height: 1.18; letter-spacing: -0.015em; }
+
+.container { max-width: 1220px; margin: 0 auto; padding: 0 24px; }
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--ice);
+  border: 1px solid var(--line);
+  padding: 0.45rem 1rem;
+  border-radius: 99px;
+}
+.grad-text {
+  background: linear-gradient(90deg, var(--blue), var(--sky));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.em { font-style: italic; font-weight: 500; }
+.sec { padding: 95px 0; }
+.sec.alt { background: var(--ice); }
+.head { text-align: center; max-width: 720px; margin: 0 auto 50px; }
+.head h2 { font-size: clamp(2rem, 4.2vw, 3.1rem); margin: 18px 0 12px; }
+.head p { color: var(--muted); font-size: 1.02rem; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 1.8rem;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), var(--blue2));
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 50px -16px rgba(21, 86, 214, 0.65);
+}
+.btn-ghost {
+  background: #fff;
+  border: 1.5px solid var(--line);
+  color: var(--navy2);
+}
+.btn-ghost:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translateY(-2px);
+}
+.btn-light {
+  background: #fff;
+  color: var(--navy2);
+}
+.btn-light:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px -10px rgba(0,0,0,0.25);
+}
+
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3.5px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--blue), var(--sky), #fff);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
 
 /* ===== SPLASH INTRO ===== */
-#splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#06173a}
-.sp-door{position:absolute;top:0;bottom:0;width:50%;background:linear-gradient(160deg,#0a2a63,#06173a 70%);transition:transform 1s cubic-bezier(.77,0,.18,1);overflow:hidden}
-.sp-door::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 38px,rgba(109,182,255,.06) 38px 39px)}
-.sp-l{left:0;border-right:2px solid rgba(109,182,255,.5)} 
-.sp-r{right:0;border-left:2px solid rgba(109,182,255,.5)}
-#splash.open .sp-l{transform:translateX(-100%)} 
-#splash.open .sp-r{transform:translateX(100%)}
-.sp-center{position:relative;z-index:3;text-align:center;color:#fff;transition:opacity .4s,transform .6s}
-#splash.open .sp-center{opacity:0;transform:scale(1.15)}
-.sp-mark{width:76px;height:76px;margin:0 auto 20px;border-radius:22px;background:linear-gradient(135deg,var(--blue),var(--sky));display:grid;place-items:center;font-size:2.2rem;box-shadow:0 0 50px rgba(47,123,255,.7);animation:spPulse 1.8s infinite}
-@keyframes spPulse{50%{transform:scale(1.08);box-shadow:0 0 80px rgba(109,182,255,.9)}}
-.sp-title{font-family:var(--serif);font-size:clamp(2.8rem,8vw,4.8rem);font-weight:700;letter-spacing:.14em;display:flex;justify-content:center}
-.sp-title span{display:inline-block}
-.sp-sub{font-size:.8rem;letter-spacing:.55em;text-transform:uppercase;color:var(--sky);margin-top:6px}
-.sp-floor{margin:30px auto 0;width:min(300px,70vw)}
-.sp-bar{height:5px;background:rgba(255,255,255,.15);border-radius:9px;overflow:hidden}
-.sp-bar i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--blue2),var(--sky),#fff);box-shadow:0 0 14px var(--sky);transition:width .1s linear}
-.sp-row{display:flex;justify-content:space-between;font-size:.74rem;letter-spacing:.2em;color:var(--sky);margin-top:10px;font-weight:700}
-.sp-skip{position:absolute;z-index:5;bottom:30px;right:30px;color:#fff;border:1px solid rgba(255,255,255,.35);padding:.6rem 1.3rem;border-radius:99px;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;transition:.2s}
-.sp-skip:hover{background:#fff;color:var(--navy)}
+#splash {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #041029;
+}
+.sp-door {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(160deg, #092355, #041029 70%);
+  transition: transform 1s cubic-bezier(0.77, 0, 0.18, 1);
+  overflow: hidden;
+}
+.sp-door::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, transparent 0 36px, rgba(109, 182, 255, 0.05) 36px 37px);
+}
+.sp-l { left: 0; border-right: 2px solid rgba(109, 182, 255, 0.4); }
+.sp-r { right: 0; border-left: 2px solid rgba(109, 182, 255, 0.4); }
+#splash.open .sp-l { transform: translateX(-100%); }
+#splash.open .sp-r { transform: translateX(100%); }
+.sp-center {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #fff;
+  transition: opacity 0.4s ease, transform 0.6s ease;
+}
+#splash.open .sp-center { opacity: 0; transform: scale(1.1); }
+.sp-mark {
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 20px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--blue), var(--sky));
+  display: grid;
+  place-items: center;
+  font-size: 2.3rem;
+  box-shadow: 0 0 50px rgba(47, 123, 255, 0.7);
+  animation: spPulse 1.8s infinite ease-in-out;
+}
+@keyframes spPulse { 50% { transform: scale(1.08); box-shadow: 0 0 80px rgba(109, 182, 255, 0.9); } }
+.sp-title {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 8vw, 4.8rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.sp-sub {
+  font-size: 0.8rem;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-top: 6px;
+}
+.sp-floor { margin: 28px auto 0; width: min(290px, 70vw); }
+.sp-bar { height: 5px; background: rgba(255, 255, 255, 0.15); border-radius: 9px; overflow: hidden; }
+.sp-bar i {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--blue2), var(--sky), #fff);
+  box-shadow: 0 0 14px var(--sky);
+  transition: width 0.08s linear;
+}
+.sp-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.74rem;
+  letter-spacing: 0.2em;
+  color: var(--sky);
+  margin-top: 10px;
+  font-weight: 700;
+}
+.sp-skip {
+  position: absolute;
+  z-index: 5;
+  bottom: 28px;
+  right: 28px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0.6rem 1.3rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+.sp-skip:hover { background: #fff; color: var(--navy); }
 
-/* ===== HEADER & NAV ===== */
-header{position:sticky;top:0;z-index:100;padding:12px 0;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{display:flex;align-items:center;gap:12px}
-.logo-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--blue),var(--sky));display:grid;place-items:center;color:#fff;box-shadow:var(--shadow)}
-.logo-text{font-family:var(--serif);font-weight:800;font-size:1.45rem;letter-spacing:.08em;color:var(--navy)}
-.logo-text small{display:block;font-family:var(--sans);font-size:.55rem;font-weight:700;letter-spacing:.45em;color:var(--blue);margin-top:-4px}
-.links{display:none;gap:4px;align-items:center}
-.links a{font-size:.84rem;font-weight:600;color:var(--muted);padding:.5rem .85rem;border-radius:99px;transition:.2s}
-.links a:hover{color:var(--blue);background:var(--ice)}
-.links a.active{color:#fff;background:var(--blue)}
-.nav-cta{display:none}
-.burger{width:44px;height:44px;border-radius:12px;background:var(--ice);color:var(--blue);font-size:1.2rem}
-#mmenu{display:none;padding:14px 0 6px}
-#mmenu.show{display:grid;gap:4px}
-#mmenu a{padding:.8rem 1rem;border-radius:12px;font-weight:600;color:var(--ink)}
-#mmenu a.active{background:var(--ice);color:var(--blue)}
-@media(min-width:1040px){.links{display:flex}.nav-cta{display:inline-flex}.burger{display:none}#mmenu{display:none!important}}
+/* ===== HEADER ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 14px 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--blue), var(--sky));
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 1.25rem;
+  box-shadow: var(--shadow);
+}
+.logo-text { font-family: var(--serif); font-weight: 800; font-size: 1.5rem; letter-spacing: 0.08em; color: var(--navy); line-height: 1; }
+.logo-text small { display: block; font-family: var(--sans); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.45em; color: var(--blue); margin-top: 2px; }
+.links { display: none; gap: 6px; align-items: center; }
+.links a {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0.55rem 0.95rem;
+  border-radius: 99px;
+  transition: 0.2s;
+}
+.links a:hover { color: var(--blue); background: var(--ice); }
+.links a.active { color: #fff; background: var(--blue); }
+.burger { width: 44px; height: 44px; border-radius: 12px; background: var(--ice); color: var(--blue); font-size: 1.2rem; }
+#mmenu { display: none; padding: 14px 0 6px; }
+#mmenu.show { display: grid; gap: 6px; }
+#mmenu a { padding: 0.8rem 1rem; border-radius: 12px; font-weight: 600; color: var(--ink); }
+#mmenu a.active { background: var(--ice); color: var(--blue); }
+@media(min-width: 1040px) {
+  .links { display: flex; }
+  .burger { display: none; }
+  #mmenu { display: none !important; }
+}
 
-/* ===== PAGE MANAGEMENT ===== */
-.page{display:none}
-.page.active{display:block;animation:pageIn .5s cubic-bezier(.2,.8,.2,1)}
-@keyframes pageIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-.reveal{opacity:1;transform:none}
+/* ===== APP PAGES ===== */
+.page { display: none; }
+.page.active { display: block; animation: pageIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@keyframes pageIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
-.page-hero{position:relative;background:linear-gradient(135deg,var(--navy),var(--navy2) 60%,var(--blue));color:#fff;padding:85px 0 75px;overflow:hidden}
-.page-hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 60px,rgba(255,255,255,.04) 60px 61px)}
-.page-hero .container{position:relative}
-.page-hero h1{font-size:clamp(2.3rem,5.5vw,3.8rem);margin:16px 0 12px}
-.page-hero p{max-width:620px;color:#c9dcff}
-.page-hero .eyebrow{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:#cfe3ff}
-.crumb{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);font-weight:700}
+.page-hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--navy), var(--navy2) 60%, var(--blue));
+  color: #fff;
+  padding: 85px 0 75px;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, transparent 0 60px, rgba(255, 255, 255, 0.04) 60px 61px);
+}
+.page-hero .container { position: relative; }
+.page-hero h1 { font-size: clamp(2.3rem, 5.5vw, 3.8rem); margin: 16px 0 12px; }
+.page-hero p { max-width: 620px; color: #c9dcff; font-size: 1.05rem; }
+.crumb { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sky); font-weight: 700; }
 
 /* ===== HOME HERO ===== */
-.hero{position:relative;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 55%,#0f47b8 100%);color:#fff;overflow:hidden;padding:75px 0 95px}
-.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 70px,rgba(255,255,255,.035) 70px 71px),repeating-linear-gradient(0deg,transparent 0 70px,rgba(255,255,255,.035) 70px 71px)}
-.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:drift 12s ease-in-out infinite}
-.orb.o1{width:420px;height:420px;background:#2f7bff;top:-100px;left:-80px}
-.orb.o2{width:360px;height:360px;background:#6db6ff;bottom:-120px;right:10%;animation-delay:-5s}
-@keyframes drift{50%{transform:translate(40px,30px)}}
-.hero-grid{position:relative;display:grid;gap:50px;align-items:center}
-@media(min-width:960px){.hero-grid{grid-template-columns:1.15fr .85fr}}
-.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);margin:22px 0 20px;font-weight:700}
-.hero p.lead{color:#c9dcff;font-size:1.08rem;max-width:560px}
-.hero .eyebrow{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:#cfe3ff}
-.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin:34px 0}
-.trust{display:flex;flex-wrap:wrap;gap:22px;font-size:.82rem;color:#bcd3ff;border-top:1px solid rgba(255,255,255,.15);padding-top:22px}
-.trust i{color:var(--sky);margin-right:8px}
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 55%, #0f47b8 100%);
+  color: #fff;
+  overflow: hidden;
+  padding: 80px 0 100px;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, transparent 0 70px, rgba(255,255,255,.035) 70px 71px),
+              repeating-linear-gradient(0deg, transparent 0 70px, rgba(255,255,255,.035) 70px 71px);
+}
+.orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.45; animation: drift 12s ease-in-out infinite; }
+.orb.o1 { width: 420px; height: 420px; background: #2f7bff; top: -100px; left: -80px; }
+.orb.o2 { width: 360px; height: 360px; background: #6db6ff; bottom: -120px; right: 10%; animation-delay: -5s; }
+@keyframes drift { 50% { transform: translate(40px, 30px); } }
 
-.shaft-wrap{position:relative;max-width:360px;margin:0 auto;width:100%}
-.shaft{position:relative;height:460px;border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.25);overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
-.shaft::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(255,255,255,.25);transform:translateX(-50%)}
-.tick{position:absolute;left:14px;right:14px;border-top:1px dashed rgba(255,255,255,.2);font-size:.62rem;color:#9fc3ff;letter-spacing:.1em}
-.mini-cab{position:absolute;left:50%;width:128px;height:108px;margin-left:-64px;border-radius:16px;background:linear-gradient(180deg,#fff,#dbe9ff);border:3px solid var(--sky);box-shadow:0 0 50px rgba(109,182,255,.8);animation:ride 8s ease-in-out infinite;overflow:hidden;display:flex}
-@keyframes ride{0%,10%{bottom:20px}45%,55%{bottom:330px}90%,100%{bottom:20px}}
-.mini-cab i{position:absolute;inset:0;display:grid;place-items:center;color:var(--blue);font-size:1.6rem}
-.mini-cab b{position:relative;z-index:2;flex:1;background:linear-gradient(180deg,#2f7bff,#0a2a63)}
-.mini-cab b:first-of-type{animation:dl 8s ease-in-out infinite}
-.mini-cab b:last-of-type{animation:dr 8s ease-in-out infinite}
-@keyframes dl{0%,10%{transform:translateX(-95%)}16%,39%{transform:none}45%,55%{transform:translateX(-95%)}61%,84%{transform:none}90%,100%{transform:translateX(-95%)}}
-@keyframes dr{0%,10%{transform:translateX(95%)}16%,39%{transform:none}45%,55%{transform:translateX(95%)}61%,84%{transform:none}90%,100%{transform:translateX(95%)}}
-.chip{position:absolute;background:#fff;color:var(--ink);padding:.7rem 1rem;border-radius:16px;box-shadow:var(--shadow);font-size:.78rem;font-weight:700;display:flex;align-items:center;gap:.6rem;animation:float 6s ease-in-out infinite}
-.chip i{color:var(--blue)}
-.chip.c1{top:45px;left:-30px} .chip.c2{bottom:65px;right:-24px;animation-delay:-3s}
-@keyframes float{50%{transform:translateY(-10px)}}
-@media(max-width:600px){.chip.c1{left:-6px}.chip.c2{right:-6px}}
+.hero-grid { position: relative; display: grid; gap: 50px; align-items: center; }
+@media(min-width: 960px) { .hero-grid { grid-template-columns: 1.15fr 0.85fr; } }
+.hero h1 { font-size: clamp(2.6rem, 5.8vw, 4.4rem); margin: 22px 0 20px; font-weight: 700; }
+.hero p.lead { color: #c9dcff; font-size: 1.1rem; max-width: 560px; }
+.hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin: 34px 0; }
+.trust { display: flex; flex-wrap: wrap; gap: 20px; font-size: 0.84rem; color: #bcd3ff; border-top: 1px solid rgba(255,255,255,.15); padding-top: 22px; }
+.trust i { color: var(--sky); margin-right: 8px; }
+
+.shaft-wrap { position: relative; max-width: 360px; margin: 0 auto; width: 100%; }
+.shaft-mini {
+  position: relative;
+  height: 450px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
+  border: 1px solid rgba(255,255,255,.25);
+  overflow: hidden;
+  box-shadow: 0 40px 80px -30px rgba(0,0,0,.6);
+}
+.shaft-mini::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,.2);
+  transform: translateX(-50%);
+}
+.mini-fl {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  border-top: 1px dashed rgba(255,255,255,.2);
+  font-size: 0.64rem;
+  color: #a4c9ff;
+  letter-spacing: 0.1em;
+}
+.mini-car {
+  position: absolute;
+  left: 50%;
+  width: 126px;
+  height: 105px;
+  margin-left: -63px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fff, #dbe9ff);
+  border: 3px solid var(--sky);
+  box-shadow: 0 0 45px rgba(109, 182, 255, 0.8);
+  animation: rideMini 8s ease-in-out infinite;
+  overflow: hidden;
+  display: flex;
+}
+@keyframes rideMini {
+  0%, 12% { bottom: 20px; }
+  45%, 58% { bottom: 325px; }
+  88%, 100% { bottom: 20px; }
+}
+.mini-car i { position: absolute; inset: 0; display: grid; place-items: center; color: var(--blue); font-size: 1.5rem; }
+.mini-car b { position: relative; z-index: 2; flex: 1; background: linear-gradient(180deg, #2f7bff, #0a2a63); }
+.mini-car b:first-of-type { animation: dlM 8s ease-in-out infinite; }
+.mini-car b:last-of-type { animation: drM 8s ease-in-out infinite; }
+@keyframes dlM { 0%, 12% { transform: translateX(-95%); } 18%, 39% { transform: none; } 45%, 58% { transform: translateX(-95%); } 64%, 82% { transform: none; } 88%, 100% { transform: translateX(-95%); } }
+@keyframes drM { 0%, 12% { transform: translateX(95%); } 18%, 39% { transform: none; } 45%, 58% { transform: translateX(95%); } 64%, 82% { transform: none; } 88%, 100% { transform: translateX(95%); } }
+
+.chip {
+  position: absolute;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.7rem 1.1rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  animation: floatChip 6s ease-in-out infinite;
+}
+.chip i { color: var(--blue); }
+.chip.c1 { top: 45px; left: -26px; }
+.chip.c2 { bottom: 65px; right: -20px; animation-delay: -3s; }
+@keyframes floatChip { 50% { transform: translateY(-10px); } }
 
 /* Marquee */
-.marquee{background:var(--blue);color:#fff;overflow:hidden;white-space:nowrap;padding:16px 0}
-.marquee-track{display:inline-flex;gap:46px;animation:scrollx 32s linear infinite}
-.marquee:hover .marquee-track{animation-play-state:paused}
-.marquee span{font-family:var(--serif);font-size:1.15rem;font-style:italic;display:inline-flex;align-items:center;gap:46px}
-.marquee span::after{content:"✦";font-style:normal;color:var(--sky);font-size:.8rem}
-@keyframes scrollx{to{transform:translateX(-50%)}}
+.marquee { background: var(--blue); color: #fff; overflow: hidden; white-space: nowrap; padding: 16px 0; }
+.marquee-track { display: inline-flex; gap: 46px; animation: scrollMarquee 32s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee span { font-family: var(--serif); font-size: 1.15rem; font-style: italic; display: inline-flex; align-items: center; gap: 46px; }
+.marquee span::after { content: "✦"; font-style: normal; color: var(--sky); font-size: 0.8rem; }
+@keyframes scrollMarquee { to { transform: translateX(-50%); } }
 
 /* Stats */
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:-52px;position:relative;z-index:5}
-@media(min-width:800px){.stats{grid-template-columns:repeat(4,1fr)}}
-.stat{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px 16px;text-align:center;box-shadow:var(--shadow)}
-.stat b{display:block;font-family:var(--serif);font-size:2.3rem;color:var(--blue)}
-.stat span{font-size:.82rem;color:var(--muted);font-weight:600}
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: -52px; position: relative; z-index: 5; }
+@media(min-width: 800px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stat { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 26px 18px; text-align: center; box-shadow: var(--shadow); }
+.stat b { display: block; font-family: var(--serif); font-size: 2.3rem; color: var(--blue); }
+.stat span { font-size: 0.84rem; color: var(--muted); font-weight: 600; }
 
-/* ===== LIFT SCROLLER & CARDS ===== */
-.lift-scroller{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:30px 4px 40px;scrollbar-width:none}
-.lift-scroller::-webkit-scrollbar{display:none}
-.lift-card{background:#fff;border:1.5px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 14px 40px -22px rgba(21,86,214,.4);position:relative;text-align:left;cursor:pointer;transition:.3s}
-.lift-scroller .lift-card{flex:0 0 310px;scroll-snap-align:center}
-.lift-card:hover{border-color:var(--blue);transform:translateY(-5px);box-shadow:0 24px 50px -20px rgba(21,86,214,.55)}
-.photo{height:200px;position:relative;overflow:hidden;background:var(--ice)}
-.photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.lift-card:hover .photo img{transform:scale(1.08)}
-.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(6,23,58,.65))}
-.tag{position:absolute;top:14px;left:14px;z-index:2;color:#fff;background:var(--blue);font-size:.65rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:.35rem .8rem;border-radius:99px}
-.lc-body{padding:22px}
-.lc-body h3{font-size:1.24rem;margin-bottom:8px;color:var(--navy)}
-.lc-body h3 i{color:var(--blue);margin-right:8px;font-size:1rem}
-.lc-body p{font-size:.82rem;color:var(--muted);min-height:50px}
-.spec{border-top:1px solid var(--line);margin-top:14px;padding-top:12px;display:grid;gap:6px;font-size:.78rem}
-.spec div{display:flex;justify-content:space-between;gap:12px}
-.spec span{color:var(--muted)} .spec b{text-align:right;font-weight:700;color:var(--navy2)}
-.spec b.price{color:var(--blue)}
-.pick{margin-top:16px;text-align:center;background:var(--ice);color:var(--blue);font-weight:700;font-size:.82rem;padding:.75rem;border-radius:12px;transition:.2s}
-.lift-card:hover .pick{background:var(--blue);color:#fff}
-.car-nav{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:6px}
-.car-nav button{width:46px;height:46px;border-radius:50%;background:#fff;border:1.5px solid var(--line);color:var(--blue);transition:.2s}
-.car-nav button:hover{background:var(--blue);color:#fff}
-.prog{flex:0 1 240px;height:4px;background:var(--line);border-radius:9px;overflow:hidden}
-.prog i{display:block;height:100%;width:20%;background:linear-gradient(90deg,var(--blue),var(--sky));transition:width .2s}
-.lift-grid{display:grid;gap:26px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+/* ===== LIFT SELECTION CAROUSEL & TRANSITION ===== */
+.lift-scroller {
+  display: flex;
+  gap: 26px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 30px 6px 40px;
+  scrollbar-width: none;
+  perspective: 1000px;
+}
+.lift-scroller::-webkit-scrollbar { display: none; }
+.lift-card {
+  flex: 0 0 320px;
+  scroll-snap-align: center;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px -22px rgba(21, 86, 214, 0.4);
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+  transform-origin: center bottom;
+}
+.lift-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--blue);
+  box-shadow: 0 26px 55px -18px rgba(21, 86, 214, 0.55);
+}
+.lift-card.card-selected {
+  transform: scale(0.96);
+  border-color: var(--ok);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.4);
+  animation: cardSelectPulse 0.4s ease forwards;
+}
+@keyframes cardSelectPulse {
+  50% { transform: scale(1.04); }
+  100% { transform: scale(0.98); opacity: 0.8; }
+}
 
-/* Cards & CTA */
-.cards{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px;transition:.3s;position:relative}
-.card:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:var(--shadow)}
-.ico{width:56px;height:56px;border-radius:18px;background:linear-gradient(135deg,var(--ice2),var(--ice));display:grid;place-items:center;color:var(--blue);font-size:1.35rem;margin-bottom:18px;transition:.3s}
-.card:hover .ico{background:var(--blue);color:#fff;transform:rotate(-6deg) scale(1.06)}
-.card h3{font-size:1.24rem;margin-bottom:10px;color:var(--navy)}
-.card p{font-size:.86rem;color:var(--muted)}
-.cta-band{background:linear-gradient(135deg,var(--blue),var(--navy2));color:#fff;border-radius:32px;padding:60px 30px;text-align:center;position:relative;overflow:hidden}
-.cta-band::before{content:"";position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(109,182,255,.25);filter:blur(60px);top:-150px;right:-100px}
-.cta-band h2{font-size:clamp(1.9rem,4vw,2.8rem);position:relative}
-.cta-band p{color:#cfe0ff;max-width:560px;margin:14px auto 28px;position:relative}
-.cta-band .btn{position:relative}
+.photo { height: 210px; position: relative; overflow: hidden; background: var(--ice); }
+.photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.lift-card:hover .photo img { transform: scale(1.08); }
+.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(5, 20, 51, 0.7)); }
+.tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  color: #fff;
+  background: var(--blue);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+.lc-body { padding: 22px; }
+.lc-body h3 { font-size: 1.28rem; margin-bottom: 8px; color: var(--navy); }
+.lc-body h3 i { color: var(--blue); margin-right: 8px; font-size: 1.05rem; }
+.lc-body p { font-size: 0.84rem; color: var(--muted); min-height: 52px; }
+.spec { border-top: 1px solid var(--line); margin-top: 14px; padding-top: 12px; display: grid; gap: 6px; font-size: 0.8rem; }
+.spec div { display: flex; justify-content: space-between; gap: 12px; }
+.spec span { color: var(--muted); }
+.spec b { text-align: right; font-weight: 700; color: var(--navy2); }
+.spec b.price { color: var(--blue); font-size: 0.88rem; }
+.pick {
+  margin-top: 16px;
+  text-align: center;
+  background: var(--ice);
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 0.84rem;
+  padding: 0.8rem;
+  border-radius: 14px;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.lift-card:hover .pick { background: var(--blue); color: #fff; }
 
-/* ===== LEARN TABS & TIMELINE ===== */
-.tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:30px}
-.tab{padding:.7rem 1.3rem;border-radius:99px;background:#fff;border:1.5px solid var(--line);font-weight:700;font-size:.84rem;color:var(--muted);transition:.2s}
-.tab.on{background:var(--blue);color:#fff;border-color:var(--blue)}
-.tabpane{display:none;grid-template-columns:1fr;gap:30px;background:#fff;border:1px solid var(--line);border-radius:28px;padding:34px;align-items:center}
-.tabpane.on{display:grid;animation:pageIn .4s}
-@media(min-width:860px){.tabpane{grid-template-columns:1.2fr .8fr}}
-.tabpane h3{font-size:1.7rem;margin-bottom:12px;color:var(--navy)}
-.tabpane ul{list-style:none;margin-top:16px;display:grid;gap:8px;font-size:.88rem}
-.tabpane li::before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;color:var(--ok);margin-right:10px}
-.tabpane .big{height:200px;border-radius:22px;background:linear-gradient(135deg,var(--ice2),var(--ice));display:grid;place-items:center;font-size:5rem;color:var(--blue)}
-.timeline{position:relative;max-width:760px;margin:0 auto;padding-left:34px}
-.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--blue),var(--sky))}
-.tl{position:relative;margin-bottom:34px}
-.tl::before{content:"";position:absolute;left:-34px;top:6px;width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--blue)}
-.tl b{font-family:var(--serif);font-size:1.5rem;color:var(--blue)}
-.tl h4{font-size:1.1rem;margin:2px 0 4px;color:var(--navy)}
-.tl p{font-size:.88rem;color:var(--muted)}
-.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:22px}
-table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:560px}
-th{background:var(--navy2);color:#fff;text-align:left;padding:15px 18px;font-weight:700;letter-spacing:.04em;font-size:.78rem;text-transform:uppercase}
-td{padding:14px 18px;border-top:1px solid var(--line)}
-tr:hover td{background:var(--ice)}
-details{background:#fff;border:1px solid var(--line);border-radius:18px;padding:0 24px;margin-bottom:14px;transition:.2s}
-details[open]{border-color:var(--blue);box-shadow:var(--shadow)}
-summary{list-style:none;cursor:pointer;padding:20px 0;font-weight:700;display:flex;justify-content:space-between;gap:16px;color:var(--navy)}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:1.5rem;color:var(--blue);line-height:1;transition:.3s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{padding-bottom:20px;color:var(--muted);font-size:.9rem}
-.narrow{max-width:820px;margin:0 auto}
+.car-nav { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 6px; }
+.car-nav button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  color: var(--blue);
+  transition: 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.car-nav button:hover { background: var(--blue); color: #fff; transform: scale(1.08); }
+.prog { flex: 0 1 240px; height: 5px; background: var(--line); border-radius: 9px; overflow: hidden; }
+.prog i { display: block; height: 100%; width: 20%; background: linear-gradient(90deg, var(--blue), var(--sky)); transition: width 0.2s; }
+.lift-grid { display: grid; gap: 28px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
 
-/* ===== SIMULATOR ===== */
-.sim{display:grid;gap:26px;background:#fff;border:1px solid var(--line);border-radius:30px;padding:26px;box-shadow:var(--shadow)}
-@media(min-width:900px){.sim{grid-template-columns:1.3fr .8fr;padding:34px}}
-.sim-shaft{background:linear-gradient(180deg,var(--ice),#fff);border:1px solid var(--line);border-radius:22px;padding:18px;min-height:480px;display:flex;flex-direction:column;position:relative}
-.sim-top,.sim-bot{display:flex;justify-content:space-between;font-size:.7rem;font-weight:700;letter-spacing:.08em;color:var(--muted)}
-.sim-top{border-bottom:1px solid var(--line);padding-bottom:10px}
-.sim-bot{border-top:1px solid var(--line);padding-top:10px}
-.sim-top b{color:var(--blue)}
-#shaftTrack{position:relative;flex:1;margin:14px 0}
-.fl{position:absolute;left:0;right:0;border-bottom:1px dashed #b8cdf3;font-size:.7rem;color:#7d93bd;font-weight:600;display:flex;justify-content:space-between;padding-bottom:2px}
-#cab{position:absolute;left:50%;width:170px;height:78px;margin-left:-85px;bottom:0;border-radius:14px;border:3px solid var(--blue);background:#fff;box-shadow:0 12px 30px -8px rgba(21,86,214,.55);overflow:hidden;transition:bottom 1.4s cubic-bezier(.4,0,.2,1)}
-#doorBox{position:relative;width:100%;height:100%;display:flex;overflow:hidden;background:var(--ice2)}
-#doorBox .in{position:absolute;inset:0;display:grid;place-items:center;font-size:.7rem;font-weight:800;letter-spacing:.14em;color:var(--blue)}
-.dl,.dr{position:relative;z-index:2;width:50%;transition:transform .7s cubic-bezier(.77,0,.18,1);background:linear-gradient(180deg,#2f7bff,#0a2a63)}
-.dl{border-right:1px solid var(--sky)} .dr{border-left:1px solid var(--sky)}
-#doorBox.open .dl{transform:translateX(-92%)} #doorBox.open .dr{transform:translateX(92%)}
-.panel{background:var(--navy);border-radius:22px;padding:22px;color:#fff;display:flex;flex-direction:column;gap:18px}
-.lcd{background:#02102b;border:2px solid #17407f;border-radius:16px;padding:14px;text-align:center}
-.lcd-top{display:flex;justify-content:space-between;font-size:.64rem;letter-spacing:.14em;color:#7ba5ee;border-bottom:1px solid #17407f;padding-bottom:8px}
-.lcd-top button{color:var(--sky);font-size:.64rem;letter-spacing:.14em}
-.lcd-mid{display:flex;justify-content:center;align-items:center;gap:16px;padding-top:8px}
-#dirArrow{font-size:2rem;color:#2a4a85}
-#floorDisp{font-family:'Courier New',monospace;font-size:3.6rem;font-weight:900;color:var(--sky);text-shadow:0 0 18px rgba(109,182,255,.8)}
-#statusMsg{font-family:'Courier New',monospace;font-size:.7rem;color:#6ce0b9;margin-top:4px}
-.cop{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.cop button{height:54px;border-radius:14px;background:#0d2a5c;border:1.5px solid #1f4a95;color:#fff;font-weight:800;font-size:1.1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:.2s}
-.cop button small{font-size:.54rem;font-weight:500;color:#8fb2ee}
-.cop button:hover{background:#15408a}
-.cop button.on{border-color:var(--sky);color:var(--sky);box-shadow:0 0 16px rgba(109,182,255,.5)}
-.ctl{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.ctl button{padding:.7rem;border-radius:12px;background:#0d2a5c;border:1px solid #1f4a95;font-size:.78rem;font-weight:700;color:#cfe0ff}
-.ctl button.stop{background:#5b1224;border-color:#a8274a;color:#ffc2d0}
-.ctl button:hover{filter:brightness(1.2)}
+/* ===== REALISTIC ELEVATOR SIMULATOR ===== */
+.sim-container {
+  display: grid;
+  gap: 28px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 32px;
+  padding: 26px;
+  box-shadow: var(--shadow-lg);
+}
+@media(min-width: 960px) {
+  .sim-container {
+    grid-template-columns: 1.25fr 0.75fr;
+    padding: 34px;
+  }
+}
 
-/* ===== CUSTOMIZER ===== */
-.cfg{display:grid;gap:30px;align-items:start}
-@media(min-width:960px){.cfg{grid-template-columns:1fr 1fr}}
-.box{background:#fff;border:1px solid var(--line);border-radius:28px;padding:30px;box-shadow:0 14px 40px -26px rgba(21,86,214,.5)}
-.lbl{font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--navy2);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
-.lbl em{font-style:normal;color:var(--blue);font-size:1rem;letter-spacing:0}
-.opt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:26px}
-.opt{border:1.5px solid var(--line);border-radius:14px;padding:12px;text-align:left;background:#fff;transition:.2s;font-size:.8rem;font-weight:700}
-.opt small{display:block;font-weight:500;color:var(--muted);font-size:.68rem;margin-top:2px}
-.opt i{color:var(--blue);margin-right:6px}
-.opt:hover{border-color:var(--sky)}
-.opt.on{border-color:var(--blue);background:var(--ice);box-shadow:0 0 0 2px rgba(47,123,255,.2)}
-input[type=range]{width:100%;accent-color:var(--blue);height:6px;margin-bottom:6px}
-.scale{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted);margin-bottom:26px}
-select,input,textarea{width:100%;font-family:inherit;font-size:.9rem;padding:.9rem 1rem;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);outline:none;transition:.2s}
-select:focus,input:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(47,123,255,.12)}
+.sim-hoistway {
+  background: linear-gradient(180deg, #f0f6ff 0%, #e1edfe 100%);
+  border: 1.5px solid var(--line);
+  border-radius: 24px;
+  padding: 20px;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.sim-top-bar, .sim-bot-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.sim-top-bar { border-bottom: 1.5px solid rgba(21, 86, 214, 0.12); padding-bottom: 12px; }
+.sim-bot-bar { border-top: 1.5px solid rgba(21, 86, 214, 0.12); padding-top: 12px; }
+.sim-top-bar b { color: var(--blue); font-family: monospace; font-size: 0.85rem; }
 
-/* Cabin Interior 3D Box */
-.cabin{--back:#e9f1ff;--side:#cfe0ff;--ceil:#fff;--floor:#b9cdf2;--acc:#1556d6;position:relative;height:300px;border-radius:20px;overflow:hidden;background:var(--back);transition:.5s;border:4px solid #fff;box-shadow:0 0 0 1.5px var(--line)}
-.cabin>div{position:absolute;transition:background .5s}
-.c-back{left:18%;right:18%;top:22%;bottom:22%;background:linear-gradient(90deg,transparent 49.6%,rgba(255,255,255,.7) 50%,transparent 50.4%),var(--back)}
-.c-ceil{top:0;left:0;right:0;height:22%;background:var(--ceil);clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)}
-.c-led{top:5%;left:30%;right:30%;height:8%;border-radius:99px;background:#fff;box-shadow:0 0 28px 8px rgba(255,255,255,.9);z-index:2}
-.c-left{left:0;top:0;bottom:0;width:18%;background:var(--side);clip-path:polygon(0 0,100% 22%,100% 78%,0 100%)}
-.c-right{right:0;top:0;bottom:0;width:18%;background:var(--side);filter:brightness(.93);clip-path:polygon(0 22%,100% 0,100% 100%,0 78%)}
-.c-floor{bottom:0;left:0;right:0;height:22%;background:linear-gradient(180deg,var(--floor),#fff 140%);clip-path:polygon(18% 0,82% 0,100% 100%,0 100%)}
-.c-rail{left:22%;right:22%;top:55%;height:6px;border-radius:99px;background:linear-gradient(#fff,#9fb3d6);box-shadow:0 4px 8px rgba(0,0,0,.15);z-index:2}
-.c-acc{left:18%;right:18%;top:22%;height:4px;background:var(--acc);z-index:2}
-.c-panel{right:21%;top:34%;width:26px;height:52px;border-radius:7px;background:var(--acc);z-index:3;display:grid;place-items:center;color:#fff;font-size:.55rem;font-weight:800}
-.c-name{left:0;right:0;top:30%;text-align:center;font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--acc);opacity:.85;z-index:2}
-.cabin.royal{--back:#e6efff;--side:#2f7bff;--ceil:#fff;--floor:#9db9f2;--acc:#1556d6}
-.cabin.marble{--back:#fff;--side:#eef3fb;--ceil:#fff;--floor:#d4def0;--acc:#4a7bd9}
-.cabin.sky{--back:#bfe0ff;--side:#8ec7ff;--ceil:#f2f9ff;--floor:#a9d3ff;--acc:#0e6fe0}
-.cabin.navy{--back:#1a3a78;--side:#0a2a63;--ceil:#dbe9ff;--floor:#6d86b8;--acc:#cfe0ff}
-.cabin.navy .c-name{color:#cfe0ff}
-.badge{font-size:.7rem;font-weight:800;letter-spacing:.14em;color:var(--blue)}
+#shaftTrack {
+  position: relative;
+  flex: 1;
+  margin: 16px 0;
+  border-left: 2px dashed rgba(21, 86, 214, 0.25);
+  border-right: 2px dashed rgba(21, 86, 214, 0.25);
+}
 
-.price-box{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:28px;padding:30px;margin-top:24px;position:relative;overflow:hidden}
-.price-box h4{font-family:var(--sans);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sky)}
-#total{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:800;margin:6px 0 4px}
-.price-note{font-size:.76rem;color:#a9c4f5}
-.rows{margin:22px 0;display:grid;gap:9px;font-size:.84rem}
-.rows div{display:flex;justify-content:space-between;border-bottom:1px dashed rgba(255,255,255,.15);padding-bottom:8px;color:#cfe0ff}
-.rows div b{color:#fff}
-.rows .tot{border:0;font-size:.95rem}
-.pb-btn{display:grid;gap:12px;grid-template-columns:1fr 1fr}
-@media(max-width:520px){.pb-btn{grid-template-columns:1fr}}
+/* Floor Level Guides */
+.fl-marker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-bottom: 1px dashed rgba(21, 86, 214, 0.25);
+  font-size: 0.72rem;
+  color: #6884b8;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 3px;
+  pointer-events: none;
+}
 
-/* AMC Plans */
-.amc{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.plan{background:#fff;border:1.5px solid var(--line);border-radius:26px;padding:32px;text-align:center;transition:.3s}
-.plan:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
-.plan.best{background:linear-gradient(160deg,var(--navy),var(--blue));color:#fff;border-color:transparent}
-.plan h3{font-size:1.4rem}
-.plan .pr{font-family:var(--serif);font-size:2.3rem;font-weight:800;margin:12px 0 2px;color:var(--blue)}
-.plan.best .pr{color:#fff}
-.plan small{color:var(--muted)} .plan.best small{color:#bcd3ff}
-.plan ul{list-style:none;margin:20px 0;display:grid;gap:9px;font-size:.85rem;text-align:left}
-.plan li::before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;color:var(--ok);margin-right:10px}
-.plan.best li::before{color:var(--sky)}
+/* Cable & Counterweight */
+#cables {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: repeating-linear-gradient(180deg, #64748b 0 4px, #334155 4px 8px);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+#counterweight {
+  position: absolute;
+  right: 14px;
+  width: 22px;
+  height: 60px;
+  background: linear-gradient(180deg, #475569, #1e293b);
+  border-radius: 4px;
+  border: 1px solid #94a3b8;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: bottom 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  bottom: 78%;
+  z-index: 2;
+}
 
-/* Contact & Forms */
-.contact{display:grid;gap:40px}
-@media(min-width:960px){.contact{grid-template-columns:.9fr 1.1fr}}
-.cinfo{display:flex;gap:16px;margin-bottom:24px}
-.cinfo .ico{margin:0;flex-shrink:0;width:50px;height:50px;font-size:1.1rem}
-.cinfo b{display:block;color:var(--navy)} .cinfo span{font-size:.86rem;color:var(--muted)}
-.fgrid{display:grid;gap:16px}
-@media(min-width:620px){.fgrid.two{grid-template-columns:1fr 1fr}}
-.fgrid label{display:block;font-size:.76rem;font-weight:700;margin-bottom:6px;color:var(--navy2)}
+/* The Elevator Cab */
+#cab {
+  position: absolute;
+  left: 50%;
+  width: 180px;
+  height: 86px;
+  margin-left: -90px;
+  bottom: 0%;
+  border-radius: 14px;
+  border: 3px solid var(--blue);
+  background: #ffffff;
+  box-shadow: 0 16px 36px -8px rgba(21, 86, 214, 0.6);
+  overflow: hidden;
+  transition: bottom 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 3;
+}
+#doorBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  background: linear-gradient(180deg, #e9f2ff, #cde0fc);
+}
+#doorBox .cab-interior {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--blue);
+}
+.dl, .dr {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  transition: transform 0.75s cubic-bezier(0.77, 0, 0.18, 1);
+  background: linear-gradient(180deg, #2b74f3, #0a275e);
+}
+.dl { border-right: 1.5px solid var(--sky); }
+.dr { border-left: 1.5px solid var(--sky); }
+#doorBox.open .dl { transform: translateX(-92%); }
+#doorBox.open .dr { transform: translateX(92%); }
+
+/* Car Operating Panel (COP) */
+.cop-panel {
+  background: var(--navy);
+  border-radius: 24px;
+  padding: 24px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: inset 0 2px 6px rgba(255,255,255,0.08);
+}
+.cop-lcd {
+  background: #020b1e;
+  border: 2px solid #163d7a;
+  border-radius: 18px;
+  padding: 16px;
+  text-align: center;
+}
+.cop-lcd-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  color: #84afff;
+  border-bottom: 1px solid #163d7a;
+  padding-bottom: 8px;
+}
+.cop-lcd-mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding-top: 10px;
+}
+#dirArrow { font-size: 2.2rem; color: #2a5091; transition: color 0.3s; }
+#floorDisp {
+  font-family: 'Courier New', monospace;
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: var(--sky);
+  text-shadow: 0 0 20px rgba(109, 182, 255, 0.85);
+  line-height: 1;
+}
+#statusMsg {
+  font-family: 'Courier New', monospace;
+  font-size: 0.72rem;
+  color: #6ce0b9;
+  margin-top: 8px;
+  letter-spacing: 0.05em;
+}
+
+.cop-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.cop-buttons button {
+  height: 56px;
+  border-radius: 14px;
+  background: #0d2856;
+  border: 1.5px solid #1c4991;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.cop-buttons button small { font-size: 0.54rem; font-weight: 500; color: #8fb2ee; }
+.cop-buttons button:hover { background: #164088; transform: translateY(-2px); }
+.cop-buttons button.on {
+  border-color: var(--sky);
+  color: var(--sky);
+  box-shadow: 0 0 18px rgba(109, 182, 255, 0.6);
+  background: #143d7f;
+}
+
+.cop-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.cop-actions button {
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: #0d2856;
+  border: 1px solid #1c4991;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #cfe0ff;
+  transition: 0.2s;
+}
+.cop-actions button:hover { filter: brightness(1.2); }
+.cop-actions button.stop-btn {
+  background: #641124;
+  border-color: #b9264f;
+  color: #ffd1dc;
+}
+.cop-actions button.stop-btn:hover { background: #851833; }
+
+/* ===== SERVICE & SUPPORT HUB ===== */
+.service-grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-bottom: 50px;
+}
+.srv-card {
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 24px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.srv-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue);
+  box-shadow: var(--shadow);
+}
+.srv-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--ice2), var(--ice));
+  display: grid;
+  place-items: center;
+  color: var(--blue);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+.srv-card:hover .srv-icon {
+  background: var(--blue);
+  color: #fff;
+  transform: rotate(-6deg) scale(1.08);
+}
+.srv-card h3 { font-size: 1.25rem; margin-bottom: 10px; color: var(--navy); }
+.srv-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+/* Service Request Box */
+.srv-dispatch-box {
+  background: linear-gradient(135deg, var(--navy), var(--navy2));
+  color: #fff;
+  border-radius: 30px;
+  padding: 40px 32px;
+  display: grid;
+  gap: 34px;
+  align-items: center;
+}
+@media(min-width: 900px) {
+  .srv-dispatch-box { grid-template-columns: 1.1fr 0.9fr; padding: 50px 45px; }
+}
+.srv-dispatch-box h2 { font-size: clamp(1.8rem, 3.8vw, 2.6rem); margin-bottom: 12px; }
+.srv-dispatch-box p { color: #c9dbfb; font-size: 0.95rem; }
+.ticket-preview {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+}
+.ticket-preview label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 6px;
+}
+
+/* ===== AMC PLANS ===== */
+.amc-grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.plan {
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 26px;
+  padding: 34px 26px;
+  text-align: center;
+  transition: 0.3s;
+}
+.plan:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+.plan.best {
+  background: linear-gradient(160deg, var(--navy), var(--blue));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: var(--shadow-lg);
+}
+.plan h3 { font-size: 1.4rem; }
+.plan .pr { font-family: var(--serif); font-size: 2.3rem; font-weight: 800; margin: 12px 0 2px; color: var(--blue); }
+.plan.best .pr { color: #fff; }
+.plan small { color: var(--muted); }
+.plan.best small { color: #bcd3ff; }
+.plan ul { list-style: none; margin: 22px 0; display: grid; gap: 10px; font-size: 0.86rem; text-align: left; }
+.plan li::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: var(--ok);
+  margin-right: 10px;
+}
+.plan.best li::before { color: var(--sky); }
+
+/* ===== 3D CABIN CONFIGURATOR ===== */
+.cfg-wrap { display: grid; gap: 30px; align-items: start; }
+@media(min-width: 960px) { .cfg-wrap { grid-template-columns: 1fr 1fr; } }
+.box {
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: 0 14px 40px -26px rgba(21, 86, 214, 0.5);
+}
+.lbl {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy2);
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.lbl em { font-style: normal; color: var(--blue); font-size: 1rem; letter-spacing: 0; }
+.opt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-bottom: 24px; }
+.opt {
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+  text-align: left;
+  background: #fff;
+  transition: 0.2s;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.opt small { display: block; font-weight: 500; color: var(--muted); font-size: 0.68rem; margin-top: 2px; }
+.opt i { color: var(--blue); margin-right: 6px; }
+.opt:hover { border-color: var(--sky); }
+.opt.on { border-color: var(--blue); background: var(--ice); box-shadow: 0 0 0 2px rgba(47, 123, 255, 0.2); }
+input[type=range] { width: 100%; accent-color: var(--blue); height: 6px; margin-bottom: 6px; cursor: pointer; }
+.scale { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--muted); margin-bottom: 24px; }
+select, input, textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.9rem 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+  transition: 0.2s;
+}
+select:focus, input:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(47, 123, 255, 0.12); }
+
+/* Cabin 3D Viewport */
+.cabin {
+  --back: #e9f1ff; --side: #cfe0ff; --ceil: #fff; --floor: #b9cdf2; --acc: #1556d6;
+  position: relative;
+  height: 290px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--back);
+  transition: 0.5s;
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 1.5px var(--line);
+}
+.cabin > div { position: absolute; transition: background 0.5s; }
+.c-back {
+  left: 18%; right: 18%; top: 22%; bottom: 22%;
+  background: linear-gradient(90deg, transparent 49.6%, rgba(255, 255, 255, 0.7) 50%, transparent 50.4%), var(--back);
+}
+.c-ceil { top: 0; left: 0; right: 0; height: 22%; background: var(--ceil); clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%); }
+.c-led { top: 5%; left: 30%; right: 30%; height: 8%; border-radius: 99px; background: #fff; box-shadow: 0 0 28px 8px rgba(255, 255, 255, 0.9); z-index: 2; }
+.c-left { left: 0; top: 0; bottom: 0; width: 18%; background: var(--side); clip-path: polygon(0 0, 100% 22%, 100% 78%, 0 100%); }
+.c-right { right: 0; top: 0; bottom: 0; width: 18%; background: var(--side); filter: brightness(0.93); clip-path: polygon(0 22%, 100% 0, 100% 100%, 0 78%); }
+.c-floor { bottom: 0; left: 0; right: 0; height: 22%; background: linear-gradient(180deg, var(--floor), #fff 140%); clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%); }
+.c-rail { left: 22%; right: 22%; top: 55%; height: 6px; border-radius: 99px; background: linear-gradient(#fff, #9fb3d6); box-shadow: 0 4px 8px rgba(0,0,0,0.15); z-index: 2; }
+.c-acc { left: 18%; right: 18%; top: 22%; height: 4px; background: var(--acc); z-index: 2; }
+.c-panel { right: 21%; top: 34%; width: 26px; height: 52px; border-radius: 7px; background: var(--acc); z-index: 3; display: grid; place-items: center; color: #fff; font-size: 0.55rem; font-weight: 800; }
+.c-name { left: 0; right: 0; top: 30%; text-align: center; font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: var(--acc); opacity: 0.85; z-index: 2; }
+.cabin.royal { --back: #e6efff; --side: #2f7bff; --ceil: #fff; --floor: #9db9f2; --acc: #1556d6; }
+.cabin.marble { --back: #fff; --side: #eef3fb; --ceil: #fff; --floor: #d4def0; --acc: #4a7bd9; }
+.cabin.sky { --back: #bfe0ff; --side: #8ec7ff; --ceil: #f2f9ff; --floor: #a9d3ff; --acc: #0e6fe0; }
+.cabin.navy { --back: #1a3a78; --side: #0a2a63; --ceil: #dbe9ff; --floor: #6d86b8; --acc: #cfe0ff; }
+.cabin.navy .c-name { color: #cfe0ff; }
+.badge { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.14em; color: var(--blue); }
+
+.price-box {
+  background: linear-gradient(135deg, var(--navy), var(--navy2));
+  color: #fff;
+  border-radius: 28px;
+  padding: 30px;
+  margin-top: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.price-box h4 { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sky); }
+#total { font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; margin: 6px 0 4px; }
+.price-note { font-size: 0.76rem; color: #a9c4f5; }
+.rows { margin: 22px 0; display: grid; gap: 9px; font-size: 0.84rem; }
+.rows div { display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(255,255,255,.15); padding-bottom: 8px; color: #cfe0ff; }
+.rows div b { color: #fff; }
+.rows .tot { border: 0; font-size: 0.95rem; }
+.pb-btn { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+@media(max-width: 520px) { .pb-btn { grid-template-columns: 1fr; } }
 
 /* Footer */
-footer{background:var(--navy);color:#a9c1ee;padding:70px 0 30px}
-.fgrid4{display:grid;gap:36px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-footer h5{color:#fff;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px;font-family:var(--sans)}
-footer li{list-style:none;margin-bottom:9px;font-size:.86rem}
-footer a:hover{color:var(--sky)}
-footer .logo-text{color:#fff}
-.copy{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-top:24px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.78rem}
+footer { background: var(--navy); color: #a9c1ee; padding: 70px 0 30px; }
+.fgrid4 { display: grid; gap: 36px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+footer h5 { color: #fff; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 16px; font-family: var(--sans); }
+footer li { list-style: none; margin-bottom: 9px; font-size: 0.86rem; }
+footer a:hover { color: var(--sky); }
+footer .logo-text { color: #fff; }
+.copy { border-top: 1px solid rgba(255,255,255,.12); margin-top: 44px; padding-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 0.78rem; }
 
-/* Toasts and Modals */
-#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;pointer-events:none;background:var(--navy);color:#fff;padding:.9rem 1.6rem;border-radius:16px;font-weight:700;font-size:.86rem;z-index:99999;transition:.35s;box-shadow:var(--shadow)}
-#toast.show{opacity:1;transform:translate(-50%,0)}
-#modal{position:fixed;inset:0;background:rgba(6,23,58,.75);backdrop-filter:blur(8px);z-index:9999;display:none;place-items:center;padding:20px}
-#modal.show{display:grid}
-.mbox{background:#fff;border-radius:30px;max-width:460px;width:100%;padding:36px 30px;text-align:center;animation:pageIn .4s}
-.mbox .ok{width:68px;height:68px;border-radius:50%;background:#e3f8f1;color:var(--ok);display:grid;place-items:center;font-size:2rem;margin:0 auto 16px}
-.mbox h3{font-size:1.6rem;margin-bottom:8px;color:var(--navy)}
-.mbox p{color:var(--muted);font-size:.88rem;margin-bottom:22px}
+/* Alerts and Modals */
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translate(-50%, 30px);
+  opacity: 0;
+  pointer-events: none;
+  background: var(--navy);
+  color: #fff;
+  padding: 0.95rem 1.6rem;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  z-index: 999999;
+  transition: 0.35s;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#toast.show { opacity: 1; transform: translate(-50%, 0); }
+#modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 16, 41, 0.78);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: none;
+  place-items: center;
+  padding: 20px;
+}
+#modal.show { display: grid; }
+.mbox { background: #fff; border-radius: 30px; max-width: 460px; width: 100%; padding: 36px 30px; text-align: center; }
+.mbox .ok { width: 68px; height: 68px; border-radius: 50%; background: #e3f8f1; color: var(--ok); display: grid; place-items: center; font-size: 2rem; margin: 0 auto 16px; }
+.mbox h3 { font-size: 1.6rem; margin-bottom: 8px; color: var(--navy); }
+.mbox p { color: var(--muted); font-size: 0.88rem; margin-bottom: 22px; }
 </style>
 </head>
 <body class="lock">
@@ -359,7 +1020,7 @@ footer .logo-text{color:#fff}
   <div class="sp-door sp-r"></div>
   <div class="sp-center">
     <div class="sp-mark"><i class="fa-solid fa-elevator"></i></div>
-    <div class="sp-title"><span>L</span><span>E</span><span>O</span></div>
+    <div class="sp-title">LEO</div>
     <div class="sp-sub">ELEVATORS</div>
     <div class="sp-floor">
       <div class="sp-bar"><i id="spBar"></i></div>
@@ -373,30 +1034,28 @@ footer .logo-text{color:#fff}
 <header>
   <div class="container">
     <div class="nav">
-      <a href="#/home" class="logo" aria-label="LEO Elevators home">
+      <a href="#/home" class="logo" aria-label="LEO Elevators Home">
         <span class="logo-mark"><i class="fa-solid fa-elevator"></i></span>
         <span class="logo-text">LEO<small>ELEVATORS</small></span>
       </a>
-      <nav class="links" id="navLinks" aria-label="Main">
+      <nav class="links" id="navLinks" aria-label="Main Navigation">
         <a href="#/home" data-p="home">Home</a>
-        <a href="#/lifts" data-p="lifts">Lift Types</a>
-        <a href="#/learn" data-p="learn">Learn</a>
-        <a href="#/simulator" data-p="simulator">Simulator</a>
-        <a href="#/safety" data-p="safety">Safety</a>
-        <a href="#/quote" data-p="quote">Get Quote</a>
+        <a href="#/lifts" data-p="lifts">Lift Models</a>
+        <a href="#/simulator" data-p="simulator">Shaft Simulator</a>
+        <a href="#/service" data-p="service">Service & Care</a>
+        <a href="#/quote" data-p="quote">Quote Calculator</a>
         <a href="#/about" data-p="about">About</a>
         <a href="#/contact" data-p="contact">Contact</a>
       </nav>
-      <a href="#/quote" class="btn btn-primary nav-cta"><i class="fa-solid fa-calculator"></i> Instant Quote</a>
+      <a href="#/quote" class="btn btn-primary nav-cta"><i class="fa-solid fa-calculator"></i> Build & Price</a>
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
     </div>
     <div id="mmenu">
       <a href="#/home" data-p="home">Home</a>
-      <a href="#/lifts" data-p="lifts">Lift Types</a>
-      <a href="#/learn" data-p="learn">Learn</a>
-      <a href="#/simulator" data-p="simulator">Simulator</a>
-      <a href="#/safety" data-p="safety">Safety</a>
-      <a href="#/quote" data-p="quote">Get Quote</a>
+      <a href="#/lifts" data-p="lifts">Lift Models</a>
+      <a href="#/simulator" data-p="simulator">Shaft Simulator</a>
+      <a href="#/service" data-p="service">Service & Care</a>
+      <a href="#/quote" data-p="quote">Quote Calculator</a>
       <a href="#/about" data-p="about">About</a>
       <a href="#/contact" data-p="contact">Contact</a>
     </div>
@@ -405,32 +1064,35 @@ footer .logo-text{color:#fff}
 
 <main>
 
-<!-- ========== PAGE: HOME ========== -->
+<!-- ========== 1. PAGE: HOME ========== -->
 <section class="page" id="page-home">
   <div class="hero">
     <div class="orb o1"></div><div class="orb o2"></div>
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">India's Smart Mobility Partner</span>
+        <span class="eyebrow">Smart Vertical Mobility</span>
         <h1>Rise in <span class="em grad-text">elegance,</span><br>move with precision.</h1>
-        <p class="lead">Silent, safe and beautifully engineered lifts for homes, hospitals, offices and industrial hubs. From compact villa lifts to high-speed glass towers.</p>
+        <p class="lead">Silent, safe, and architectural lifts for Indian villas, multi-story apartments, hospitals, and industrial centers. Powered by PMSM gearless technology.</p>
         <div class="hero-btns">
           <a href="#/lifts" class="btn btn-light"><i class="fa-solid fa-elevator"></i> Explore Lifts</a>
-          <a href="#/simulator" class="btn btn-ghost" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4)"><i class="fa-solid fa-play"></i> Launch Simulator</a>
+          <a href="#/simulator" class="btn btn-ghost" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4)"><i class="fa-solid fa-play"></i> Test Drive Simulator</a>
         </div>
         <div class="trust">
-          <span><i class="fa-solid fa-shield-halved"></i>ISO 9001 Certified</span>
-          <span><i class="fa-solid fa-bolt"></i>Energy Regenerative</span>
-          <span><i class="fa-solid fa-certificate"></i>IS 14665 Standard</span>
+          <span><i class="fa-solid fa-shield-halved"></i>IS 14665 Compliant</span>
+          <span><i class="fa-solid fa-bolt"></i>30% Energy Regeneration</span>
+          <span><i class="fa-solid fa-clock"></i>2-Hour Breakdown Service</span>
         </div>
       </div>
       <div class="shaft-wrap">
-        <div class="shaft" aria-hidden="true">
-          <div class="tick" style="top:12%">FL 5</div><div class="tick" style="top:32%">FL 4</div><div class="tick" style="top:52%">FL 3</div><div class="tick" style="top:72%">FL 2</div>
-          <div class="mini-cab"><i class="fa-solid fa-user-group"></i><b></b><b></b></div>
+        <div class="shaft-mini" aria-hidden="true">
+          <div class="mini-fl" style="top:12%">FL 4 (12.8m)</div>
+          <div class="mini-fl" style="top:34%">FL 3 (9.6m)</div>
+          <div class="mini-fl" style="top:56%">FL 2 (6.4m)</div>
+          <div class="mini-fl" style="top:78%">FL 1 (3.2m)</div>
+          <div class="mini-car"><i class="fa-solid fa-elevator"></i><b></b><b></b></div>
         </div>
-        <div class="chip c1"><i class="fa-solid fa-gauge-high"></i> Up to 4.0 m/s</div>
-        <div class="chip c2"><i class="fa-solid fa-leaf"></i> 30% Power Saved</div>
+        <div class="chip c1"><i class="fa-solid fa-gauge-high"></i> Up to 2.5 m/s</div>
+        <div class="chip c2"><i class="fa-solid fa-leaf"></i> Eco Smart Drive</div>
       </div>
     </div>
   </div>
@@ -439,62 +1101,55 @@ footer .logo-text{color:#fff}
 
   <div class="container">
     <div class="stats">
-      <div class="stat"><b data-count="5200">5,200+</b><span>Lifts Installed</span></div>
-      <div class="stat"><b data-count="99.98">99.98%</b><span>System Uptime</span></div>
-      <div class="stat"><b data-count="2">2 Hours</b><span>Emergency Response</span></div>
-      <div class="stat"><b data-count="120">120+</b><span>Cities Across India</span></div>
+      <div class="stat"><b>5,200+</b><span>Lifts Installed</span></div>
+      <div class="stat"><b>99.98%</b><span>Operational Uptime</span></div>
+      <div class="stat"><b>2 Hours</b><span>Emergency Arrival SLA</span></div>
+      <div class="stat"><b>120+</b><span>Indian Cities Covered</span></div>
     </div>
   </div>
 
+  <!-- Smooth Lift Selection Carousel Section -->
   <div class="sec">
     <div class="container">
       <div class="head">
-        <span class="eyebrow">Our Lifts</span>
-        <h2>Engineered for every <span class="em grad-text">architecture</span></h2>
-        <p>Browse through our certified lineup. Select any model to customize finishes and calculate pricing.</p>
+        <span class="eyebrow">Select Your Elevator</span>
+        <h2>Swipe & pick your <span class="em grad-text">perfect model</span></h2>
+        <p>Scroll horizontally through our certified models. Tap any model to view its interactive 3D interior configuration and live pricing.</p>
       </div>
-      <div class="lift-scroller" id="homeScroller" role="listbox" aria-label="Lift types"></div>
+
+      <div class="lift-scroller" id="homeScroller" role="listbox" aria-label="Elevator Models Carousel"></div>
+      
       <div class="car-nav">
-        <button id="cPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+        <button id="cPrev" aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button>
         <div class="prog"><i id="cProg"></i></div>
-        <button id="cNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+        <button id="cNext" aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
   </div>
 
+  <!-- Quick CTA Band -->
   <div class="sec alt">
     <div class="container">
-      <div class="head">
-        <span class="eyebrow">Why LEO</span>
-        <h2>Engineering you can <span class="em grad-text">feel</span></h2>
-      </div>
-      <div class="cards">
-        <div class="card"><div class="ico"><i class="fa-solid fa-volume-xmark"></i></div><h3>Whisper-Quiet Cabin</h3><p>Gearless permanent magnet motors and isolated rails keep internal cabin noise under 48 dB.</p></div>
-        <div class="card"><div class="ico"><i class="fa-solid fa-leaf"></i></div><h3>Regenerative Drives</h3><p>Kinetic braking power is fed back into your facility, reducing monthly electric bills by up to 30%.</p></div>
-        <div class="card"><div class="ico"><i class="fa-solid fa-headset"></i></div><h3>24x7 IoT Telemetry</h3><p>Real-time machine monitoring detects door cycles and motor anomalies before any downtime occurs.</p></div>
-        <div class="card"><div class="ico"><i class="fa-solid fa-palette"></i></div><h3>Tailored Aesthetics</h3><p>Signature Royal Blue and Marble accents designed to complement modern luxury residential decor.</p></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec">
-    <div class="container">
-      <div class="cta-band">
-        <h2>Ready to <span class="em">elevate</span> your space?</h2>
-        <p>Configure your lift dimensions, see full pricing with GST, and request technical drawings in minutes.</p>
-        <a href="#/quote" class="btn btn-light"><i class="fa-solid fa-calculator"></i> Build & Price Lift</a>
+      <div class="srv-dispatch-box">
+        <div>
+          <h2>Need urgent lift servicing or AMC renewal?</h2>
+          <p>Our rapid-response certified engineers provide genuine spare parts, ARD safety checks, and 24/7 emergency telemetry monitoring across Rajasthan and North India.</p>
+        </div>
+        <div>
+          <a href="#/service" class="btn btn-light" style="width:100%"><i class="fa-solid fa-wrench"></i> Open LEO Service Hub</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== PAGE: LIFT TYPES ========== -->
+<!-- ========== 2. PAGE: LIFT MODELS ========== -->
 <section class="page" id="page-lifts">
   <div class="page-hero">
     <div class="container">
-      <span class="crumb">Home / Lift Types</span>
-      <h1>Certified elevator models for <span class="em">every space</span></h1>
-      <p>Precision-tested systems built in adherence to IS 14665 and EN-81 European safety standards.</p>
+      <span class="crumb">Home / Lift Models</span>
+      <h1>Architectural elevator <span class="em">lineup</span></h1>
+      <p>Click any lift card to launch custom interior aesthetics and live project cost estimation.</p>
     </div>
   </div>
   <div class="sec">
@@ -504,131 +1159,68 @@ footer .logo-text{color:#fff}
   </div>
 </section>
 
-<!-- ========== PAGE: LEARN ========== -->
-<section class="page" id="page-learn">
-  <div class="page-hero">
-    <div class="container">
-      <span class="crumb">Home / Learn</span>
-      <h1>How <span class="em">elevators</span> work</h1>
-      <p>A comprehensive technical overview of drive types, engineering mechanics, and building standards.</p>
-    </div>
-  </div>
-
-  <div class="sec">
-    <div class="container">
-      <div class="head"><span class="eyebrow">Drive Systems</span><h2>Four drive <span class="em grad-text">mechanisms</span></h2></div>
-      <div class="tabs" id="mechTabs">
-        <button class="tab on" data-t="0">Traction Gearless</button>
-        <button class="tab" data-t="1">Machine-Room-Less (MRL)</button>
-        <button class="tab" data-t="2">Hydraulic Piston</button>
-        <button class="tab" data-t="3">Vacuum Pneumatic</button>
-      </div>
-      <div class="tabpane on">
-        <div>
-          <h3>Traction (Gearless Permanent Magnet)</h3>
-          <p>Suspension ropes run over a synchronously driven motorized sheave. A counterweight offsets 50% of the passenger load, meaning the drive only lifts net differences. This delivers the highest efficiency and smoothest ride profile for mid-to-high rise buildings.</p>
-          <ul><li>Optimal for 5 to 40+ floors</li><li>Lowest power draw per trip</li><li>Quiet high-speed operation (up to 4.0 m/s)</li></ul>
-        </div>
-        <div class="big"><i class="fa-solid fa-gears"></i></div>
-      </div>
-      <div class="tabpane">
-        <div>
-          <h3>Machine-Room-Less (MRL)</h3>
-          <p>The compact drive motor is mounted directly to the head of the hoistway guide rails, removing any need for a rooftop penthouse machine room. This eliminates structural roof loads and saves valuable architectural volume.</p>
-          <ul><li>No rooftop room required</li><li>Cuts civil building expenses</li><li>Perfect for private villas and residential blocks</li></ul>
-        </div>
-        <div class="big"><i class="fa-solid fa-compress"></i></div>
-      </div>
-      <div class="tabpane">
-        <div>
-          <h3>Hydraulic Piston</h3>
-          <p>A heavy-duty hydraulic ram driven by pressurized fluid elevates the cabin from the foundation pit. Ideal for low-rise industrial structures carrying heavy freight, machinery, and vehicles.</p>
-          <ul><li>Unmatched load capacity (up to 5,000 kg)</li><li>Minimal overhead clearance needed</li><li>Heavy-duty industrial reliability</li></ul>
-        </div>
-        <div class="big"><i class="fa-solid fa-oil-can"></i></div>
-      </div>
-      <div class="tabpane">
-        <div>
-          <h3>Pneumatic Vacuum Lift</h3>
-          <p>Operates using atmospheric differential pressure inside a clear polycarbonate tube. Requires zero pit excavation and no machine shaft, fitting directly into existing duplexes and penthouses.</p>
-          <ul><li>Zero pit or machine shaft required</li><li>360-degree panoramic glass views</li><li>Fast 2-day installation</li></ul>
-        </div>
-        <div class="big"><i class="fa-solid fa-wind"></i></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec alt">
-    <div class="container">
-      <div class="head">
-        <span class="eyebrow">Sizing Reference</span>
-        <h2>Capacity & <span class="em grad-text">dimensions</span></h2>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Passengers</th><th>Payload (kg)</th><th>Shaft Clear Size (W x D)</th><th>Typical Application</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>4 Persons</td><td>272 kg</td><td>1300 mm x 1400 mm</td><td>Duplexes, Small Villas</td></tr>
-            <tr><td>6 Persons</td><td>408 kg</td><td>1500 mm x 1550 mm</td><td>Independent Homes, Clinics</td></tr>
-            <tr><td>8 Persons</td><td>544 kg</td><td>1700 mm x 1700 mm</td><td>Apartment Blocks, Commercial</td></tr>
-            <tr><td>10 Persons</td><td>680 kg</td><td>1800 mm x 1900 mm</td><td>IT Parks, Office Hubs</td></tr>
-            <tr><td>13 Persons</td><td>884 kg</td><td>2000 mm x 2050 mm</td><td>Shopping Centers, Hotels</td></tr>
-            <tr><td>15-26 (Bed)</td><td>1000 - 2000 kg</td><td>2200 mm x 2600 mm</td><td>Hospitals & Trauma Centers</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec">
-    <div class="container narrow">
-      <div class="head"><span class="eyebrow">FAQ</span><h2>Common <span class="em grad-text">questions</span></h2></div>
-      <details><summary>What occurs during a sudden mains power cut?</summary><p>Every LEO elevator comes standard with an Automatic Rescue Device (ARD). Within 5 seconds of an outage, an auxiliary battery bank activates, powers the motor to the nearest floor, and opens the doors automatically.</p></details>
-      <details><summary>What civil preparation is required for a home lift?</summary><p>A shallow pit of 300 mm to 1200 mm (depending on model) and an overhead clearance of 2800 mm to 3400 mm on the top floor. For zero-pit applications, our pneumatic and platform lifts install directly on finished floor tiles.</p></details>
-      <details><summary>How often does an elevator need maintenance under law?</summary><p>Indian State Lift Regulations mandate regular monthly preventative servicing by an authorized OEM partner along with an annual safety inspection and load test.</p></details>
-      <details><summary>Is GST included in the equipment quote?</summary><p>Our online calculator displays both the base cost and 18% GST itemized transparently for straightforward tax accounting.</p></details>
-    </div>
-  </div>
-</section>
-
-<!-- ========== PAGE: SIMULATOR ========== -->
+<!-- ========== 3. PAGE: INTERACTIVE SIMULATOR ========== -->
 <section class="page" id="page-simulator">
   <div class="page-hero">
     <div class="container">
       <span class="crumb">Home / Simulator</span>
-      <h1>Interactive <span class="em">shaft simulator</span></h1>
-      <p>Test the car operating panel, call floor dispatches, and observe leveling sensors in real-time.</p>
+      <h1>Full hoistway <span class="em">simulator</span></h1>
+      <p>Test passenger dispatch, sliding doors, motor leveling physics, and emergency brake circuits in real time.</p>
     </div>
   </div>
+
   <div class="sec">
     <div class="container">
-      <div class="sim">
-        <div class="sim-shaft">
-          <div class="sim-top"><span><i class="fa-solid fa-circle" style="color:var(--ok);font-size:.5rem"></i> GEARLESS PMSM DRIVE #1</span><b id="speedOut">0.0 m/s</b></div>
+      <div class="sim-container">
+        <!-- Live Hoistway Visualizer -->
+        <div class="sim-hoistway">
+          <div class="sim-top-bar">
+            <span><i class="fa-solid fa-circle" style="color:var(--ok);font-size:.55rem"></i> GEARLESS PMSM DRIVE #1</span>
+            <b id="speedGauge">0.0 m/s</b>
+          </div>
+
           <div id="shaftTrack">
-            <div id="floorLines"></div>
+            <div id="cables"></div>
+            <div id="counterweight"></div>
+            <div id="floorMarkers"></div>
+            
             <div id="cab">
               <div id="doorBox">
-                <div class="in"><i class="fa-solid fa-elevator" style="margin-right:6px"></i>LEO</div>
-                <div class="dl"></div><div class="dr"></div>
+                <div class="cab-interior"><i class="fa-solid fa-elevator"></i> LEO CAB</div>
+                <div class="dl"></div>
+                <div class="dr"></div>
               </div>
             </div>
           </div>
-          <div class="sim-bot"><span>BUFFER: HYDRAULIC ACTIVE</span><span style="color:var(--ok)"><i class="fa-solid fa-shield"></i> GOVERNOR ARMED</span></div>
+
+          <div class="sim-bot-bar">
+            <span><i class="fa-solid fa-shield"></i> GOVERNOR ARMED</span>
+            <span style="color:var(--ok)"><i class="fa-solid fa-check"></i> ARD ONLINE</span>
+          </div>
         </div>
-        <div class="panel">
-          <div class="lcd">
-            <div class="lcd-top"><span>CAR OPERATING PANEL</span><button id="soundBtn"><i class="fa-solid fa-volume-high"></i> CHIME ON</button></div>
-            <div class="lcd-mid"><span id="dirArrow">●</span><span id="floorDisp">G</span></div>
+
+        <!-- Car Operating Panel (COP) Controls -->
+        <div class="cop-panel">
+          <div class="cop-lcd">
+            <div class="cop-lcd-top">
+              <span>COP DISPLAY V4.2</span>
+              <button id="soundToggle" style="color:var(--sky)"><i class="fa-solid fa-volume-high"></i> CHIME ON</button>
+            </div>
+            <div class="cop-lcd-mid">
+              <span id="dirArrow">●</span>
+              <span id="floorDisp">G</span>
+            </div>
             <div id="statusMsg">STATIONARY AT GROUND LOBBY</div>
           </div>
-          <div class="cop" id="cop"></div>
-          <div class="ctl">
+
+          <div class="lbl" style="color:#a8c4fb;margin-bottom:0">DISPATCH FLOORS</div>
+          <div class="cop-buttons" id="copButtons"></div>
+
+          <div class="lbl" style="color:#a8c4fb;margin-bottom:0">DOOR & EMERGENCY</div>
+          <div class="cop-actions">
             <button id="bOpen"><i class="fa-solid fa-left-right"></i> Open</button>
             <button id="bClose"><i class="fa-solid fa-compress"></i> Close</button>
-            <button id="bStop" class="stop"><i class="fa-solid fa-triangle-exclamation"></i> STOP</button>
+            <button id="bStop" class="stop-btn"><i class="fa-solid fa-triangle-exclamation"></i> STOP</button>
           </div>
         </div>
       </div>
@@ -636,113 +1228,191 @@ footer .logo-text{color:#fff}
   </div>
 </section>
 
-<!-- ========== PAGE: SAFETY ========== -->
-<section class="page" id="page-safety">
+<!-- ========== 4. PAGE: SERVICE & CARE HUB ========== -->
+<section class="page" id="page-service">
   <div class="page-hero">
     <div class="container">
-      <span class="crumb">Home / Safety & AMC</span>
-      <h1>Multi-layered <span class="em">safety architecture</span></h1>
-      <p>Every LEO lift integrates active optical barriers, progressive mechanical brakes, and smart telemetry.</p>
+      <span class="crumb">Home / Service & Care</span>
+      <h1>LEO 24x7 <span class="em">service & maintenance</span></h1>
+      <p>Keeping India's elevators safe, compliant, and continuously running with predictive IoT telemetry.</p>
     </div>
   </div>
+
   <div class="sec">
     <div class="container">
-      <div class="cards">
-        <div class="card"><div class="ico"><i class="fa-solid fa-shield-halved"></i></div><h3>Overspeed Governor</h3><p>A centrifugal safety trigger locks steel wedges against the rail beams if descent speed exceeds 115% of rated limit.</p></div>
-        <div class="card"><div class="ico"><i class="fa-solid fa-battery-full"></i></div><h3>Auto Rescue Device (ARD)</h3><p>Auxiliary battery banks safely maneuver the car to the nearest landing level and release passengers during blackouts.</p></div>
-        <div class="card"><div class="ico"><i class="fa-solid fa-barcode"></i></div><h3>Infrared Light Curtains</h3><p>An array of 128 infrared cross-beams across the doorway instantly reopens the doors before physical contact.</p></div>
-        <div class="card"><div class="ico"><i class="fa-solid fa-weight-scale"></i></div><h3>Load Cell Sensors</h3><p>Monitors cabin load. If passengers exceed max capacity, a buzzer sounds and doors remain open until cleared.</p></div>
-      </div>
-    </div>
-  </div>
-  <div class="sec alt">
-    <div class="container">
       <div class="head">
-        <span class="eyebrow">Service Coverage</span>
-        <h2>Annual maintenance <span class="em grad-text">contracts</span></h2>
+        <span class="eyebrow">Service System</span>
+        <h2>Complete care <span class="em grad-text">from day one</span></h2>
+        <p>A full suite of proactive support options designed for apartment societies, hospitals, and luxury private residences.</p>
       </div>
-      <div class="amc">
+
+      <div class="service-grid">
+        <div class="srv-card">
+          <div class="srv-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <h3>24/7 Breakdown SOS</h3>
+          <p>Rapid dispatch teams stationed across major city clusters. Guaranteed 2-hour arrival for entrapments and urgent drive halts.</p>
+        </div>
+        <div class="srv-card">
+          <div class="srv-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+          <h3>IoT Remote Diagnostics</h3>
+          <p>Continuous vibration, door-cycle, and motor-temperature sensors identify wear-and-tear before unexpected outages occur.</p>
+        </div>
+        <div class="srv-card">
+          <div class="srv-icon"><i class="fa-solid fa-certificate"></i></div>
+          <h3>Statutory Safety Audits</h3>
+          <p>Annual inspection certificates issued in full compliance with the Rajasthan & Indian State Lift Inspectorate regulations.</p>
+        </div>
+        <div class="srv-card">
+          <div class="srv-icon"><i class="fa-solid fa-gears"></i></div>
+          <h3>Genuine OEM Spares</h3>
+          <p>Direct supply of certified safety wedges, governor cables, micro-switches, and Italian hydraulic power packs.</p>
+        </div>
+      </div>
+
+      <!-- Quick Service Ticket Dispatch Form -->
+      <div class="srv-dispatch-box" style="margin-bottom:60px">
+        <div>
+          <span class="eyebrow" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff">Dispatch Engine</span>
+          <h2 style="margin-top:14px">Book a Service Visit or Report an Issue</h2>
+          <p>Fill out the quick request and our dispatch console will generate an immediate service ticket and alert your local field engineer.</p>
+        </div>
+        <div class="ticket-preview">
+          <form id="serviceDispatchForm">
+            <div>
+              <label>Contact Person & Phone</label>
+              <input type="text" id="srvContact" required placeholder="e.g. Yashpal Sharma (+91 98290...)">
+            </div>
+            <div style="margin-top:12px">
+              <label>Building / Society Address</label>
+              <input type="text" id="srvLocation" required placeholder="e.g. Royal Heights, Kalipahari, Jhunjhunu">
+            </div>
+            <div style="margin-top:12px">
+              <label>Service Type</label>
+              <select id="srvType">
+                <option value="routine">Routine AMC Monthly Servicing</option>
+                <option value="urgent">Urgent Breakdown / Door Stuck</option>
+                <option value="modernize">Lift Modernization & Safety Audit</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px"><i class="fa-solid fa-bolt"></i> Generate Service Ticket</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- AMC Contract Plans -->
+      <div class="head">
+        <span class="eyebrow">Maintenance Contracts</span>
+        <h2>Transparent annual <span class="em grad-text">AMC plans</span></h2>
+      </div>
+      <div class="amc-grid">
         <div class="plan">
           <h3>Basic Care</h3>
           <div class="pr">₹18,500</div>
           <small>Per Year + GST</small>
-          <ul><li>Bi-monthly preventative checks</li><li>Lubrication & rail tuning</li><li>Standard business hours response</li></ul>
-          <a href="#/contact" class="btn btn-ghost" style="width:100%;margin-top:16px">Choose Basic</a>
+          <ul>
+            <li>Quarterly preventative checks</li>
+            <li>Lubrication & guide rail alignment</li>
+            <li>Phone technical support</li>
+          </ul>
+          <a href="#/contact" class="btn btn-ghost" style="width:100%">Choose Basic</a>
         </div>
+
         <div class="plan best">
           <h3>Comprehensive</h3>
           <div class="pr">₹32,000</div>
           <small>Per Year + GST</small>
-          <ul><li>Monthly multi-point servicing</li><li>Spare parts coverage included</li><li>24/7 priority technician dispatch</li><li>Yearly statutory inspection certificate</li></ul>
-          <a href="#/contact" class="btn btn-light" style="width:100%;margin-top:16px">Select Comprehensive</a>
+          <ul>
+            <li>Monthly comprehensive servicing</li>
+            <li>Wear-and-tear parts replacement</li>
+            <li>24/7 Breakdown emergency visits</li>
+            <li>State lift safety inspection renewal</li>
+          </ul>
+          <a href="#/contact" class="btn btn-light" style="width:100%">Select Comprehensive</a>
         </div>
+
         <div class="plan">
           <h3>Elite IoT Care</h3>
           <div class="pr">₹52,000</div>
           <small>Per Year + GST</small>
-          <ul><li>All Comprehensive features</li><li>Continuous cloud telemetry unit</li><li>2-hour guaranteed arrival SLA</li><li>Full motor & traction warranty</li></ul>
-          <a href="#/contact" class="btn btn-ghost" style="width:100%;margin-top:16px">Choose Elite</a>
+          <ul>
+            <li>All Comprehensive features</li>
+            <li>Real-time IoT cloud telemetry box</li>
+            <li>Guaranteed 2-hour engineer dispatch</li>
+            <li>Full PMSM motor warranty included</li>
+          </ul>
+          <a href="#/contact" class="btn btn-ghost" style="width:100%">Choose Elite</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== PAGE: QUOTE ========== -->
+<!-- ========== 5. PAGE: QUOTE CALCULATOR ========== -->
 <section class="page" id="page-quote">
   <div class="page-hero">
     <div class="container">
-      <span class="crumb">Home / Get Quote</span>
-      <h1>Instant <span class="em">elevator estimator</span></h1>
-      <p>Configure model type, floor stops, cabin aesthetics, and door styles for a live cost breakdown.</p>
+      <span class="crumb">Home / Quote Calculator</span>
+      <h1>Customizer & <span class="em">budget estimator</span></h1>
+      <p>Configure cabin finishes, stops, and automated doors with transparent ex-factory pricing and 18% GST.</p>
     </div>
   </div>
+
   <div class="sec">
     <div class="container">
-      <div class="cfg">
+      <div class="cfg-wrap">
+        <!-- Controls Column -->
         <div class="box">
-          <div class="lbl">1. Select Lift Family</div>
-          <div class="opt-grid" id="typeBtns"></div>
+          <div class="lbl">1. Select Elevator Family</div>
+          <div class="opt-grid" id="typeButtons"></div>
 
-          <div class="lbl"><span>2. Number of Floors / Stops</span><em id="floorVal">4 Stops</em></div>
-          <input type="range" id="floors" min="2" max="25" value="4">
-          <div class="scale"><span>2 Floors (G+1)</span><span>12 Floors</span><span>25 Floors</span></div>
+          <div class="lbl"><span>2. Number of Floor Stops</span><em id="floorVal">4 Stops</em></div>
+          <input type="range" id="floorsInput" min="2" max="25" value="4">
+          <div class="scale"><span>2 Stops (G+1)</span><span>12 Stops</span><span>25 Stops</span></div>
 
-          <div class="lbl">3. Interior Aesthetic Finish</div>
-          <div class="opt-grid" id="finBtns"></div>
+          <div class="lbl">3. Blue & White Architectural Theme</div>
+          <div class="opt-grid" id="finButtons"></div>
 
-          <div class="lbl"><label for="doorSel">4. Entrance Door Automation</label></div>
-          <select id="doorSel">
-            <option value="0">Automatic Centre Opening - Hairline Steel</option>
+          <div class="lbl"><label for="doorSelect">4. Landing Entrance Automation</label></div>
+          <select id="doorSelect">
+            <option value="0">Automatic Centre Opening (Hairline Stainless)</option>
             <option value="45000">Telescopic Side Opening (+₹45,000)</option>
-            <option value="95000">Panoramic Frameless Glass Doors (+₹95,000)</option>
+            <option value="95000">Frameless Glass Automatic (+₹95,000)</option>
           </select>
         </div>
 
+        <!-- 3D Interior Preview & Financial Breakdown -->
         <div>
           <div class="box">
-            <div class="lbl"><span><i class="fa-solid fa-cube" style="color:var(--blue)"></i> 3D Cabin Visualization</span><span class="badge" id="finBadge">ROYAL BLUE & WHITE</span></div>
-            <div class="cabin royal" id="cabin">
-              <div class="c-ceil"></div><div class="c-led"></div><div class="c-left"></div><div class="c-right"></div>
-              <div class="c-back"></div><div class="c-acc"></div><div class="c-name" id="cabinName">LEO Villa Lift</div>
-              <div class="c-rail"></div><div class="c-panel"><i class="fa-solid fa-circle-dot"></i></div><div class="c-floor"></div>
+            <div class="lbl">
+              <span><i class="fa-solid fa-cube" style="color:var(--blue)"></i> 3D Cabin Visualization</span>
+              <span class="badge" id="finBadge">ROYAL BLUE & SILVER</span>
             </div>
-            <p style="font-size:.72rem;color:var(--muted);margin-top:10px">Interactive preview. Textures and lighting are customized to exact architectural specifications.</p>
+            
+            <div class="cabin royal" id="cabin3D">
+              <div class="c-ceil"></div><div class="c-led"></div>
+              <div class="c-left"></div><div class="c-right"></div>
+              <div class="c-back"></div><div class="c-acc"></div>
+              <div class="c-name" id="cabinModelName">LEO Villa Lift</div>
+              <div class="c-rail"></div>
+              <div class="c-panel"><i class="fa-solid fa-circle-dot"></i></div>
+              <div class="c-floor"></div>
+            </div>
+            <p style="font-size:0.75rem;color:var(--muted);margin-top:10px">Interactive visual rendering. Exact panel textures comply with site drawings.</p>
           </div>
 
           <div class="price-box">
             <h4>Estimated Project Cost</h4>
             <div id="total">₹0</div>
-            <p class="price-note">Ex-factory estimate including guide rails, controller, machine, and cabin shell.</p>
+            <p class="price-note">Ex-factory package: Hoist machine, cabin, guide rails, ARD, controller, and landing gates.</p>
             <div class="rows">
-              <div><span>Base Machine & Cabin</span><b id="pBase">₹0</b></div>
-              <div><span>Floor Landing Travel</span><b id="pFloors">₹0</b></div>
-              <div><span>Door Automation Addon</span><b id="pDoors">₹0</b></div>
+              <div><span>Base Machine & Cabin Shell</span><b id="pBase">₹0</b></div>
+              <div><span>Floor Landing Extra Travel</span><b id="pFloors">₹0</b></div>
+              <div><span>Door Automation Add-on</span><b id="pDoors">₹0</b></div>
               <div><span>GST (18% Statutory)</span><b id="pGst">₹0</b></div>
               <div class="tot"><span>Estimated Net Total</span><b id="pNet">₹0</b></div>
             </div>
             <div class="pb-btn">
-              <button class="btn btn-light" id="openQuoteModal"><i class="fa-solid fa-file-invoice"></i> Save Quote PDF</button>
+              <button class="btn btn-light" id="openQuoteModal"><i class="fa-solid fa-file-invoice"></i> Save Quote Summary</button>
               <a href="#/contact" class="btn btn-ghost" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)"><i class="fa-solid fa-phone"></i> Consult Engineer</a>
             </div>
           </div>
@@ -752,74 +1422,59 @@ footer .logo-text{color:#fff}
   </div>
 </section>
 
-<!-- ========== PAGE: ABOUT ========== -->
+<!-- ========== 6. PAGE: ABOUT ========== -->
 <section class="page" id="page-about">
   <div class="page-hero">
     <div class="container">
       <span class="crumb">Home / About Us</span>
       <h1>Engineered with <span class="em">precision & trust</span></h1>
-      <p>Building high-performance vertical transportation systems tailored for Indian architectural standards.</p>
+      <p>Building world-standard vertical mobility systems tailored for Indian architecture and climates.</p>
     </div>
   </div>
   <div class="sec">
     <div class="container">
-      <div class="cards" style="grid-template-columns:1fr 1fr;margin-bottom:60px">
-        <div class="card">
-          <div class="ico"><i class="fa-solid fa-bullseye"></i></div>
-          <h3>Our Mission</h3>
-          <p>To bring world-class elevator safety, silent PMSM gearless technology, and modern European aesthetics to private homeowners, hospitals, and commercial developers across India without excessive importer markups.</p>
+      <div class="service-grid">
+        <div class="srv-card">
+          <div class="srv-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>Our Vision</h3>
+          <p>Delivering silent PMSM gearless technology, aesthetic luxury finishes, and European-grade safety protocols to homes and businesses across India.</p>
         </div>
-        <div class="card">
-          <div class="ico"><i class="fa-solid fa-award"></i></div>
-          <h3>Manufacturing Rigor</h3>
-          <p>Every controller, safety wedge, guide rail, and drive is inspected and tested to IS 14665 norms. We carry rigorous end-to-end quality control from raw sheet bending to final site commissioning.</p>
+        <div class="srv-card">
+          <div class="srv-icon"><i class="fa-solid fa-award"></i></div>
+          <h3>Quality Standards</h3>
+          <p>Certified under ISO 9001:2015 and Bureau of Indian Standards IS 14665. Every elevator undergoes 48-point load testing before commissioning.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== PAGE: CONTACT ========== -->
+<!-- ========== 7. PAGE: CONTACT ========== -->
 <section class="page" id="page-contact">
   <div class="page-hero">
     <div class="container">
       <span class="crumb">Home / Contact</span>
-      <h1>Speak with our <span class="em">engineering team</span></h1>
-      <p>Request an on-site shaft survey, book a showroom visit, or get immediate technical support.</p>
+      <h1>Connect with our <span class="em">engineering team</span></h1>
+      <p>Schedule a shaft measurement survey, visit our demonstration center, or talk with a technician.</p>
     </div>
   </div>
   <div class="sec">
     <div class="container">
-      <div class="contact">
+      <div class="srv-dispatch-box" style="background:#fff;border:1.5px solid var(--line);color:var(--ink)">
         <div>
-          <div class="cinfo">
-            <div class="ico"><i class="fa-solid fa-location-dot"></i></div>
-            <div><b>Headquarters & Manufacturing</b><span>LEO Elevators Industrial Park, Phase II, Jaipur, Rajasthan, India</span></div>
-          </div>
-          <div class="cinfo">
-            <div class="ico"><i class="fa-solid fa-phone"></i></div>
-            <div><b>Support & Emergency Dispatch</b><span>+91 1800-202-5367 (Toll Free 24/7)</span></div>
-          </div>
-          <div class="cinfo">
-            <div class="ico"><i class="fa-solid fa-envelope"></i></div>
-            <div><b>Sales & Project Bids</b><span>contact@leoelevators.in</span></div>
+          <div class="srv-card" style="border:none;padding:0;box-shadow:none">
+            <h3 style="margin-bottom:14px">LEO Elevators India Private Limited</h3>
+            <p><i class="fa-solid fa-location-dot" style="color:var(--blue);margin-right:10px"></i> Industrial Park Phase II, Jaipur, Rajasthan, India</p>
+            <p style="margin-top:10px"><i class="fa-solid fa-phone" style="color:var(--blue);margin-right:10px"></i> +91 1800-202-5367 (Toll Free 24/7)</p>
+            <p style="margin-top:10px"><i class="fa-solid fa-envelope" style="color:var(--blue);margin-right:10px"></i> sales@leoelevators.in</p>
           </div>
         </div>
         <div class="box">
           <form id="contactForm">
-            <div class="fgrid two">
-              <div><label>Your Full Name *</label><input type="text" required placeholder="e.g. Rahul Sharma"></div>
-              <div><label>Phone Number *</label><input type="tel" required placeholder="e.g. +91 98765 43210"></div>
-            </div>
-            <div class="fgrid" style="margin-top:14px">
-              <label>City / Location *</label>
-              <input type="text" required placeholder="e.g. Jaipur, Delhi NCR, Mumbai">
-            </div>
-            <div class="fgrid" style="margin-top:14px">
-              <label>Project Details / Shaft Dimensions</label>
-              <textarea rows="4" placeholder="Mention number of floors, building type (villa, hospital, apartment) or shaft dimensions..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;margin-top:20px"><i class="fa-solid fa-paper-plane"></i> Submit Inquiry</button>
+            <div><label style="font-size:.74rem;font-weight:700">Full Name *</label><input type="text" required placeholder="Rahul Sharma"></div>
+            <div style="margin-top:12px"><label style="font-size:.74rem;font-weight:700">Phone Number *</label><input type="tel" required placeholder="+91 98765 43210"></div>
+            <div style="margin-top:12px"><label style="font-size:.74rem;font-weight:700">City / District *</label><input type="text" required placeholder="Jaipur, Sikar, Jhunjhunu..."></div>
+            <button type="submit" class="btn btn-primary" style="width:100%;margin-top:18px"><i class="fa-solid fa-paper-plane"></i> Send Inquiry</button>
           </form>
         </div>
       </div>
@@ -838,35 +1493,35 @@ footer .logo-text{color:#fff}
           <span class="logo-mark"><i class="fa-solid fa-elevator"></i></span>
           <span class="logo-text">LEO<small>ELEVATORS</small></span>
         </div>
-        <p style="font-size:.85rem;line-height:1.7">Precision vertical mobility engineered for reliability, safety, and modern architectural elegance across India.</p>
+        <p style="font-size:0.85rem;line-height:1.7">Precision vertical mobility engineered for reliability, silent operation, and architectural luxury across India.</p>
       </div>
       <div>
         <h5>Quick Links</h5>
         <li><a href="#/home">Home</a></li>
-        <li><a href="#/lifts">Lift Catalog</a></li>
+        <li><a href="#/lifts">Elevator Models</a></li>
         <li><a href="#/simulator">Shaft Simulator</a></li>
-        <li><a href="#/quote">Cost Estimator</a></li>
-        <li><a href="#/safety">Safety Standards</a></li>
+        <li><a href="#/service">24/7 Service & AMC</a></li>
+        <li><a href="#/quote">Quote Calculator</a></li>
       </div>
       <div>
-        <h5>Elevator Types</h5>
+        <h5>Elevator Lineup</h5>
         <li><a href="#/lifts">Luxury Home & Villa Lifts</a></li>
         <li><a href="#/lifts">Glass Panoramic Lifts</a></li>
         <li><a href="#/lifts">Commercial Passenger Lifts</a></li>
-        <li><a href="#/lifts">Hospital Bed Elevators</a></li>
-        <li><a href="#/lifts">Industrial Freight Lifts</a></li>
+        <li><a href="#/lifts">Hospital Stretcher Lifts</a></li>
+        <li><a href="#/lifts">Heavy Freight Lifts</a></li>
       </div>
       <div>
-        <h5>Compliance</h5>
+        <h5>Quality Compliance</h5>
         <li>Bureau of Indian Standards (IS 14665)</li>
-        <li>ISO 9001:2015 Certified</li>
+        <li>ISO 9001:2015 Quality Management</li>
         <li>National Building Code (NBC) 2016</li>
-        <li>Automatic Rescue Device Compliant</li>
+        <li>Automatic Rescue Device (ARD) Standards</li>
       </div>
     </div>
     <div class="copy">
       <span>&copy; 2026 LEO Elevators India Private Limited. All rights reserved.</span>
-      <span>Engineered with Precision &bull; Safe &bull; Silent</span>
+      <span>Engineered with Precision &bull; Silent &bull; Certified Safe</span>
     </div>
   </div>
 </footer>
@@ -878,24 +1533,24 @@ footer .logo-text{color:#fff}
   <div class="mbox">
     <div class="ok"><i class="fa-solid fa-check"></i></div>
     <h3>Quote Saved</h3>
-    <p>Your custom configuration summary has been recorded. Our engineering consultant will connect with full AutoCAD layout specifications.</p>
-    <button class="btn btn-primary" id="closeModal" style="width:100%">Close Window</button>
+    <p>Your custom elevator configuration has been registered. An engineer will share full technical drawings and shaft civil dimension details.</p>
+    <button class="btn btn-primary" id="closeModal" style="width:100%">Close</button>
   </div>
 </div>
 
 <!-- ================= JAVASCRIPT LOGIC ================= -->
 <script>
-// Lift Models Catalog with high-quality verified photos
+// Catalog Data with High-Resolution Verified Imagery
 const LIFTS = [
   {
     id: 'villa',
     name: 'Home & Villa Lift',
-    tag: 'Best for Duplexes',
+    tag: 'Duplex & Villa Favorite',
     img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
     cap: '320 - 400 kg (4-5 Persons)',
     speed: '0.4 - 0.6 m/s',
     base: 650000,
-    desc: 'Compact pit, silent gearless PMSM motor, and quiet ride tailored for private villas.'
+    desc: 'Compact pit, whisper-quiet PMSM motor, and smooth acceleration tailored for private homes.'
   },
   {
     id: 'panoramic',
@@ -905,47 +1560,47 @@ const LIFTS = [
     cap: '400 - 1000 kg (6-13 Persons)',
     speed: '1.0 - 1.75 m/s',
     base: 980000,
-    desc: '360-degree curved laminated toughened glass cab for scenic views in luxury residences and hotels.'
+    desc: 'Curved laminated toughened safety glass offering scenic 360-degree views in luxury residences and hotels.'
   },
   {
     id: 'passenger',
     name: 'Commercial Passenger',
-    tag: 'High Traffic',
+    tag: 'High Traffic Core',
     img: 'https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=800&q=80',
     cap: '544 - 1360 kg (8-20 Persons)',
     speed: '1.5 - 2.5 m/s',
     base: 820000,
-    desc: 'Heavy-duty performance built for residential societies, commercial IT parks, and corporate offices.'
+    desc: 'Heavy-duty performance designed for residential societies, commercial complexes, and IT offices.'
   },
   {
     id: 'hospital',
     name: 'Hospital Stretcher Lift',
-    tag: 'Healthcare Grade',
+    tag: 'Healthcare Certified',
     img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80',
-    cap: '1020 - 2040 kg (Bed + Staff)',
+    cap: '1020 - 2040 kg (Bed + Attendants)',
     speed: '1.0 m/s (Jerk-Free)',
     base: 1150000,
-    desc: 'Micro-leveling precision with antibacterial stainless walls and deep dimensions for patient beds.'
+    desc: 'Precise micro-leveling, antibacterial stainless interior, and extended depth for emergency medical stretchers.'
   },
   {
     id: 'freight',
-    name: 'Industrial Freight Lift',
-    tag: 'Heavy Machinery',
+    name: 'Heavy Industrial Freight',
+    tag: 'Warehouse & Factory',
     img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
-    cap: '1000 - 5000 kg Heavy Load',
+    cap: '1000 - 5000 kg Payload',
     speed: '0.5 m/s',
     base: 1350000,
-    desc: 'Reinforced checkered steel platform and collision-proof guardrails for warehouses and factories.'
+    desc: 'Heavy-duty chequered steel floor platform and structural shock buffers for cargo pallets and equipment.'
   },
   {
     id: 'hydraulic',
-    name: 'Low-Pit Hydraulic Lift',
-    tag: 'Zero Headroom',
+    name: 'Zero-Pit Hydraulic',
+    tag: 'Low Headroom Fit',
     img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
     cap: '300 - 630 kg',
     speed: '0.3 - 0.5 m/s',
     base: 720000,
-    desc: 'Powered by Italian hydraulic powerpacks. Fits tight locations where hoistways cannot be built.'
+    desc: 'Italian hydraulic drive rams. Ideal for retrofitting existing homes where deep pit excavation is impossible.'
   }
 ];
 
@@ -971,13 +1626,11 @@ const FINISHES = [
     done = true;
     splash.classList.add('open');
     document.body.classList.remove('lock');
-    setTimeout(() => {
-      splash.style.display = 'none';
-    }, 900);
+    setTimeout(() => { splash.style.display = 'none'; }, 900);
   }
 
   const loop = setInterval(() => {
-    pct += 4;
+    pct += 5;
     if (pct > 100) pct = 100;
     if (spBar) spBar.style.width = pct + '%';
     if (spPct) spPct.innerText = pct + '%';
@@ -989,35 +1642,33 @@ const FINISHES = [
     }
     if (pct >= 100) {
       clearInterval(loop);
-      setTimeout(dismiss, 300);
+      setTimeout(dismiss, 250);
     }
   }, 35);
 
-  if (spSkip) spSkip.addEventListener('click', dismiss);
-  // Absolute failsafe timeout (1.8 seconds max)
-  setTimeout(dismiss, 1800);
+  if (spSkip) spSkip.onclick = dismiss;
+  setTimeout(dismiss, 1600); // Failsafe timeout
 })();
 
-// --- 2. Single Page App (SPA) Router ---
+// --- 2. Single Page App Navigation ---
 function routePage() {
   const hash = window.location.hash.replace('#/', '') || 'home';
   const pages = document.querySelectorAll('.page');
-  let matched = false;
+  let found = false;
 
   pages.forEach(p => {
     if (p.id === 'page-' + hash) {
       p.classList.add('active');
-      matched = true;
+      found = true;
     } else {
       p.classList.remove('active');
     }
   });
 
-  if (!matched) {
+  if (!found) {
     document.getElementById('page-home').classList.add('active');
   }
 
-  // Update navigation active states
   document.querySelectorAll('#navLinks a, #mmenu a').forEach(a => {
     if (a.getAttribute('data-p') === hash) a.classList.add('active');
     else a.classList.remove('active');
@@ -1028,20 +1679,18 @@ function routePage() {
 window.addEventListener('hashchange', routePage);
 window.addEventListener('DOMContentLoaded', routePage);
 
-// --- 3. Header & Mobile Menu ---
+// Mobile Menu
 const burger = document.getElementById('burger');
 const mmenu = document.getElementById('mmenu');
 if (burger && mmenu) {
-  burger.addEventListener('click', () => {
+  burger.onclick = () => {
     const isShown = mmenu.classList.toggle('show');
     burger.setAttribute('aria-expanded', isShown);
-  });
-  mmenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => mmenu.classList.remove('show'));
-  });
+  };
+  mmenu.querySelectorAll('a').forEach(a => a.onclick = () => mmenu.classList.remove('show'));
 }
 
-// Scroll progress bar
+// Top scroll bar
 window.addEventListener('scroll', () => {
   const h = document.documentElement.scrollHeight - window.innerHeight;
   const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
@@ -1049,183 +1698,201 @@ window.addEventListener('scroll', () => {
   if (prog) prog.style.width = pct + '%';
 });
 
-// Marquee builder
+// Marquee Text
 const marquee = document.getElementById('marquee');
 if (marquee) {
   const items = [
     'Ultra-Silent PMSM Gearless Motors',
     'Integrated Automatic Rescue Devices (ARD)',
-    'Regenerative Drives Saving 30% Power',
-    'Bureau of Indian Standards IS 14665 Compliant',
-    '24/7 Cloud IoT Telemetry Monitoring'
+    '30% Energy Regeneration Technology',
+    'IS 14665 & ISO 9001:2015 Certified',
+    '24/7 Rapid Breakdown Response Network'
   ];
   const str = items.map(t => `<span>${t}</span>`).join('') + items.map(t => `<span>${t}</span>`).join('');
   marquee.innerHTML = str;
 }
 
-// --- 4. Render Lift Cards ---
-function renderCards() {
+// --- 3. Carousel with Smooth Card Selection Animation ---
+function renderLiftCards() {
   const scroller = document.getElementById('homeScroller');
   const grid = document.getElementById('liftGrid');
 
-  const cardHtml = (item) => `
-    <div class="lift-card" onclick="selectLiftAndQuote('${item.id}')">
+  const cardMarkup = (item) => `
+    <div class="lift-card" data-id="${item.id}" onclick="handleCardSelection(this, '${item.id}')">
       <div class="photo">
         <span class="tag">${item.tag}</span>
-        <img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=800&q=80'">
+        <img src="${item.img}" alt="${item.name}" loading="lazy">
       </div>
       <div class="lc-body">
         <h3><i class="fa-solid fa-elevator"></i>${item.name}</h3>
         <p>${item.desc}</p>
         <div class="spec">
-          <div><span>Capacity</span><b>${item.cap}</b></div>
+          <div><span>Payload</span><b>${item.cap}</b></div>
           <div><span>Rated Speed</span><b>${item.speed}</b></div>
           <div><span>Starting Price</span><b class="price">₹${(item.base / 100000).toFixed(2)} Lakhs*</b></div>
         </div>
-        <div class="pick">Customize & Get Quote &rarr;</div>
+        <div class="pick"><i class="fa-solid fa-sliders"></i> Customize This Model &rarr;</div>
       </div>
     </div>
   `;
 
-  if (scroller) scroller.innerHTML = LIFTS.map(cardHtml).join('');
-  if (grid) grid.innerHTML = LIFTS.map(cardHtml).join('');
+  if (scroller) scroller.innerHTML = LIFTS.map(cardMarkup).join('');
+  if (grid) grid.innerHTML = LIFTS.map(cardMarkup).join('');
 }
-renderCards();
+renderLiftCards();
 
-// Scroller Arrows
+// Interactive Click with Smooth Transition to Quote Page
+window.handleCardSelection = function(cardEl, liftId) {
+  cardEl.classList.add('card-selected');
+  showToast(`Selected ${LIFTS.find(l => l.id === liftId).name}`);
+
+  setTimeout(() => {
+    selectLiftConfig(liftId);
+    cardEl.classList.remove('card-selected');
+    window.location.hash = '#/quote';
+  }, 350);
+};
+
+// Scroller Arrow Controls
 const scroller = document.getElementById('homeScroller');
 const cPrev = document.getElementById('cPrev');
 const cNext = document.getElementById('cNext');
 const cProg = document.getElementById('cProg');
 if (scroller) {
-  if (cPrev) cPrev.onclick = () => scroller.scrollBy({ left: -330, behavior: 'smooth' });
-  if (cNext) cNext.onclick = () => scroller.scrollBy({ left: 330, behavior: 'smooth' });
+  if (cPrev) cPrev.onclick = () => scroller.scrollBy({ left: -340, behavior: 'smooth' });
+  if (cNext) cNext.onclick = () => scroller.scrollBy({ left: 340, behavior: 'smooth' });
   scroller.addEventListener('scroll', () => {
     const max = scroller.scrollWidth - scroller.clientWidth;
     const pct = max > 0 ? (scroller.scrollLeft / max) * 100 : 0;
-    if (cProg) cProg.style.width = Math.max(10, pct) + '%';
+    if (cProg) cProg.style.width = Math.max(12, pct) + '%';
   });
 }
 
-// --- 5. Learn Tabs Switcher ---
-const tabs = document.querySelectorAll('#mechTabs .tab');
-const panes = document.querySelectorAll('.tabpane');
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    const idx = tab.getAttribute('data-t');
-    tabs.forEach(t => t.classList.remove('on'));
-    panes.forEach(p => p.classList.remove('on'));
-    tab.classList.add('on');
-    if (panes[idx]) panes[idx].classList.add('on');
-  });
-});
-
-// --- 6. Realistic Simulator & Web Audio Chime ---
-let currentFloor = 0;
+// --- 4. Fully Functional Elevator Simulator ---
+let simFloor = 0;
 let isMoving = false;
 let audioMuted = false;
-const floors = ['G', '1', '2', '3', '4'];
-const cop = document.getElementById('cop');
-const floorLines = document.getElementById('floorLines');
-const cab = document.getElementById('cab');
-const doorBox = document.getElementById('doorBox');
-const floorDisp = document.getElementById('floorDisp');
-const dirArrow = document.getElementById('dirArrow');
-const statusMsg = document.getElementById('statusMsg');
-const speedOut = document.getElementById('speedOut');
+const floorNames = ['G', '1', '2', '3', '4'];
+const floorHeights = [0, 3.2, 6.4, 9.6, 12.8];
 
-// Web Audio API Synthesized Chime (No external audio file dependencies)
-function playChime() {
+const copBtnsContainer = document.getElementById('copButtons');
+const floorMarkersContainer = document.getElementById('floorMarkers');
+const cabEl = document.getElementById('cab');
+const counterweightEl = document.getElementById('counterweight');
+const doorBoxEl = document.getElementById('doorBox');
+const floorDispEl = document.getElementById('floorDisp');
+const dirArrowEl = document.getElementById('dirArrow');
+const statusMsgEl = document.getElementById('statusMsg');
+const speedGaugeEl = document.getElementById('speedGauge');
+
+// Synthesized Arrival Chime (Ding-Dong) via Web Audio API
+function playDingDong() {
   if (audioMuted) return;
   try {
     const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
-    osc.frequency.setValueAtTime(880.00, ctx.currentTime + 0.12); // A5
-    gain.gain.setValueAtTime(0.18, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start();
-    osc.stop(ctx.currentTime + 0.65);
+    
+    // First Tone (Ding)
+    const osc1 = ctx.createOscillator();
+    const gain1 = ctx.createGain();
+    osc1.frequency.setValueAtTime(659.25, ctx.currentTime); // E5
+    gain1.gain.setValueAtTime(0.2, ctx.currentTime);
+    gain1.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
+    osc1.connect(gain1);
+    gain1.connect(ctx.destination);
+    osc1.start(ctx.currentTime);
+    osc1.stop(ctx.currentTime + 0.6);
+
+    // Second Tone (Dong)
+    const osc2 = ctx.createOscillator();
+    const gain2 = ctx.createGain();
+    osc2.frequency.setValueAtTime(523.25, ctx.currentTime + 0.25); // C5
+    gain2.gain.setValueAtTime(0.22, ctx.currentTime + 0.25);
+    gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.95);
+    osc2.connect(gain2);
+    gain2.connect(ctx.destination);
+    osc2.start(ctx.currentTime + 0.25);
+    osc2.stop(ctx.currentTime + 0.95);
   } catch (e) {}
 }
 
-const soundBtn = document.getElementById('soundBtn');
-if (soundBtn) {
-  soundBtn.onclick = () => {
+const soundToggle = document.getElementById('soundToggle');
+if (soundToggle) {
+  soundToggle.onclick = () => {
     audioMuted = !audioMuted;
-    soundBtn.innerHTML = audioMuted ? '<i class="fa-solid fa-volume-xmark"></i> CHIME OFF' : '<i class="fa-solid fa-volume-high"></i> CHIME ON';
+    soundToggle.innerHTML = audioMuted ? '<i class="fa-solid fa-volume-xmark"></i> CHIME OFF' : '<i class="fa-solid fa-volume-high"></i> CHIME ON';
   };
 }
 
-if (cop && floorLines) {
-  // Generate Floor buttons & track markers
-  floors.forEach((fl, idx) => {
+if (copBtnsContainer && floorMarkersContainer) {
+  floorNames.forEach((name, idx) => {
+    // Buttons
     const btn = document.createElement('button');
-    btn.innerHTML = `${fl} <small>FL ${idx}</small>`;
-    btn.onclick = () => callFloor(idx);
-    cop.appendChild(btn);
+    btn.innerHTML = `${name} <small>FL ${idx}</small>`;
+    btn.onclick = () => dispatchElevator(idx);
+    copBtnsContainer.appendChild(btn);
 
-    const mark = document.createElement('div');
-    mark.className = 'fl';
-    mark.style.bottom = (idx * 24) + '%';
-    mark.innerHTML = `<span>FLOOR ${fl}</span><span>${(idx * 3.2).toFixed(1)}m</span>`;
-    floorLines.appendChild(mark);
+    // Shaft Markers
+    const marker = document.createElement('div');
+    marker.className = 'fl-marker';
+    marker.style.bottom = (idx * 24) + '%';
+    marker.innerHTML = `<span>FLOOR ${name}</span><span>${floorHeights[idx].toFixed(1)}m</span>`;
+    floorMarkersContainer.appendChild(marker);
   });
 }
 
-function callFloor(target) {
-  if (isMoving || target === currentFloor) return;
+function dispatchElevator(target) {
+  if (isMoving || target === simFloor) return;
   isMoving = true;
-  doorBox.classList.remove('open');
+  doorBoxEl.classList.remove('open');
 
-  const btns = cop.querySelectorAll('button');
+  const btns = copBtnsContainer.querySelectorAll('button');
   if (btns[target]) btns[target].classList.add('on');
 
-  const goingUp = target > currentFloor;
-  dirArrow.innerText = goingUp ? '▲' : '▼';
-  statusMsg.innerText = goingUp ? `ASCENDING TO FLOOR ${floors[target]}` : `DESCENDING TO FLOOR ${floors[target]}`;
-  speedOut.innerText = '1.2 m/s';
+  const ascending = target > simFloor;
+  dirArrowEl.innerText = ascending ? '▲' : '▼';
+  dirArrowEl.style.color = 'var(--sky)';
+  statusMsgEl.innerText = ascending ? `TRAVELING UP TO FLOOR ${floorNames[target]}` : `TRAVELING DOWN TO FLOOR ${floorNames[target]}`;
+  speedGaugeEl.innerText = '1.6 m/s';
 
-  // Move cabin
-  cab.style.bottom = (target * 24) + '%';
+  // Animate car and counterweight inversely
+  cabEl.style.bottom = (target * 24) + '%';
+  counterweightEl.style.bottom = (96 - (target * 24)) + '%';
 
   setTimeout(() => {
-    currentFloor = target;
-    floorDisp.innerText = floors[target];
-    dirArrow.innerText = '●';
-    speedOut.innerText = '0.0 m/s';
-    statusMsg.innerText = `LEVEL AT FLOOR ${floors[target]}`;
+    simFloor = target;
+    floorDispEl.innerText = floorNames[target];
+    dirArrowEl.innerText = '●';
+    dirArrowEl.style.color = '#2a5091';
+    speedGaugeEl.innerText = '0.0 m/s';
+    statusMsgEl.innerText = `LEVEL AT FLOOR ${floorNames[target]} (STATIONARY)`;
     btns.forEach(b => b.classList.remove('on'));
-    playChime();
-    doorBox.classList.add('open');
+    playDingDong();
+    doorBoxEl.classList.add('open');
     isMoving = false;
   }, 1450);
 }
 
-document.getElementById('bOpen').onclick = () => { if (!isMoving) doorBox.classList.add('open'); };
-document.getElementById('bClose').onclick = () => { if (!isMoving) doorBox.classList.remove('open'); };
+document.getElementById('bOpen').onclick = () => { if (!isMoving) doorBoxEl.classList.add('open'); };
+document.getElementById('bClose').onclick = () => { if (!isMoving) doorBoxEl.classList.remove('open'); };
 document.getElementById('bStop').onclick = () => {
-  speedOut.innerText = 'EMERGENCY STOP';
-  statusMsg.innerText = 'SAFETY BRAKE APPLIED';
-  dirArrow.innerText = '✖';
-  showToast('Emergency brake engaged');
+  speedGaugeEl.innerText = 'ESTOP TRIGGERED';
+  statusMsgEl.innerText = 'SAFETY BRAKE WEDGES ENGAGED';
+  dirArrowEl.innerText = '✖';
+  dirArrowEl.style.color = 'var(--danger)';
+  showToast('EMERGENCY STOP TRIGGERED: Governor wedges locked');
 };
 
-// --- 7. Lift Configurator & Live Price Engine ---
-let selectedLift = LIFTS[0];
-let selectedFinish = FINISHES[0];
+// --- 5. Quote Calculator & 3D Cabin Interior Engine ---
+let activeLift = LIFTS[0];
+let activeFinish = FINISHES[0];
 
 function setupConfigurator() {
-  const typeContainer = document.getElementById('typeBtns');
-  const finContainer = document.getElementById('finBtns');
+  const typeContainer = document.getElementById('typeButtons');
+  const finContainer = document.getElementById('finButtons');
 
   if (typeContainer) {
     typeContainer.innerHTML = LIFTS.map(l => `
-      <div class="opt ${l.id === selectedLift.id ? 'on' : ''}" onclick="selectLiftConfig('${l.id}')">
+      <div class="opt ${l.id === activeLift.id ? 'on' : ''}" onclick="selectLiftConfig('${l.id}')">
         <i class="fa-solid fa-elevator"></i>${l.name}
         <small>From ₹${(l.base / 100000).toFixed(1)}L</small>
       </div>
@@ -1234,7 +1901,7 @@ function setupConfigurator() {
 
   if (finContainer) {
     finContainer.innerHTML = FINISHES.map(f => `
-      <div class="opt ${f.id === selectedFinish.id ? 'on' : ''}" onclick="selectFinConfig('${f.id}')">
+      <div class="opt ${f.id === activeFinish.id ? 'on' : ''}" onclick="selectFinConfig('${f.id}')">
         <i class="fa-solid fa-palette"></i>${f.name}
         <small>${f.addon === 0 ? 'Standard' : '+₹' + f.addon.toLocaleString('en-IN')}</small>
       </div>
@@ -1243,85 +1910,93 @@ function setupConfigurator() {
 }
 
 function selectLiftConfig(id) {
-  selectedLift = LIFTS.find(l => l.id === id) || LIFTS[0];
-  document.getElementById('cabinName').innerText = 'LEO ' + selectedLift.name;
+  activeLift = LIFTS.find(l => l.id === id) || LIFTS[0];
+  document.getElementById('cabinModelName').innerText = 'LEO ' + activeLift.name;
   setupConfigurator();
-  updateCalculation();
+  calculateBudget();
 }
 
 function selectFinConfig(id) {
-  selectedFinish = FINISHES.find(f => f.id === id) || FINISHES[0];
-  const cab = document.getElementById('cabin');
-  cab.className = 'cabin ' + selectedFinish.class;
-  document.getElementById('finBadge').innerText = selectedFinish.name.toUpperCase();
+  activeFinish = FINISHES.find(f => f.id === id) || FINISHES[0];
+  const cab3D = document.getElementById('cabin3D');
+  cab3D.className = 'cabin ' + activeFinish.class;
+  document.getElementById('finBadge').innerText = activeFinish.name.toUpperCase();
   setupConfigurator();
-  updateCalculation();
+  calculateBudget();
 }
 
-window.selectLiftAndQuote = function(id) {
-  selectLiftConfig(id);
-  window.location.hash = '#/quote';
-};
-
-const floorsRange = document.getElementById('floors');
+const floorsInput = document.getElementById('floorsInput');
 const floorVal = document.getElementById('floorVal');
-const doorSel = document.getElementById('doorSel');
+const doorSelect = document.getElementById('doorSelect');
 
-if (floorsRange) {
-  floorsRange.oninput = (e) => {
+if (floorsInput) {
+  floorsInput.oninput = (e) => {
     floorVal.innerText = `${e.target.value} Stops`;
-    updateCalculation();
+    calculateBudget();
   };
 }
-if (doorSel) doorSel.onchange = updateCalculation;
+if (doorSelect) doorSelect.onchange = calculateBudget;
 
-function updateCalculation() {
-  const numFloors = parseInt(floorsRange ? floorsRange.value : 4, 10);
-  const doorCost = parseInt(doorSel ? doorSel.value : 0, 10);
-  const baseCost = selectedLift.base;
-  const floorCost = (numFloors - 2) * 55000;
-  const finCost = selectedFinish.addon;
+function calculateBudget() {
+  const stops = parseInt(floorsInput ? floorsInput.value : 4, 10);
+  const doorCost = parseInt(doorSelect ? doorSelect.value : 0, 10);
+  const basePrice = activeLift.base;
+  const floorCost = (stops - 2) * 55000;
+  const finishCost = activeFinish.addon;
 
-  const subtotal = baseCost + floorCost + doorCost + finCost;
+  const subtotal = basePrice + floorCost + doorCost + finishCost;
   const gst = Math.round(subtotal * 0.18);
-  const total = subtotal + gst;
+  const netTotal = subtotal + gst;
 
   const fmt = (n) => '₹' + n.toLocaleString('en-IN');
 
-  document.getElementById('total').innerText = fmt(total);
-  document.getElementById('pBase').innerText = fmt(baseCost);
+  document.getElementById('total').innerText = fmt(netTotal);
+  document.getElementById('pBase').innerText = fmt(basePrice);
   document.getElementById('pFloors').innerText = fmt(floorCost);
-  document.getElementById('pDoors').innerText = fmt(doorCost + finCost);
+  document.getElementById('pDoors').innerText = fmt(doorCost + finishCost);
   document.getElementById('pGst').innerText = fmt(gst);
-  document.getElementById('pNet').innerText = fmt(total);
+  document.getElementById('pNet').innerText = fmt(netTotal);
 }
 
 setupConfigurator();
-updateCalculation();
+calculateBudget();
 
-// --- 8. Modals, Forms & Toasts ---
+// --- 6. Forms, Tickets & Toasts ---
 function showToast(msg) {
   const t = document.getElementById('toast');
-  t.innerText = msg;
+  t.innerHTML = `<i class="fa-solid fa-circle-check" style="color:var(--ok)"></i> ${msg}`;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2800);
+  setTimeout(() => t.classList.remove('show'), 3000);
 }
 
-const modal = document.getElementById('modal');
-const openModalBtn = document.getElementById('openQuoteModal');
-const closeModalBtn = document.getElementById('closeModal');
-if (openModalBtn && modal) openModalBtn.onclick = () => modal.classList.add('show');
-if (closeModalBtn && modal) closeModalBtn.onclick = () => modal.classList.remove('show');
-if (modal) modal.onclick = (e) => { if (e.target === modal) modal.classList.remove('show'); };
+// Service Ticket Dispatch
+const serviceForm = document.getElementById('serviceDispatchForm');
+if (serviceForm) {
+  serviceForm.onsubmit = (e) => {
+    e.preventDefault();
+    const ticketId = 'LEO-SRV-' + Math.floor(1000 + Math.random() * 9000);
+    showToast(`Service Ticket #${ticketId} created! Engineer notified.`);
+    serviceForm.reset();
+  };
+}
 
+// General Inquiry Form
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.onsubmit = (e) => {
     e.preventDefault();
-    showToast('Inquiry submitted! Our engineer will call you shortly.');
+    showToast('Inquiry received! Our regional technical manager will call you today.');
     contactForm.reset();
   };
 }
+
+// Quote Modal
+const modal = document.getElementById('modal');
+const openQuoteModal = document.getElementById('openQuoteModal');
+const closeModal = document.getElementById('closeModal');
+if (openQuoteModal && modal) openQuoteModal.onclick = () => modal.classList.add('show');
+if (closeModal && modal) closeModal.onclick = () => modal.classList.remove('show');
+if (modal) modal.onclick = (e) => { if (e.target === modal) modal.classList.remove('show'); };
 </script>
 </body>
 </html>
