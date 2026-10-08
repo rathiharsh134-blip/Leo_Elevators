@@ -393,4 +393,2156 @@ header {
   backdrop-filter: blur(14px);
   border: 1.5px solid var(--line);
   border-radius: 24px;
-  padding: 22px 1
+  padding: 22px 14px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.stat b { display: block; font-family: var(--serif); font-size: 2.1rem; color: var(--blue); }
+.stat span { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+
+/* ===== ULTRA 3D ROUND GLASS CAROUSEL ===== */
+.scroller-outer-wrap {
+  position: relative;
+  perspective: 1600px;
+  overflow: hidden;
+  padding: 10px 0 20px;
+}
+.lift-scroller {
+  display: flex;
+  gap: 26px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 30px 16px 45px;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.lift-scroller::-webkit-scrollbar { display: none; }
+
+.lift-card {
+  flex: 0 0 310px;
+  scroll-snap-align: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(240, 246, 255, 0.6) 100%);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 2px solid var(--glass-border);
+  border-radius: 38px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px -15px rgba(21, 86, 214, 0.22), inset 0 2px 3px rgba(255, 255, 255, 0.95);
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+  transform-origin: center center;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+}
+@media(max-width: 600px) {
+  .lift-card { flex: 0 0 calc(84vw - 20px); border-radius: 32px; }
+}
+.lift-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--blue);
+  box-shadow: 0 28px 60px -16px rgba(21, 86, 214, 0.42), 0 0 30px rgba(109, 182, 255, 0.35);
+}
+.lift-card.card-selected {
+  border-color: var(--ok);
+  box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.4), 0 30px 60px rgba(16, 185, 129, 0.3);
+  transform: scale(0.97);
+}
+
+.photo {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px 30px 18px 18px;
+  margin: 10px 10px 0;
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.lift-card:hover .photo img { transform: scale(1.08); }
+.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(4, 18, 45, 0.72)); }
+.tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  color: #fff;
+  background: rgba(21, 86, 214, 0.9);
+  backdrop-filter: blur(10px);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.lc-body { padding: 18px 20px 22px; }
+.lc-body h3 { font-size: 1.22rem; margin-bottom: 6px; color: var(--navy); }
+.lc-body h3 i { color: var(--blue); margin-right: 6px; font-size: 1rem; }
+.lc-body p { font-size: 0.82rem; color: var(--muted); min-height: 48px; line-height: 1.5; }
+.spec { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 10px; display: grid; gap: 5px; font-size: 0.78rem; }
+.spec div { display: flex; justify-content: space-between; gap: 10px; }
+.spec span { color: var(--muted); }
+.spec b { text-align: right; font-weight: 700; color: var(--navy2); }
+.pick {
+  margin-top: 16px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--ice), #fff);
+  border: 1px solid var(--line);
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0.75rem;
+  border-radius: 99px;
+  transition: 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.lift-card:hover .pick { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+.car-nav { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 6px; }
+.car-nav button {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  color: var(--blue);
+  transition: 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.car-nav button:hover { background: var(--blue); color: #fff; transform: scale(1.08); }
+.prog { flex: 0 1 200px; height: 5px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.prog i { display: block; height: 100%; width: 20%; background: linear-gradient(90deg, var(--blue), var(--sky)); transition: width 0.2s; }
+
+/* ===== REALISTIC CALIBRATED HOISTWAY SIMULATOR ===== */
+.sim-container {
+  display: grid;
+  gap: 24px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 32px;
+  padding: 22px;
+  box-shadow: var(--shadow-lg);
+}
+@media(min-width: 960px) {
+  .sim-container {
+    grid-template-columns: 1.25fr 0.75fr;
+    padding: 32px;
+  }
+}
+
+.sim-hoistway {
+  background: linear-gradient(180deg, #f0f6ff 0%, #e1edfe 100%);
+  border: 1.5px solid var(--line);
+  border-radius: 26px;
+  padding: 18px;
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.sim-top-bar, .sim-bot-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.sim-top-bar { border-bottom: 1.5px solid rgba(21, 86, 214, 0.12); padding-bottom: 10px; }
+.sim-bot-bar { border-top: 1.5px solid rgba(21, 86, 214, 0.12); padding-top: 10px; }
+.sim-top-bar b { color: var(--blue); font-family: monospace; font-size: 0.85rem; }
+
+#shaftTrack {
+  position: relative;
+  flex: 1;
+  margin: 14px 0;
+  border-left: 2px dashed rgba(21, 86, 214, 0.22);
+  border-right: 2px dashed rgba(21, 86, 214, 0.22);
+}
+
+.fl-marker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-bottom: 1px dashed rgba(21, 86, 214, 0.22);
+  font-size: 0.68rem;
+  color: #6884b8;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2px;
+  pointer-events: none;
+}
+
+#cables {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: repeating-linear-gradient(180deg, #64748b 0 4px, #334155 4px 8px);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+#counterweight {
+  position: absolute;
+  right: 12px;
+  width: 20px;
+  height: 56px;
+  background: linear-gradient(180deg, #475569, #1e293b);
+  border-radius: 6px;
+  border: 1px solid #94a3b8;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: bottom 3.2s cubic-bezier(0.45, 0.05, 0.25, 1);
+  bottom: 78%;
+  z-index: 2;
+}
+
+#cab {
+  position: absolute;
+  left: 50%;
+  width: 170px;
+  height: 82px;
+  margin-left: -85px;
+  bottom: 0%;
+  border-radius: 14px;
+  border: 3px solid var(--blue);
+  background: #ffffff;
+  box-shadow: 0 16px 36px -8px rgba(21, 86, 214, 0.6);
+  overflow: hidden;
+  transition: bottom 3.2s cubic-bezier(0.45, 0.05, 0.25, 1);
+  z-index: 3;
+}
+@media(max-width: 500px) {
+  #cab { width: 140px; height: 74px; margin-left: -70px; }
+}
+#doorBox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  background: linear-gradient(180deg, #e9f2ff, #cde0fc);
+}
+#doorBox .cab-interior {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--blue);
+}
+.dl, .dr {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  transition: transform 0.9s cubic-bezier(0.77, 0, 0.18, 1);
+  background: linear-gradient(180deg, #2b74f3, #0a275e);
+}
+.dl { border-right: 1.5px solid var(--sky); }
+.dr { border-left: 1.5px solid var(--sky); }
+#doorBox.open .dl { transform: translateX(-92%); }
+#doorBox.open .dr { transform: translateX(92%); }
+
+/* COP Controls */
+.cop-panel {
+  background: var(--navy);
+  border-radius: 26px;
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: inset 0 2px 6px rgba(255,255,255,0.08);
+}
+.cop-lcd {
+  background: #020b1e;
+  border: 2px solid #163d7a;
+  border-radius: 18px;
+  padding: 14px;
+  text-align: center;
+}
+.cop-lcd-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  color: #84afff;
+  border-bottom: 1px solid #163d7a;
+  padding-bottom: 6px;
+}
+.cop-lcd-mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding-top: 8px;
+}
+#dirArrow { font-size: 2rem; color: #2a5091; transition: color 0.3s; }
+#floorDisp {
+  font-family: 'Courier New', monospace;
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: var(--sky);
+  text-shadow: 0 0 20px rgba(109, 182, 255, 0.85);
+  line-height: 1;
+}
+#statusMsg {
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  color: #6ce0b9;
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+}
+
+.cop-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.cop-buttons button {
+  height: 52px;
+  border-radius: 14px;
+  background: #0d2856;
+  border: 1.5px solid #1c4991;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.cop-buttons button small { font-size: 0.52rem; font-weight: 500; color: #8fb2ee; }
+.cop-buttons button:hover { background: #164088; }
+.cop-buttons button.on {
+  border-color: var(--sky);
+  color: var(--sky);
+  box-shadow: 0 0 16px rgba(109, 182, 255, 0.6);
+  background: #143d7f;
+}
+
+.cop-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.cop-actions button {
+  padding: 0.7rem 0.5rem;
+  border-radius: 12px;
+  background: #0d2856;
+  border: 1px solid #1c4991;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #cfe0ff;
+  transition: 0.2s;
+}
+.cop-actions button:hover { filter: brightness(1.2); }
+.cop-actions button.stop-btn {
+  background: #641124;
+  border-color: #b9264f;
+  color: #ffd1dc;
+}
+
+/* ===== SERVICE & MAINTENANCE HUB ===== */
+.service-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-bottom: 45px;
+}
+.srv-card {
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 26px;
+  padding: 26px;
+  transition: all 0.3s ease;
+}
+.srv-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue);
+  box-shadow: var(--shadow);
+}
+.srv-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--ice2), var(--ice));
+  display: grid;
+  place-items: center;
+  color: var(--blue);
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+  transition: 0.3s;
+}
+.srv-card:hover .srv-icon {
+  background: var(--blue);
+  color: #fff;
+  transform: rotate(-6deg) scale(1.08);
+}
+.srv-card h3 { font-size: 1.22rem; margin-bottom: 8px; color: var(--navy); }
+.srv-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+.srv-dispatch-box {
+  background: linear-gradient(135deg, var(--navy), var(--navy2));
+  color: #fff;
+  border-radius: 30px;
+  padding: 34px 24px;
+  display: grid;
+  gap: 28px;
+  align-items: center;
+}
+@media(min-width: 900px) {
+  .srv-dispatch-box { grid-template-columns: 1.1fr 0.9fr; padding: 46px 40px; }
+}
+.srv-dispatch-box h2 { font-size: clamp(1.7rem, 3.8vw, 2.5rem); margin-bottom: 10px; }
+.srv-dispatch-box p { color: #c9dbfb; font-size: 0.94rem; }
+.ticket-preview {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 22px;
+  padding: 20px;
+  backdrop-filter: blur(12px);
+}
+.ticket-preview label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 6px;
+}
+
+/* AMC Plans (Scope & Tiers - No Price Calculation) */
+.amc-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.plan {
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 26px;
+  padding: 30px 22px;
+  text-align: center;
+  transition: 0.3s;
+}
+.plan:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.plan.best {
+  background: linear-gradient(160deg, var(--navy), var(--blue));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: var(--shadow-lg);
+}
+.plan h3 { font-size: 1.35rem; }
+.plan .tier-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 99px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 14px 0 6px;
+  background: var(--ice);
+  color: var(--blue);
+}
+.plan.best .tier-badge {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+.plan small { color: var(--muted); display: block; font-size: 0.82rem; }
+.plan.best small { color: #bcd3ff; }
+.plan ul { list-style: none; margin: 20px 0; display: grid; gap: 10px; font-size: 0.85rem; text-align: left; }
+.plan li::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: var(--ok);
+  margin-right: 10px;
+}
+.plan.best li::before { color: var(--sky); }
+
+/* ===== CONFIGURATOR: MOTOR TYPES, STOPS, QUANTITY ===== */
+.cfg-wrap { display: grid; gap: 26px; align-items: start; }
+@media(min-width: 960px) { .cfg-wrap { grid-template-columns: 1fr 1fr; } }
+.box {
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 28px;
+  padding: 26px 20px;
+  box-shadow: 0 14px 40px -26px rgba(21, 86, 214, 0.45);
+}
+@media(min-width: 600px) {
+  .box { padding: 30px; }
+}
+.lbl {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy2);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.lbl em { font-style: normal; color: var(--blue); font-size: 1rem; letter-spacing: 0; font-weight: 800; }
+.opt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-bottom: 22px; }
+.opt {
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  padding: 12px;
+  text-align: left;
+  background: #fff;
+  transition: 0.2s;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.opt small { display: block; font-weight: 500; color: var(--muted); font-size: 0.68rem; margin-top: 2px; }
+.opt i { color: var(--blue); margin-right: 6px; }
+.opt:hover { border-color: var(--sky); }
+.opt.on { border-color: var(--blue); background: var(--ice); box-shadow: 0 0 0 2px rgba(47, 123, 255, 0.2); }
+
+/* Motor Type Custom Selection Grid */
+.motor-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+@media(min-width: 520px) {
+  .motor-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.motor-opt {
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 12px;
+  background: #fff;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.motor-opt:hover { border-color: var(--sky); }
+.motor-opt.on { border-color: var(--blue); background: var(--ice); box-shadow: 0 0 0 2px rgba(47, 123, 255, 0.2); }
+.motor-opt b { display: block; font-size: 0.85rem; color: var(--navy); margin-bottom: 3px; }
+.motor-opt span { display: block; font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
+
+/* Magnetic Notched Hinge Range Slider */
+.hinge-slider-box {
+  background: #f8fbff;
+  border: 1.5px solid var(--line);
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 22px;
+}
+.hinge-step-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.hinge-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  color: var(--blue);
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  transition: 0.2s;
+}
+.hinge-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+.hinge-badge {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+input[type=range].hinge-range {
+  width: 100%;
+  accent-color: var(--blue);
+  height: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.hinge-notches {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+.notch-pin {
+  width: 2px;
+  height: 7px;
+  background: #c3d7f7;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+.notch-pin.active { background: var(--blue); height: 11px; }
+.scale { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--muted); margin-top: 6px; }
+
+/* Quantity Selector for Number of Lifts */
+.qty-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fbff;
+  border: 1.5px solid var(--line);
+  border-radius: 20px;
+  padding: 12px 16px;
+  margin-bottom: 22px;
+}
+.qty-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.qty-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  color: var(--blue);
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  transition: 0.2s;
+}
+.qty-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+.qty-num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy);
+  min-width: 26px;
+  text-align: center;
+}
+
+select, input, textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+  transition: 0.2s;
+}
+select:focus, input:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(47, 123, 255, 0.12); }
+
+/* Cabin 3D Viewport */
+.cabin {
+  --back: #e9f1ff; --side: #cfe0ff; --ceil: #fff; --floor: #b9cdf2; --acc: #1556d6;
+  position: relative;
+  height: 270px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--back);
+  transition: 0.5s;
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 1.5px var(--line);
+}
+.cabin > div { position: absolute; transition: background 0.5s; }
+.c-back {
+  left: 18%; right: 18%; top: 22%; bottom: 22%;
+  background: linear-gradient(90deg, transparent 49.6%, rgba(255, 255, 255, 0.7) 50%, transparent 50.4%), var(--back);
+}
+.c-ceil { top: 0; left: 0; right: 0; height: 22%; background: var(--ceil); clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%); }
+.c-led { top: 5%; left: 30%; right: 30%; height: 8%; border-radius: 99px; background: #fff; box-shadow: 0 0 28px 8px rgba(255, 255, 255, 0.9); z-index: 2; }
+.c-left { left: 0; top: 0; bottom: 0; width: 18%; background: var(--side); clip-path: polygon(0 0, 100% 22%, 100% 78%, 0 100%); }
+.c-right { right: 0; top: 0; bottom: 0; width: 18%; background: var(--side); filter: brightness(0.93); clip-path: polygon(0 22%, 100% 0, 100% 100%, 0 78%); }
+.c-floor { bottom: 0; left: 0; right: 0; height: 22%; background: linear-gradient(180deg, var(--floor), #fff 140%); clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%); }
+.c-rail { left: 22%; right: 22%; top: 55%; height: 6px; border-radius: 99px; background: linear-gradient(#fff, #9fb3d6); box-shadow: 0 4px 8px rgba(0,0,0,0.15); z-index: 2; }
+.c-acc { left: 18%; right: 18%; top: 22%; height: 4px; background: var(--acc); z-index: 2; }
+.c-panel { right: 21%; top: 34%; width: 26px; height: 52px; border-radius: 7px; background: var(--acc); z-index: 3; display: grid; place-items: center; color: #fff; font-size: 0.55rem; font-weight: 800; }
+.c-name { left: 0; right: 0; top: 30%; text-align: center; font-family: var(--serif); font-style: italic; font-size: 0.9rem; color: var(--acc); opacity: 0.85; z-index: 2; }
+.cabin.royal { --back: #e6efff; --side: #2f7bff; --ceil: #fff; --floor: #9db9f2; --acc: #1556d6; }
+.cabin.marble { --back: #fff; --side: #eef3fb; --ceil: #fff; --floor: #d4def0; --acc: #4a7bd9; }
+.cabin.sky { --back: #bfe0ff; --side: #8ec7ff; --ceil: #f2f9ff; --floor: #a9d3ff; --acc: #0e6fe0; }
+.cabin.navy { --back: #1a3a78; --side: #0a2a63; --ceil: #dbe9ff; --floor: #6d86b8; --acc: #cfe0ff; }
+.cabin.navy .c-name { color: #cfe0ff; }
+.badge { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.14em; color: var(--blue); }
+
+/* Technical Specification Summary Box (No Money Calculation) */
+.spec-summary-box {
+  background: linear-gradient(135deg, var(--navy), var(--navy2));
+  color: #fff;
+  border-radius: 28px;
+  padding: 26px;
+  margin-top: 22px;
+  position: relative;
+  overflow: hidden;
+}
+.spec-summary-box h4 { font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sky); margin-bottom: 4px; }
+.spec-summary-box h3 { font-family: var(--serif); font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+.spec-rows { margin: 16px 0 22px; display: grid; gap: 8px; font-size: 0.84rem; }
+.spec-rows div { display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(255,255,255,.15); padding-bottom: 8px; color: #cfe0ff; }
+.spec-rows div b { color: #fff; text-align: right; }
+.pb-btn { display: grid; gap: 10px; grid-template-columns: 1fr; }
+@media(min-width: 480px) { .pb-btn { grid-template-columns: 1fr 1fr; } }
+
+/* Attached Config Specs Pill on Contact Form */
+.attached-specs-pill {
+  background: linear-gradient(135deg, var(--ice), #fff);
+  border: 1.5px solid var(--blue2);
+  border-radius: 18px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 15px rgba(21, 86, 214, 0.08);
+}
+.attached-specs-pill i { color: var(--blue); font-size: 1.25rem; }
+.attached-specs-pill div { font-size: 0.8rem; color: var(--navy); line-height: 1.4; }
+.attached-specs-pill b { color: var(--blue); }
+
+/* Lite Auto-Typing Inputs */
+.auto-field-wrap { position: relative; margin-top: 14px; }
+.auto-field-wrap input, .auto-field-wrap textarea { position: relative; z-index: 2; background: rgba(255, 255, 255, 0.95); }
+.auto-field-wrap input::placeholder, .auto-field-wrap textarea::placeholder { color: transparent; }
+.lite-typewriter-ghost {
+  position: absolute;
+  top: 38px;
+  left: 16px;
+  z-index: 3;
+  pointer-events: none;
+  font-size: 0.86rem;
+  color: #94a3b8;
+  font-style: italic;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+.lite-typewriter-ghost.hidden { opacity: 0; }
+.lite-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  background: var(--blue);
+  margin-left: 3px;
+  animation: cursorBlink 0.9s infinite;
+}
+@keyframes cursorBlink { 50% { opacity: 0; } }
+
+/* Footer */
+footer { background: var(--navy); color: #a9c1ee; padding: 65px 0 30px; }
+.fgrid4 { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+footer h5 { color: #fff; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; font-family: var(--sans); }
+footer li { list-style: none; margin-bottom: 8px; font-size: 0.84rem; }
+footer a:hover { color: var(--sky); }
+footer .logo-text { color: #fff; }
+.copy { border-top: 1px solid rgba(255,255,255,.12); margin-top: 40px; padding-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 0.78rem; }
+
+/* Alerts and Modals */
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 30px);
+  opacity: 0;
+  pointer-events: none;
+  background: var(--navy);
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  border-radius: 99px;
+  font-weight: 700;
+  font-size: 0.86rem;
+  z-index: 999999;
+  transition: 0.35s;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: 90vw;
+}
+#toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* Interactive Modal */
+#modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 16, 41, 0.78);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: none;
+  place-items: center;
+  padding: 16px;
+}
+#modal.show { display: grid; }
+.mbox {
+  background: #fff;
+  border-radius: 30px;
+  max-width: 480px;
+  width: 100%;
+  padding: 30px 24px;
+  text-align: left;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.mbox h3 { font-size: 1.45rem; color: var(--navy); margin-bottom: 4px; }
+.mbox p.modal-sub { color: var(--muted); font-size: 0.84rem; margin-bottom: 16px; }
+.modal-spec-card {
+  background: #f8fbff;
+  border: 1.5px solid var(--line);
+  border-radius: 18px;
+  padding: 14px;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+  display: grid;
+  gap: 6px;
+}
+.modal-spec-card div { display: flex; justify-content: space-between; }
+.modal-spec-card span { color: var(--muted); }
+.modal-spec-card b { color: var(--navy); text-align: right; }
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--ice);
+  color: var(--blue);
+  font-size: 1.1rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+</style>
+</head>
+<body class="lock">
+
+<div id="progress"></div>
+
+<!-- ===== SPLASH INTRO ===== -->
+<div id="splash" aria-label="Loading LEO Elevators">
+  <div class="sp-door sp-l"></div>
+  <div class="sp-door sp-r"></div>
+  <div class="sp-center">
+    <div class="sp-mark"><i class="fa-solid fa-elevator"></i></div>
+    <div class="sp-title">LEO</div>
+    <div class="sp-sub">ELEVATORS</div>
+    <div class="sp-floor">
+      <div class="sp-bar"><i id="spBar"></i></div>
+      <div class="sp-row"><span>FLOOR <b id="spFloor">G</b></span><span id="spPct">0%</span></div>
+    </div>
+  </div>
+  <button class="sp-skip" id="spSkip">Skip intro</button>
+</div>
+
+<!-- ===== HEADER NAVIGATION ===== -->
+<header>
+  <div class="container">
+    <div class="nav">
+      <a href="#hero" class="logo" aria-label="LEO Elevators Home">
+        <span class="logo-mark"><i class="fa-solid fa-elevator"></i></span>
+        <span class="logo-text">LEO<small>ELEVATORS</small></span>
+      </a>
+      <nav class="links" id="navLinks" aria-label="Main Navigation">
+        <a href="#hero">Home</a>
+        <a href="#lifts">Lift Models</a>
+        <a href="#simulator">Shaft Simulator</a>
+        <a href="#service">Service & Care</a>
+        <a href="#quote">Configure Lift</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#quote" class="btn btn-primary nav-cta"><i class="fa-solid fa-sliders"></i> Configure</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div id="mmenu">
+      <a href="#hero">Home</a>
+      <a href="#lifts">Lift Models</a>
+      <a href="#simulator">Shaft Simulator</a>
+      <a href="#service">Service & Care</a>
+      <a href="#quote">Configure Lift</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ========== 1. HERO SECTION ========== -->
+<section class="hero" id="hero">
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Luxury Mobility & Engineering</span>
+      <h1>Rise in <span class="em grad-text">elegance,</span><br>move with precision.</h1>
+      <p class="lead">Silent, safe, and architectural elevators engineered for private villas, residential towers, hospitals, and industrial hubs across 50+ cities in North India.</p>
+      <div class="hero-btns">
+        <a href="#lifts" class="btn btn-light"><i class="fa-solid fa-elevator"></i> Explore Models</a>
+        <a href="#simulator" class="btn btn-ghost" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4)"><i class="fa-solid fa-play"></i> Test Drive Simulator</a>
+      </div>
+      <div class="trust">
+        <span><i class="fa-solid fa-shield-halved"></i>IS 14665 Standard</span>
+        <span><i class="fa-solid fa-bolt"></i>30% Energy Regeneration</span>
+        <span><i class="fa-solid fa-location-dot"></i>Jaipur • Gurugram • Narnaul</span>
+      </div>
+    </div>
+    <div class="shaft-wrap">
+      <div class="shaft-mini" aria-hidden="true">
+        <div class="mini-fl" style="top:12%">FL 4 (12.8m)</div>
+        <div class="mini-fl" style="top:34%">FL 3 (9.6m)</div>
+        <div class="mini-fl" style="top:56%">FL 2 (6.4m)</div>
+        <div class="mini-fl" style="top:78%">FL 1 (3.2m)</div>
+        <div class="mini-car"><i class="fa-solid fa-elevator"></i><b></b><b></b></div>
+      </div>
+      <div class="chip c1"><i class="fa-solid fa-gauge-high"></i> Ultra Silent PMSM</div>
+      <div class="chip c2"><i class="fa-solid fa-leaf"></i> Eco Smart Drive</div>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+<!-- Stats (50+ Cities & Regional Coverage) -->
+<div class="container">
+  <div class="stats">
+    <div class="stat"><b>50+</b><span>Cities Covered</span></div>
+    <div class="stat"><b>5+</b><span>Signature Projects</span></div>
+    <div class="stat"><b>100%</b><span>Safe Track Record</span></div>
+    <div class="stat"><b>2 Hours</b><span>Emergency Response</span></div>
+  </div>
+</div>
+
+<!-- ========== 2. 3D ROUND GLASS LIFT MODELS SHOWCASE ========== -->
+<section class="sec" id="lifts">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">3D Interactive Carousel</span>
+      <h2>Swipe & select with <span class="em grad-text">round glass depth</span></h2>
+      <p>Scroll horizontally through our handcrafted elevator models. Tap any capsule card to customize its motor type, doors, finishes, and project specifications below.</p>
+    </div>
+
+    <div class="scroller-outer-wrap">
+      <div class="lift-scroller" id="homeScroller" role="listbox" aria-label="Elevator Models Carousel"></div>
+    </div>
+    
+    <div class="car-nav">
+      <button id="cPrev" aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button>
+      <div class="prog"><i id="cProg"></i></div>
+      <button id="cNext" aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 3. CALIBRATED INTERACTIVE SIMULATOR ========== -->
+<section class="sec alt" id="simulator">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Live Motion Test</span>
+      <h2>Calibrated hoistway <span class="em grad-text">simulator</span></h2>
+      <p>Experience smooth passenger dispatch, cushioned leveling physics, motorized doors, and responsive safety circuits.</p>
+    </div>
+
+    <div class="sim-container">
+      <div class="sim-hoistway">
+        <div class="sim-top-bar">
+          <span><i class="fa-solid fa-circle" style="color:var(--ok);font-size:.55rem"></i> GEARLESS PMSM DRIVE #1</span>
+          <b id="speedGauge">0.00 m/s</b>
+        </div>
+
+        <div id="shaftTrack">
+          <div id="cables"></div>
+          <div id="counterweight"></div>
+          <div id="floorMarkers"></div>
+          
+          <div id="cab">
+            <div id="doorBox">
+              <div class="cab-interior"><i class="fa-solid fa-elevator"></i> LEO CAB</div>
+              <div class="dl"></div>
+              <div class="dr"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-bot-bar">
+          <span><i class="fa-solid fa-shield"></i> GOVERNOR ARMED</span>
+          <span style="color:var(--ok)"><i class="fa-solid fa-check"></i> ARD ONLINE</span>
+        </div>
+      </div>
+
+      <div class="cop-panel">
+        <div class="cop-lcd">
+          <div class="cop-lcd-top">
+            <span>COP DISPLAY V4.2</span>
+            <button id="soundToggle" style="color:var(--sky)"><i class="fa-solid fa-volume-high"></i> CHIME ON</button>
+          </div>
+          <div class="cop-lcd-mid">
+            <span id="dirArrow">●</span>
+            <span id="floorDisp">G</span>
+          </div>
+          <div id="statusMsg">STATIONARY AT GRAND LOBBY</div>
+        </div>
+
+        <div class="lbl" style="color:#a8c4fb;margin-bottom:0">DISPATCH FLOORS</div>
+        <div class="cop-buttons" id="copButtons"></div>
+
+        <div class="lbl" style="color:#a8c4fb;margin-bottom:0">DOOR & EMERGENCY</div>
+        <div class="cop-actions">
+          <button id="bOpen"><i class="fa-solid fa-left-right"></i> Open</button>
+          <button id="bClose"><i class="fa-solid fa-compress"></i> Close</button>
+          <button id="bStop" class="stop-btn"><i class="fa-solid fa-triangle-exclamation"></i> STOP</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. SERVICE & CARE SYSTEM ========== -->
+<section class="sec" id="service">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Service System</span>
+      <h2>LEO 24x7 <span class="em grad-text">service & maintenance</span></h2>
+      <p>Keeping your vertical transportation safe, silent, and compliant with preventative on-site care across Rajasthan and Haryana.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="srv-card">
+        <div class="srv-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+        <h3>24/7 Breakdown SOS</h3>
+        <p>Rapid dispatch teams stationed in Jaipur, Gurugram, and Narnaul for quick emergency leveling and safety diagnostics.</p>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+        <h3>Preventative Inspections</h3>
+        <p>Multi-point vibration, guide rail lubrication, and brake tests to prevent downtime before it occurs.</p>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon"><i class="fa-solid fa-certificate"></i></div>
+        <h3>Statutory Safety Audits</h3>
+        <p>Comprehensive checks ensuring full compliance with Haryana and Rajasthan state lift safety regulations.</p>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon"><i class="fa-solid fa-gears"></i></div>
+        <h3>Genuine OEM Spares</h3>
+        <p>Direct availability of safety wedges, traction steel ropes, micro-switches, and Italian hydraulic valves.</p>
+      </div>
+    </div>
+
+    <div class="srv-dispatch-box" style="margin-bottom:50px">
+      <div>
+        <span class="eyebrow" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff">Dispatch Engine</span>
+        <h2 style="margin-top:14px">Book a Service Visit or Report an Issue</h2>
+        <p>Submit your service request. All details are sent directly to our Gmail dispatch inbox to notify our regional engineers immediately.</p>
+      </div>
+      <div class="ticket-preview">
+        <form id="serviceDispatchForm" action="https://formspree.io/f/mnpneelk" method="POST">
+          <input type="hidden" name="Form_Type" value="Breakdown / AMC Service Ticket">
+          <input type="hidden" name="Generated_Ticket_ID" id="srvTicketField" value="">
+
+          <div>
+            <label>Contact Person & Phone *</label>
+            <input type="text" id="srvContact" name="Customer_Contact" required placeholder="e.g. Harsh Rathi (+91 7056707055)">
+          </div>
+          <div style="margin-top:12px">
+            <label>Building / Site Address *</label>
+            <input type="text" id="srvLocation" name="Site_Address" required placeholder="e.g. Jaipur, Gurugram, or Narnaul site">
+          </div>
+          <div style="margin-top:12px">
+            <label>Service Type *</label>
+            <select id="srvType" name="Service_Type">
+              <option value="Routine AMC Monthly Servicing">Routine AMC Monthly Servicing</option>
+              <option value="Urgent Breakdown / Door Sensor Issue">Urgent Breakdown / Door Sensor Issue</option>
+              <option value="Lift Modernization & Safety Audit">Lift Modernization & Safety Audit</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px"><i class="fa-solid fa-bolt"></i> Generate Service Ticket</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- AMC Scope Tiers (No Money Calculation) -->
+    <div class="head">
+      <span class="eyebrow">Maintenance Contracts</span>
+      <h2>Annual maintenance <span class="em grad-text">packages</span></h2>
+    </div>
+    <div class="amc-grid">
+      <div class="plan">
+        <h3>Basic Care</h3>
+        <span class="tier-badge">Quarterly Visits</span>
+        <small>Preventative Checkups</small>
+        <ul>
+          <li>Quarterly preventative checks</li>
+          <li>Lubrication & guide rail alignment</li>
+          <li>Direct phone technical support</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost" style="width:100%">Inquire Basic</a>
+      </div>
+
+      <div class="plan best">
+        <h3>Comprehensive</h3>
+        <span class="tier-badge">Monthly Scheduled</span>
+        <small>Full Coverage & Spares</small>
+        <ul>
+          <li>Monthly comprehensive servicing</li>
+          <li>Wear-and-tear parts replacement</li>
+          <li>24/7 Breakdown emergency visits</li>
+          <li>Annual safety certification check</li>
+        </ul>
+        <a href="#contact" class="btn btn-light" style="width:100%">Select Comprehensive</a>
+      </div>
+
+      <div class="plan">
+        <h3>Elite Care</h3>
+        <span class="tier-badge">24/7 Priority SLA</span>
+        <small>Smart IoT Telemetry</small>
+        <ul>
+          <li>All Comprehensive features</li>
+          <li>Priority 2-hour engineer dispatch</li>
+          <li>Full motor & drive warranty support</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost" style="width:100%">Inquire Elite</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5. CUSTOMIZER & SPECIFICATION BUILDER (NO PRICES) ========== -->
+<section class="sec alt" id="quote">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Specification Builder</span>
+      <h2>Customize your lift <span class="em grad-text">specifications</span></h2>
+      <p>Configure model type, motor technology, stops with magnetic hinge detents, quantity, and cabin aesthetics.</p>
+    </div>
+
+    <div class="cfg-wrap">
+      <div class="box">
+        <div class="lbl">1. Select Elevator Family</div>
+        <div class="opt-grid" id="typeButtons"></div>
+
+        <!-- NEW OPTION: Motor Type (3 Distinct Drive Technologies) -->
+        <div class="lbl">
+          <span>2. Select Motor Drive Technology</span>
+          <em id="motorLabel">PMSM Gearless</em>
+        </div>
+        <div class="motor-grid" id="motorOptions">
+          <div class="motor-opt on" data-motor="PMSM Gearless Motor (Permanent Magnet)">
+            <b><i class="fa-solid fa-bolt" style="color:var(--blue)"></i> PMSM Gearless</b>
+            <span>Permanent Magnet Synchronous. Whisper quiet, sub 48dB, 30% regenerative power saving.</span>
+          </div>
+          <div class="motor-opt" data-motor="Geared Traction Drive (Heavy Duty)">
+            <b><i class="fa-solid fa-gears" style="color:var(--blue)"></i> Geared Traction</b>
+            <span>Heavy-duty helical gearbox. High torque capacity for heavy passenger and commercial traffic.</span>
+          </div>
+          <div class="motor-opt" data-motor="Italian Hydraulic Powerpack">
+            <b><i class="fa-solid fa-oil-can" style="color:var(--blue)"></i> Italian Hydraulic</b>
+            <span>Submersible power unit. Zero overhead clearance & shallow pit fit for existing residences.</span>
+          </div>
+        </div>
+
+        <!-- Magnetic Notched Hinge Floor Stop Slider -->
+        <div class="lbl">
+          <span>3. Floors / Stops (Magnetic Hinge)</span>
+          <em id="floorVal">4 Stops</em>
+        </div>
+        <div class="hinge-slider-box">
+          <div class="hinge-step-controls">
+            <button type="button" class="hinge-btn" id="floorMinus"><i class="fa-solid fa-minus"></i></button>
+            <div class="hinge-badge" id="floorBadge">4 Stops</div>
+            <button type="button" class="hinge-btn" id="floorPlus"><i class="fa-solid fa-plus"></i></button>
+          </div>
+          <input type="range" id="floorsInput" class="hinge-range" min="2" max="25" step="1" value="4">
+          <div class="hinge-notches" id="hingeNotches"></div>
+          <div class="scale">
+            <span>2 Stops (G+1)</span>
+            <span>12 Stops</span>
+            <span>25 Stops</span>
+          </div>
+        </div>
+
+        <!-- Number of Lifts (Quantity Selector) -->
+        <div class="lbl">
+          <span>4. Number of Elevators</span>
+          <em id="qtyLabel">1 Elevator</em>
+        </div>
+        <div class="qty-box">
+          <span style="font-size:0.85rem;color:var(--muted);font-weight:600">Total elevator shafts/units:</span>
+          <div class="qty-btn-group">
+            <button type="button" class="qty-btn" id="qtyMinus"><i class="fa-solid fa-minus"></i></button>
+            <span class="qty-num" id="qtyDisplay">1</span>
+            <button type="button" class="qty-btn" id="qtyPlus"><i class="fa-solid fa-plus"></i></button>
+          </div>
+        </div>
+
+        <div class="lbl">5. Blue & White Architectural Theme</div>
+        <div class="opt-grid" id="finButtons"></div>
+
+        <div class="lbl"><label for="doorSelect">6. Landing Entrance Automation</label></div>
+        <select id="doorSelect">
+          <option value="Automatic Centre Opening (Hairline Stainless)">Automatic Centre Opening (Hairline Stainless)</option>
+          <option value="Telescopic Side Opening (Space Saving)">Telescopic Side Opening (Space Saving)</option>
+          <option value="Frameless Panoramic Glass Automatic">Frameless Panoramic Glass Automatic</option>
+        </select>
+      </div>
+
+      <div>
+        <div class="box">
+          <div class="lbl">
+            <span><i class="fa-solid fa-cube" style="color:var(--blue)"></i> 3D Cabin Visualization</span>
+            <span class="badge" id="finBadge">ROYAL BLUE & SILVER</span>
+          </div>
+          
+          <div class="cabin royal" id="cabin3D">
+            <div class="c-ceil"></div><div class="c-led"></div>
+            <div class="c-left"></div><div class="c-right"></div>
+            <div class="c-back"></div><div class="c-acc"></div>
+            <div class="c-name" id="cabinModelName">LEO Villa Lift</div>
+            <div class="c-rail"></div>
+            <div class="c-panel"><i class="fa-solid fa-circle-dot"></i></div>
+            <div class="c-floor"></div>
+          </div>
+          <p style="font-size:0.75rem;color:var(--muted);margin-top:10px">Interactive visual rendering. Exact finishes adapt to site architecture and engineering blueprints.</p>
+        </div>
+
+        <!-- Technical Specification Summary Box (Pure Specs - No Prices) -->
+        <div class="spec-summary-box">
+          <h4>Configured Specifications</h4>
+          <h3>Project Summary</h3>
+          <div class="spec-rows">
+            <div><span>Elevator Model</span><b id="pModel">Home & Villa Lift</b></div>
+            <div><span>Motor Technology</span><b id="pMotor">PMSM Gearless</b></div>
+            <div><span>Travel Stops</span><b id="pFloors">4 Stops</b></div>
+            <div><span>Total Units</span><b id="pQty">1 Unit</b></div>
+            <div><span>Interior Theme</span><b id="pFinish">Royal Blue & Silver</b></div>
+            <div><span>Entrance Style</span><b id="pDoors">Automatic Centre Opening</b></div>
+          </div>
+          <div class="pb-btn">
+            <button class="btn btn-light" id="openQuoteModal"><i class="fa-solid fa-file-lines"></i> Submit Spec Sheet</button>
+            <a href="#contact" class="btn btn-ghost" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)"><i class="fa-solid fa-phone"></i> Consult Engineer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 6. ABOUT SECTION ========== -->
+<section class="sec" id="about">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Engineering Rigor</span>
+      <h2>Engineered with <span class="em grad-text">precision & trust</span></h2>
+      <p>Building high-quality vertical transportation systems tailored for modern Indian residential and commercial architecture.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="srv-card">
+        <div class="srv-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <h3>Our Vision</h3>
+        <p>Delivering silent PMSM gearless technology, aesthetic luxury finishes, and European-grade safety protocols directly to private homes and commercial properties without unnecessary middleman markups.</p>
+      </div>
+      <div class="srv-card">
+        <div class="srv-icon"><i class="fa-solid fa-award"></i></div>
+        <h3>Quality Standards</h3>
+        <p>Certified under ISO 9001:2015 and Bureau of Indian Standards IS 14665. Every lift is tested through comprehensive multi-point safety protocols before handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 7. CONTACT SECTION (JAIPUR, GURUGRAM, NARNAUL) ========== -->
+<section class="sec alt" id="contact">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Get in Touch</span>
+      <h2>Connect with our <span class="em grad-text">engineering team</span></h2>
+      <p>Schedule a shaft survey, request technical drawings, or consult directly with our regional teams across Jaipur, Gurugram, and Narnaul.</p>
+    </div>
+
+    <div class="srv-dispatch-box" style="background:#fff;border:1.5px solid var(--line);color:var(--ink)">
+      <div>
+        <div class="srv-card" style="border:none;padding:0;box-shadow:none">
+          <h3 style="margin-bottom:14px;font-size:1.45rem">LEO Elevators</h3>
+          <p><i class="fa-solid fa-location-dot" style="color:var(--blue);margin-right:10px"></i> <b>Headquarters & Regional Hubs:</b><br>• Jaipur (Rajasthan)<br>• Gurugram (Haryana)<br>• Narnaul (Haryana)</p>
+          <p style="margin-top:14px"><i class="fa-solid fa-phone" style="color:var(--blue);margin-right:10px"></i> <b>Direct Mobile:</b> <a href="tel:+917056707055" style="color:var(--blue);font-weight:700">+91 7056707055</a>, <a href="tel:+919785019232" style="color:var(--blue);font-weight:700">+91 9785019232</a></p>
+          <p style="margin-top:14px"><i class="fa-solid fa-envelope" style="color:var(--blue);margin-right:10px"></i> <b>Email:</b> <a href="mailto:leoelevators1@gmail.com" style="color:var(--blue);font-weight:700">leoelevators1@gmail.com</a></p>
+          <p style="margin-top:14px;color:var(--muted);font-size:0.86rem"><i class="fa-solid fa-city" style="color:var(--blue);margin-right:10px"></i> Serving 50+ Cities across Rajasthan, Haryana & NCR</p>
+        </div>
+      </div>
+      <div class="box">
+        <!-- Main Contact Form: Full Configuration Details (With Motor Type) Automatically Sent to Gmail -->
+        <form id="contactForm" action="https://formspree.io/f/mnpneelk" method="POST">
+          <input type="hidden" name="Form_Type" value="Full Project Specification Inquiry">
+          
+          <!-- Hidden Inputs for Full Lift Customization Specs -->
+          <input type="hidden" name="Configured_Lift_Model" id="cfgLiftModel" value="">
+          <input type="hidden" name="Configured_Motor_Type" id="cfgMotorType" value="">
+          <input type="hidden" name="Configured_Floor_Stops" id="cfgFloorStops" value="">
+          <input type="hidden" name="Configured_Elevator_Quantity" id="cfgLiftQty" value="">
+          <input type="hidden" name="Configured_Cabin_Finish" id="cfgCabinFinish" value="">
+          <input type="hidden" name="Configured_Door_Style" id="cfgDoorStyle" value="">
+
+          <!-- Attached Specs Indicator -->
+          <div class="attached-specs-pill">
+            <i class="fa-solid fa-sliders"></i>
+            <div>
+              <span>Attached Selected Specification:</span><br>
+              <b id="attachedSpecsText">LEO Home & Villa Lift • PMSM Gearless • 4 Stops • 1 Unit</b>
+            </div>
+          </div>
+
+          <!-- Name Field with Lite Animated Ghost Example -->
+          <div class="auto-field-wrap">
+            <label style="font-size:.74rem;font-weight:800;color:var(--navy2);display:block;margin-bottom:6px">Full Name *</label>
+            <input type="text" id="custNameInput" name="Customer_Full_Name" required>
+            <div class="lite-typewriter-ghost" id="ghostName"><span></span><span class="lite-cursor"></span></div>
+          </div>
+
+          <!-- Phone Field with Lite Animated Ghost Example -->
+          <div class="auto-field-wrap">
+            <label style="font-size:.74rem;font-weight:800;color:var(--navy2);display:block;margin-bottom:6px">Phone Number *</label>
+            <input type="tel" id="custPhoneInput" name="Customer_Phone_Number" required>
+            <div class="lite-typewriter-ghost" id="ghostPhone"><span></span><span class="lite-cursor"></span></div>
+          </div>
+
+          <!-- City Field with Lite Animated Ghost Example -->
+          <div class="auto-field-wrap">
+            <label style="font-size:.74rem;font-weight:800;color:var(--navy2);display:block;margin-bottom:6px">City / Location *</label>
+            <input type="text" id="custCityInput" name="Customer_City_Location" required>
+            <div class="lite-typewriter-ghost" id="ghostCity"><span></span><span class="lite-cursor"></span></div>
+          </div>
+
+          <!-- Message Field with Lite Animated Ghost Example -->
+          <div class="auto-field-wrap">
+            <label style="font-size:.74rem;font-weight:800;color:var(--navy2);display:block;margin-bottom:6px">Site Requirements / Message</label>
+            <textarea rows="3" id="custMsgInput" name="Site_Requirements_Message"></textarea>
+            <div class="lite-typewriter-ghost" id="ghostMsg" style="top:44px"><span></span><span class="lite-cursor"></span></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:20px"><i class="fa-solid fa-paper-plane"></i> Send Specifications to LEO</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="fgrid4">
+      <div>
+        <div class="logo" style="margin-bottom:14px">
+          <span class="logo-mark"><i class="fa-solid fa-elevator"></i></span>
+          <span class="logo-text">LEO<small>ELEVATORS</small></span>
+        </div>
+        <p style="font-size:0.85rem;line-height:1.7">Precision vertical mobility engineered for quiet performance, reliability, and architectural aesthetics across 50+ cities in North India.</p>
+        <p style="font-size:0.85rem;margin-top:12px;color:#fff">
+          <i class="fa-solid fa-phone" style="color:var(--sky);margin-right:6px"></i> +91 7056707055 / +91 9785019232<br>
+          <i class="fa-solid fa-envelope" style="color:var(--sky);margin-right:6px"></i> leoelevators1@gmail.com
+        </p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#lifts">Elevator Models</a></li>
+        <li><a href="#simulator">Shaft Simulator</a></li>
+        <li><a href="#service">Service & Care</a></li>
+        <li><a href="#quote">Configure Lift</a></li>
+      </div>
+      <div>
+        <h5>Elevator Lineup</h5>
+        <li><a href="#lifts">Luxury Home & Villa Lifts</a></li>
+        <li><a href="#lifts">Glass Panoramic Lifts</a></li>
+        <li><a href="#lifts">Commercial Passenger Lifts</a></li>
+        <li><a href="#lifts">Hospital Stretcher Lifts</a></li>
+        <li><a href="#lifts">Heavy Freight Lifts</a></li>
+      </div>
+      <div>
+        <h5>Headquarters & Network</h5>
+        <li>• Jaipur, Rajasthan</li>
+        <li>• Gurugram, Haryana</li>
+        <li>• Narnaul, Haryana</li>
+        <li>Coverage: 50+ Cities in North India</li>
+        <li>Bureau of Indian Standards (IS 14665)</li>
+      </div>
+    </div>
+    <div class="copy">
+      <span>&copy; 2026 LEO Elevators. All rights reserved.</span>
+      <span>Jaipur &bull; Gurugram &bull; Narnaul &bull; 50+ Cities</span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<!-- Interactive Modal with Full Specs Delivery to Formspree -->
+<div id="modal">
+  <div class="mbox">
+    <button class="modal-close-btn" id="closeModal">&times;</button>
+    <h3>Submit Specification Sheet</h3>
+    <p class="modal-sub">We will review your configured specifications and provide complete AutoCAD layout drawings:</p>
+
+    <div class="modal-spec-card">
+      <div><span>Elevator Model:</span><b id="mSpecModel">LEO Home & Villa Lift</b></div>
+      <div><span>Motor Drive:</span><b id="mSpecMotor">PMSM Gearless Motor</b></div>
+      <div><span>Floors / Stops:</span><b id="mSpecFloors">4 Stops</b></div>
+      <div><span>Elevator Quantity:</span><b id="mSpecQty">1 Unit</b></div>
+      <div><span>Cabin Finish:</span><b id="mSpecFinish">Royal Blue & Silver</b></div>
+      <div><span>Door Automation:</span><b id="mSpecDoor">Automatic Centre Opening</b></div>
+    </div>
+
+    <form id="modalQuoteForm" action="https://formspree.io/f/mnpneelk" method="POST">
+      <input type="hidden" name="Form_Type" value="Instant Technical Specification Sheet">
+      <input type="hidden" name="Configured_Lift_Model" id="mCfgLiftModel" value="">
+      <input type="hidden" name="Configured_Motor_Type" id="mCfgMotorType" value="">
+      <input type="hidden" name="Configured_Floor_Stops" id="mCfgFloorStops" value="">
+      <input type="hidden" name="Configured_Elevator_Quantity" id="mCfgLiftQty" value="">
+      <input type="hidden" name="Configured_Cabin_Finish" id="mCfgCabinFinish" value="">
+      <input type="hidden" name="Configured_Door_Style" id="mCfgDoorStyle" value="">
+
+      <div>
+        <label style="font-size:0.74rem;font-weight:700;display:block;margin-bottom:4px;color:var(--navy2)">Your Name *</label>
+        <input type="text" name="Customer_Name" required placeholder="e.g. Harsh Rathi" style="padding:0.75rem 0.9rem">
+      </div>
+      <div style="margin-top:10px">
+        <label style="font-size:0.74rem;font-weight:700;display:block;margin-bottom:4px;color:var(--navy2)">Phone Number *</label>
+        <input type="tel" name="Customer_Phone" required placeholder="e.g. +91 7056707055" style="padding:0.75rem 0.9rem">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px"><i class="fa-solid fa-paper-plane"></i> Send Specs to Engineering Team</button>
+    </form>
+  </div>
+</div>
+
+<!-- ================= JAVASCRIPT LOGIC ================= -->
+<script>
+// Highly Curated Real Elevator Imagery for Exact Lift Types
+const LIFTS = [
+  {
+    id: 'villa',
+    name: 'Home & Villa Lift',
+    tag: 'Villa & Duplex Choice',
+    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    cap: '320 - 400 kg (4-5 Persons)',
+    speed: '0.4 - 0.6 m/s',
+    desc: 'Compact pit, whisper-quiet PMSM gearless drive, and cushioned deceleration built for private luxury residences.'
+  },
+  {
+    id: 'panoramic',
+    name: 'Glass Panoramic Lift',
+    tag: 'Architectural Showpiece',
+    img: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=800&q=80',
+    cap: '400 - 1000 kg (6-13 Persons)',
+    speed: '1.0 - 1.75 m/s',
+    desc: 'Curved laminated toughened safety glass offering scenic 360-degree views in luxury residences and hotels.'
+  },
+  {
+    id: 'passenger',
+    name: 'Commercial Passenger',
+    tag: 'High Traffic Core',
+    img: 'https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=800&q=80',
+    cap: '544 - 1360 kg (8-20 Persons)',
+    speed: '1.5 - 2.5 m/s',
+    desc: 'Heavy-duty performance designed for residential societies, commercial complexes, and IT offices.'
+  },
+  {
+    id: 'hospital',
+    name: 'Hospital Stretcher Lift',
+    tag: 'Healthcare Grade',
+    img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80',
+    cap: '1020 - 2040 kg (Bed + Attendants)',
+    speed: '1.0 m/s (Jerk-Free)',
+    desc: 'Precise micro-leveling, antibacterial stainless interior, and extended depth for emergency medical stretchers.'
+  },
+  {
+    id: 'freight',
+    name: 'Heavy Industrial Freight',
+    tag: 'Industrial & Goods',
+    img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+    cap: '1000 - 5000 kg Payload',
+    speed: '0.5 m/s',
+    desc: 'Heavy-duty chequered steel floor platform and structural shock buffers for cargo pallets and equipment.'
+  },
+  {
+    id: 'hydraulic',
+    name: 'Zero-Pit Hydraulic',
+    tag: 'Low Headroom Fit',
+    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+    cap: '300 - 630 kg',
+    speed: '0.3 - 0.5 m/s',
+    desc: 'Italian hydraulic drive rams. Ideal for retrofitting existing homes where deep pit excavation is impossible.'
+  }
+];
+
+const FINISHES = [
+  { id: 'royal', name: 'Royal Blue & Silver', class: 'royal' },
+  { id: 'marble', name: 'Carrara Marble & Pearl', class: 'marble' },
+  { id: 'sky', name: 'Sky Cyan Glass', class: 'sky' },
+  { id: 'navy', name: 'Executive Dark Navy', class: 'navy' }
+];
+
+// --- 1. Splash Screen ---
+(function initSplash() {
+  const splash = document.getElementById('splash');
+  const spBar = document.getElementById('spBar');
+  const spPct = document.getElementById('spPct');
+  const spFloor = document.getElementById('spFloor');
+  const spSkip = document.getElementById('spSkip');
+  let pct = 0;
+  let done = false;
+
+  function dismiss() {
+    if (done) return;
+    done = true;
+    splash.classList.add('open');
+    document.body.classList.remove('lock');
+    setTimeout(() => { splash.style.display = 'none'; }, 900);
+  }
+
+  const loop = setInterval(() => {
+    pct += 5;
+    if (pct > 100) pct = 100;
+    if (spBar) spBar.style.width = pct + '%';
+    if (spPct) spPct.innerText = pct + '%';
+    if (spFloor) {
+      if (pct > 75) spFloor.innerText = '3';
+      else if (pct > 50) spFloor.innerText = '2';
+      else if (pct > 25) spFloor.innerText = '1';
+      else spFloor.innerText = 'G';
+    }
+    if (pct >= 100) {
+      clearInterval(loop);
+      setTimeout(dismiss, 250);
+    }
+  }, 35);
+
+  if (spSkip) spSkip.onclick = dismiss;
+  setTimeout(dismiss, 1600);
+})();
+
+// Mobile Menu Navigation
+const burger = document.getElementById('burger');
+const mmenu = document.getElementById('mmenu');
+if (burger && mmenu) {
+  burger.onclick = () => {
+    const isShown = mmenu.classList.toggle('show');
+    burger.setAttribute('aria-expanded', isShown);
+  };
+  mmenu.querySelectorAll('a').forEach(a => a.onclick = () => mmenu.classList.remove('show'));
+}
+
+// Scroll Progress & Nav Highlight
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+  const prog = document.getElementById('progress');
+  if (prog) prog.style.width = pct + '%';
+
+  const sections = document.querySelectorAll('section[id], .hero[id]');
+  let currentId = '';
+  sections.forEach(sec => {
+    const top = sec.offsetTop - 120;
+    if (window.scrollY >= top) currentId = sec.getAttribute('id');
+  });
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    if (a.getAttribute('href') === '#' + currentId) a.classList.add('active');
+    else a.classList.remove('active');
+  });
+});
+
+// Marquee Text
+const marquee = document.getElementById('marquee');
+if (marquee) {
+  const items = [
+    'Headquarters: Jaipur, Gurugram & Narnaul',
+    'Serving 50+ Cities in North India',
+    'Emergency SOS: +91 7056707055 / +91 9785019232',
+    'PMSM Gearless, Traction & Italian Hydraulic Motors',
+    'IS 14665 Certified Safety Standards'
+  ];
+  marquee.innerHTML = items.map(t => `<span>${t}</span>`).join('') + items.map(t => `<span>${t}</span>`).join('');
+}
+
+// --- 2. 3D Glass Carousel Physics ---
+function renderLiftCards() {
+  const scroller = document.getElementById('homeScroller');
+  const cardMarkup = (item) => `
+    <div class="lift-card" data-id="${item.id}" onclick="handleCardSelection(this, '${item.id}')">
+      <div class="photo">
+        <span class="tag">${item.tag}</span>
+        <img src="${item.img}" alt="${item.name}" loading="lazy">
+      </div>
+      <div class="lc-body">
+        <h3><i class="fa-solid fa-elevator"></i>${item.name}</h3>
+        <p>${item.desc}</p>
+        <div class="spec">
+          <div><span>Payload</span><b>${item.cap}</b></div>
+          <div><span>Rated Speed</span><b>${item.speed}</b></div>
+          <div><span>Motor Drive</span><b>PMSM / Hydraulic</b></div>
+        </div>
+        <div class="pick"><i class="fa-solid fa-sliders"></i> Configure Model &rarr;</div>
+      </div>
+    </div>
+  `;
+  if (scroller) scroller.innerHTML = LIFTS.map(cardMarkup).join('');
+}
+renderLiftCards();
+
+const scroller = document.getElementById('homeScroller');
+function updateRoundGlass3DEffect() {
+  if (!scroller) return;
+  const scrollerRect = scroller.getBoundingClientRect();
+  const centerX = scrollerRect.left + scrollerRect.width / 2;
+  const cards = scroller.querySelectorAll('.lift-card');
+
+  cards.forEach(card => {
+    const cardRect = card.getBoundingClientRect();
+    const cardCenter = cardRect.left + cardRect.width / 2;
+    const offset = (cardCenter - centerX) / (scrollerRect.width / 2);
+    const clampedOffset = Math.max(-1.5, Math.min(1.5, offset));
+
+    const rotateY = clampedOffset * -16;
+    const scale = 1 - Math.min(0.18, Math.abs(clampedOffset) * 0.1);
+    const translateZ = -Math.abs(clampedOffset) * 45;
+    const opacity = 1 - Math.min(0.2, Math.abs(clampedOffset) * 0.12);
+
+    card.style.transform = `scale(${scale}) rotateY(${rotateY}deg) translateZ(${translateZ}px)`;
+    card.style.opacity = opacity;
+  });
+}
+
+if (scroller) {
+  scroller.addEventListener('scroll', () => {
+    updateRoundGlass3DEffect();
+    const max = scroller.scrollWidth - scroller.clientWidth;
+    const pct = max > 0 ? (scroller.scrollLeft / max) * 100 : 0;
+    const cProg = document.getElementById('cProg');
+    if (cProg) cProg.style.width = Math.max(12, pct) + '%';
+  });
+  window.addEventListener('resize', updateRoundGlass3DEffect);
+  setTimeout(updateRoundGlass3DEffect, 100);
+}
+
+window.handleCardSelection = function(cardEl, liftId) {
+  cardEl.classList.add('card-selected');
+  showToast(`Selected ${LIFTS.find(l => l.id === liftId).name}`);
+
+  setTimeout(() => {
+    selectLiftConfig(liftId);
+    cardEl.classList.remove('card-selected');
+    const quoteSec = document.getElementById('quote');
+    if (quoteSec) quoteSec.scrollIntoView({ behavior: 'smooth' });
+  }, 320);
+};
+
+const cPrev = document.getElementById('cPrev');
+const cNext = document.getElementById('cNext');
+if (scroller) {
+  if (cPrev) cPrev.onclick = () => scroller.scrollBy({ left: -320, behavior: 'smooth' });
+  if (cNext) cNext.onclick = () => scroller.scrollBy({ left: 320, behavior: 'smooth' });
+}
+
+// --- 3. Calibrated Simulator ---
+let simFloor = 0;
+let isMoving = false;
+let audioMuted = false;
+const floorNames = ['G', '1', '2', '3', '4'];
+const floorHeights = [0, 3.2, 6.4, 9.6, 12.8];
+
+const copBtnsContainer = document.getElementById('copButtons');
+const floorMarkersContainer = document.getElementById('floorMarkers');
+const cabEl = document.getElementById('cab');
+const counterweightEl = document.getElementById('counterweight');
+const doorBoxEl = document.getElementById('doorBox');
+const floorDispEl = document.getElementById('floorDisp');
+const dirArrowEl = document.getElementById('dirArrow');
+const statusMsgEl = document.getElementById('statusMsg');
+const speedGaugeEl = document.getElementById('speedGauge');
+
+function playDingDong() {
+  if (audioMuted) return;
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc1 = ctx.createOscillator();
+    const gain1 = ctx.createGain();
+    osc1.frequency.setValueAtTime(659.25, ctx.currentTime);
+    gain1.gain.setValueAtTime(0.18, ctx.currentTime);
+    gain1.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
+    osc1.connect(gain1);
+    gain1.connect(ctx.destination);
+    osc1.start(ctx.currentTime);
+    osc1.stop(ctx.currentTime + 0.6);
+
+    const osc2 = ctx.createOscillator();
+    const gain2 = ctx.createGain();
+    osc2.frequency.setValueAtTime(523.25, ctx.currentTime + 0.25);
+    gain2.gain.setValueAtTime(0.2, ctx.currentTime + 0.25);
+    gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.95);
+    osc2.connect(gain2);
+    gain2.connect(ctx.destination);
+    osc2.start(ctx.currentTime + 0.25);
+    osc2.stop(ctx.currentTime + 0.95);
+  } catch (e) {}
+}
+
+function playHingeTick() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.frequency.setValueAtTime(1400, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(300, ctx.currentTime + 0.025);
+    gain.gain.setValueAtTime(0.035, ctx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.001, ctx.currentTime + 0.025);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.03);
+  } catch (e) {}
+}
+
+const soundToggle = document.getElementById('soundToggle');
+if (soundToggle) {
+  soundToggle.onclick = () => {
+    audioMuted = !audioMuted;
+    soundToggle.innerHTML = audioMuted ? '<i class="fa-solid fa-volume-xmark"></i> CHIME OFF' : '<i class="fa-solid fa-volume-high"></i> CHIME ON';
+  };
+}
+
+if (copBtnsContainer && floorMarkersContainer) {
+  floorNames.forEach((name, idx) => {
+    const btn = document.createElement('button');
+    btn.innerHTML = `${name} <small>FL ${idx}</small>`;
+    btn.onclick = () => dispatchElevator(idx);
+    copBtnsContainer.appendChild(btn);
+
+    const marker = document.createElement('div');
+    marker.className = 'fl-marker';
+    marker.style.bottom = (idx * 24) + '%';
+    marker.innerHTML = `<span>FLOOR ${name}</span><span>${floorHeights[idx].toFixed(1)}m</span>`;
+    floorMarkersContainer.appendChild(marker);
+  });
+}
+
+function dispatchElevator(target) {
+  if (isMoving || target === simFloor) return;
+  isMoving = true;
+  doorBoxEl.classList.remove('open');
+
+  const btns = copBtnsContainer.querySelectorAll('button');
+  if (btns[target]) btns[target].classList.add('on');
+
+  const ascending = target > simFloor;
+  dirArrowEl.innerText = ascending ? '▲' : '▼';
+  dirArrowEl.style.color = 'var(--sky)';
+  statusMsgEl.innerText = ascending ? `GENTLY ASCENDING TO FLOOR ${floorNames[target]}` : `GENTLY DESCENDING TO FLOOR ${floorNames[target]}`;
+  speedGaugeEl.innerText = '0.65 m/s';
+
+  cabEl.style.bottom = (target * 24) + '%';
+  counterweightEl.style.bottom = (96 - (target * 24)) + '%';
+
+  setTimeout(() => {
+    simFloor = target;
+    floorDispEl.innerText = floorNames[target];
+    dirArrowEl.innerText = '●';
+    dirArrowEl.style.color = '#2a5091';
+    speedGaugeEl.innerText = '0.00 m/s';
+    statusMsgEl.innerText = `LEVEL AT FLOOR ${floorNames[target]} (STATIONARY)`;
+    btns.forEach(b => b.classList.remove('on'));
+    playDingDong();
+    doorBoxEl.classList.add('open');
+    isMoving = false;
+  }, 3200);
+}
+
+document.getElementById('bOpen').onclick = () => { if (!isMoving) doorBoxEl.classList.add('open'); };
+document.getElementById('bClose').onclick = () => { if (!isMoving) doorBoxEl.classList.remove('open'); };
+document.getElementById('bStop').onclick = () => {
+  speedGaugeEl.innerText = 'ESTOP ENGAGED';
+  statusMsgEl.innerText = 'SAFETY BRAKE WEDGES ENGAGED';
+  dirArrowEl.innerText = '✖';
+  dirArrowEl.style.color = 'var(--danger)';
+  showToast('EMERGENCY STOP TRIGGERED: Governor wedges locked');
+};
+
+// --- 4. Specification Builder & Motor Type Logic (No Prices) ---
+let activeLift = LIFTS[0];
+let activeMotor = "PMSM Gearless Motor (Permanent Magnet)";
+let activeFinish = FINISHES[0];
+let activeQty = 1;
+
+const floorsInput = document.getElementById('floorsInput');
+const floorVal = document.getElementById('floorVal');
+const floorBadge = document.getElementById('floorBadge');
+const hingeNotches = document.getElementById('hingeNotches');
+const floorMinus = document.getElementById('floorMinus');
+const floorPlus = document.getElementById('floorPlus');
+
+if (hingeNotches) {
+  for (let i = 2; i <= 25; i++) {
+    const pin = document.createElement('div');
+    pin.className = 'notch-pin' + (i === 4 ? ' active' : '');
+    pin.id = 'notch-' + i;
+    hingeNotches.appendChild(pin);
+  }
+}
+
+function updateFloorDisplay(val) {
+  floorVal.innerText = `${val} Stops`;
+  floorBadge.innerText = `${val} Stops`;
+  document.querySelectorAll('.notch-pin').forEach((p, idx) => {
+    if (idx + 2 <= val) p.classList.add('active');
+    else p.classList.remove('active');
+  });
+  playHingeTick();
+  updateSpecSummary();
+}
+
+if (floorsInput) {
+  floorsInput.addEventListener('input', (e) => {
+    updateFloorDisplay(parseInt(e.target.value, 10));
+  });
+}
+if (floorMinus) {
+  floorMinus.onclick = () => {
+    let cur = parseInt(floorsInput.value, 10);
+    if (cur > 2) {
+      floorsInput.value = cur - 1;
+      updateFloorDisplay(cur - 1);
+    }
+  };
+}
+if (floorPlus) {
+  floorPlus.onclick = () => {
+    let cur = parseInt(floorsInput.value, 10);
+    if (cur < 25) {
+      floorsInput.value = cur + 1;
+      updateFloorDisplay(cur + 1);
+    }
+  };
+}
+
+// Quantity Selector
+const qtyMinus = document.getElementById('qtyMinus');
+const qtyPlus = document.getElementById('qtyPlus');
+const qtyDisplay = document.getElementById('qtyDisplay');
+const qtyLabel = document.getElementById('qtyLabel');
+
+if (qtyMinus && qtyPlus) {
+  qtyMinus.onclick = () => {
+    if (activeQty > 1) {
+      activeQty--;
+      qtyDisplay.innerText = activeQty;
+      qtyLabel.innerText = `${activeQty} ${activeQty === 1 ? 'Elevator' : 'Elevators'}`;
+      playHingeTick();
+      updateSpecSummary();
+    }
+  };
+  qtyPlus.onclick = () => {
+    if (activeQty < 10) {
+      activeQty++;
+      qtyDisplay.innerText = activeQty;
+      qtyLabel.innerText = `${activeQty} Elevators`;
+      playHingeTick();
+      updateSpecSummary();
+    }
+  };
+}
+
+// Motor Type Selector Setup
+const motorOpts = document.querySelectorAll('.motor-opt');
+const motorLabel = document.getElementById('motorLabel');
+motorOpts.forEach(opt => {
+  opt.addEventListener('click', () => {
+    motorOpts.forEach(m => m.classList.remove('on'));
+    opt.classList.add('on');
+    activeMotor = opt.getAttribute('data-motor');
+    if (motorLabel) motorLabel.innerText = activeMotor.split(' ')[0] + ' ' + (activeMotor.split(' ')[1] || '');
+    updateSpecSummary();
+  });
+});
+
+function setupConfigurator() {
+  const typeContainer = document.getElementById('typeButtons');
+  const finContainer = document.getElementById('finButtons');
+
+  if (typeContainer) {
+    typeContainer.innerHTML = LIFTS.map(l => `
+      <div class="opt ${l.id === activeLift.id ? 'on' : ''}" onclick="selectLiftConfig('${l.id}')">
+        <i class="fa-solid fa-elevator"></i>${l.name}
+        <small>${l.cap.split('(')[0]}</small>
+      </div>
+    `).join('');
+  }
+
+  if (finContainer) {
+    finContainer.innerHTML = FINISHES.map(f => `
+      <div class="opt ${f.id === activeFinish.id ? 'on' : ''}" onclick="selectFinConfig('${f.id}')">
+        <i class="fa-solid fa-palette"></i>${f.name}
+        <small>Signature Interior</small>
+      </div>
+    `).join('');
+  }
+}
+
+function selectLiftConfig(id) {
+  activeLift = LIFTS.find(l => l.id === id) || LIFTS[0];
+  document.getElementById('cabinModelName').innerText = 'LEO ' + activeLift.name;
+  setupConfigurator();
+  updateSpecSummary();
+}
+
+function selectFinConfig(id) {
+  activeFinish = FINISHES.find(f => f.id === id) || FINISHES[0];
+  const cab3D = document.getElementById('cabin3D');
+  cab3D.className = 'cabin ' + activeFinish.class;
+  document.getElementById('finBadge').innerText = activeFinish.name.toUpperCase();
+  setupConfigurator();
+  updateSpecSummary();
+}
+
+const doorSelect = document.getElementById('doorSelect');
+if (doorSelect) doorSelect.onchange = updateSpecSummary;
+
+// Update Pure Technical Specification Details
+function updateSpecSummary() {
+  const stops = parseInt(floorsInput ? floorsInput.value : 4, 10);
+  const doorText = doorSelect ? doorSelect.value : 'Automatic Centre Opening';
+
+  // Visible Spec Box
+  document.getElementById('pModel').innerText = activeLift.name;
+  document.getElementById('pMotor').innerText = activeMotor.split('(')[0].trim();
+  document.getElementById('pFloors').innerText = `${stops} Stops`;
+  document.getElementById('pQty').innerText = `${activeQty} ${activeQty === 1 ? 'Unit' : 'Units'}`;
+  document.getElementById('pFinish').innerText = activeFinish.name;
+  document.getElementById('pDoors').innerText = doorText.split('(')[0].trim();
+
+  // Attached Pill in Contact Form
+  const attachedSpecsText = document.getElementById('attachedSpecsText');
+  if (attachedSpecsText) {
+    attachedSpecsText.innerHTML = `${activeLift.name} • ${activeMotor.split('(')[0].trim()} • ${stops} Stops • <b>${activeQty} Unit(s)</b>`;
+  }
+
+  // Hidden Inputs for Formspree Contact Form
+  const cfgLiftModel = document.getElementById('cfgLiftModel');
+  const cfgMotorType = document.getElementById('cfgMotorType');
+  const cfgFloorStops = document.getElementById('cfgFloorStops');
+  const cfgLiftQty = document.getElementById('cfgLiftQty');
+  const cfgCabinFinish = document.getElementById('cfgCabinFinish');
+  const cfgDoorStyle = document.getElementById('cfgDoorStyle');
+
+  if (cfgLiftModel) cfgLiftModel.value = activeLift.name;
+  if (cfgMotorType) cfgMotorType.value = activeMotor;
+  if (cfgFloorStops) cfgFloorStops.value = `${stops} Stops`;
+  if (cfgLiftQty) cfgLiftQty.value = `${activeQty} Unit(s)`;
+  if (cfgCabinFinish) cfgCabinFinish.value = activeFinish.name;
+  if (cfgDoorStyle) cfgDoorStyle.value = doorText;
+
+  // Modal Spec Sheet Fields
+  const mCfgLiftModel = document.getElementById('mCfgLiftModel');
+  const mCfgMotorType = document.getElementById('mCfgMotorType');
+  const mCfgFloorStops = document.getElementById('mCfgFloorStops');
+  const mCfgLiftQty = document.getElementById('mCfgLiftQty');
+  const mCfgCabinFinish = document.getElementById('mCfgCabinFinish');
+  const mCfgDoorStyle = document.getElementById('mCfgDoorStyle');
+
+  if (mCfgLiftModel) mCfgLiftModel.value = activeLift.name;
+  if (mCfgMotorType) mCfgMotorType.value = activeMotor;
+  if (mCfgFloorStops) mCfgFloorStops.value = `${stops} Stops`;
+  if (mCfgLiftQty) mCfgLiftQty.value = `${activeQty} Unit(s)`;
+  if (mCfgCabinFinish) mCfgCabinFinish.value = activeFinish.name;
+  if (mCfgDoorStyle) mCfgDoorStyle.value = doorText;
+
+  // Visible Modal Spec Card
+  const mSpecModel = document.getElementById('mSpecModel');
+  const mSpecMotor = document.getElementById('mSpecMotor');
+  const mSpecFloors = document.getElementById('mSpecFloors');
+  const mSpecQty = document.getElementById('mSpecQty');
+  const mSpecFinish = document.getElementById('mSpecFinish');
+  const mSpecDoor = document.getElementById('mSpecDoor');
+
+  if (mSpecModel) mSpecModel.innerText = activeLift.name;
+  if (mSpecMotor) mSpecMotor.innerText = activeMotor.split('(')[0].trim();
+  if (mSpecFloors) mSpecFloors.innerText = `${stops} Stops`;
+  if (mSpecQty) mSpecQty.innerText = `${activeQty} Unit(s)`;
+  if (mSpecFinish) mSpecFinish.innerText = activeFinish.name;
+  if (mSpecDoor) mSpecDoor.innerText = doorText;
+}
+
+setupConfigurator();
+updateSpecSummary();
+
+// --- 5. Animated "Lite" Auto-Typing Ghost Placeholders ---
+const autoTypers = [
+  {
+    input: document.getElementById('custNameInput'),
+    ghost: document.getElementById('ghostName'),
+    examples: ['e.g. Harsh Rathi', 'e.g. Yash Singh', 'e.g. Dr. Verma']
+  },
+  {
+    input: document.getElementById('custPhoneInput'),
+    ghost: document.getElementById('ghostPhone'),
+    examples: ['e.g. +91 70567 07055', 'e.g. +91 97850 19232']
+  },
+  {
+    input: document.getElementById('custCityInput'),
+    ghost: document.getElementById('ghostCity'),
+    examples: ['e.g. Jaipur, Rajasthan', 'e.g. Gurugram, Haryana', 'e.g. Narnaul, Haryana']
+  },
+  {
+    input: document.getElementById('custMsgInput'),
+    ghost: document.getElementById('ghostMsg'),
+    examples: ['e.g. Need a 4-stop glass villa lift for our residence...', 'e.g. Seeking high-speed passenger lift for clinic...']
+  }
+];
+
+autoTypers.forEach(item => {
+  if (!item.input || !item.ghost) return;
+  const textSpan = item.ghost.querySelector('span');
+  let exIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+
+  function typeCycle() {
+    if (item.input.value.length > 0 || document.activeElement === item.input) {
+      item.ghost.classList.add('hidden');
+      setTimeout(typeCycle, 500);
+      return;
+    } else {
+      item.ghost.classList.remove('hidden');
+    }
+
+    const currentWord = item.examples[exIdx];
+    if (isDeleting) {
+      charIdx--;
+      textSpan.innerText = currentWord.substring(0, charIdx);
+    } else {
+      charIdx++;
+      textSpan.innerText = currentWord.substring(0, charIdx);
+    }
+
+    let speed = isDeleting ? 40 : 80;
+
+    if (!isDeleting && charIdx === currentWord.length) {
+      speed = 1800;
+      isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      exIdx = (exIdx + 1) % item.examples.length;
+      speed = 400;
+    }
+
+    setTimeout(typeCycle, speed);
+  }
+
+  item.input.addEventListener('input', () => {
+    if (item.input.value.length > 0) item.ghost.classList.add('hidden');
+    else item.ghost.classList.remove('hidden');
+  });
+  item.input.addEventListener('focus', () => item.ghost.classList.add('hidden'));
+  item.input.addEventListener('blur', () => {
+    if (item.input.value.length === 0) item.ghost.classList.remove('hidden');
+  });
+
+  typeCycle();
+});
+
+// --- 6. Formspree Dispatcher Engine ---
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.innerHTML = `<i class="fa-solid fa-circle-check" style="color:var(--ok)"></i> ${msg}`;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3800);
+}
+
+async function sendToFormspreeGmail(formElement, successMsg) {
+  const endpoint = 'https://formspree.io/f/mnpneelk';
+  const submitBtn = formElement.querySelector('button[type="submit"]');
+  const originalBtnContent = submitBtn.innerHTML;
+
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting to Gmail...';
+
+  const formData = new FormData(formElement);
+
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      showToast(successMsg);
+      formElement.reset();
+      updateSpecSummary();
+      const modal = document.getElementById('modal');
+      if (modal && modal.classList.contains('show')) modal.classList.remove('show');
+    } else {
+      showToast('Submission error. Please call +91 7056707055');
+    }
+  } catch (err) {
+    showToast('Network error. Please call our engineers directly.');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalBtnContent;
+  }
+}
+
+// 1. Service Ticket Dispatch Form
+const serviceForm = document.getElementById('serviceDispatchForm');
+if (serviceForm) {
+  serviceForm.onsubmit = (e) => {
+    e.preventDefault();
+    const ticketId = 'LEO-SRV-' + Math.floor(1000 + Math.random() * 9000);
+    const ticketField = document.getElementById('srvTicketField');
+    if (ticketField) ticketField.value = ticketId;
+    sendToFormspreeGmail(serviceForm, `Service Ticket #${ticketId} submitted! Dispatched to engineers.`);
+  };
+}
+
+// 2. Main Contact Form (Submits Pure Lift Specs to Gmail)
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.onsubmit = (e) => {
+    e.preventDefault();
+    sendToFormspreeGmail(contactForm, 'Specifications sent! LEO engineering team will contact you shortly.');
+  };
+}
+
+// 3. Modal Quote Form
+const modalQuoteForm = document.getElementById('modalQuoteForm');
+if (modalQuoteForm) {
+  modalQuoteForm.onsubmit = (e) => {
+    e.preventDefault();
+    sendToFormspreeGmail(modalQuoteForm, 'Custom elevator specifications sent to your engineer!');
+  };
+}
+
+// Modal open/close controls
+const modal = document.getElementById('modal');
+const openQuoteModal = document.getElementById('openQuoteModal');
+const closeModal = document.getElementById('closeModal');
+if (openQuoteModal && modal) openQuoteModal.onclick = () => modal.classList.add('show');
+if (closeModal && modal) closeModal.onclick = () => modal.classList.remove('show');
+if (modal) modal.onclick = (e) => { if (e.target === modal) modal.classList.remove('show'); };
+</script>
+</body>
+</html>
